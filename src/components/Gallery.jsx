@@ -2,8 +2,9 @@ import React, { useRef, useEffect, useState } from 'react'
 import './Gallery.css'
 
 const images = [
-    '/portfolio/p1.jpg', '/portfolio/p2.jpg', '/portfolio/p3.jpg', '/portfolio/p4.jpg',
-    '/portfolio/p5.jpg', '/portfolio/p6.jpg', '/portfolio/p7.jpg', '/portfolio/p8.jpg'
+    '/portfolio/p1.jpg', '/portfolio/p3.jpg', '/portfolio/p4.jpg',
+    '/portfolio/p5.jpg', '/portfolio/p6.jpg', '/portfolio/p7.jpg',
+    '/portfolio/p8.jpg', '/portfolio/p9.jpg'
 ]
 
 const Gallery = () => {
