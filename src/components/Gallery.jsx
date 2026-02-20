@@ -10,13 +10,15 @@ const images = [
 const Gallery = () => {
     const scrollRef = useRef(null)
     const [isPaused, setIsPaused] = useState(false)
+    const [selectedImage, setSelectedImage] = useState(null)
     const displayImages = [...images, ...images, ...images]
 
     // Refs for drag state (to avoid re-renders during movement)
     const dragInfo = useRef({
         isDown: false,
         startX: 0,
-        scrollLeft: 0
+        scrollLeft: 0,
+        hasDragged: false
     })
 
     // Animation logic
@@ -26,7 +28,7 @@ const Gallery = () => {
 
         let animationId
         const step = () => {
-            if (!isPaused && !dragInfo.current.isDown) {
+            if (!isPaused && !dragInfo.current.isDown && !selectedImage) {
                 container.scrollLeft += 1.5
                 const oneThird = container.scrollWidth / 3
                 if (container.scrollLeft >= oneThird * 2) {
@@ -38,7 +40,7 @@ const Gallery = () => {
 
         animationId = requestAnimationFrame(step)
         return () => cancelAnimationFrame(animationId)
-    }, [isPaused])
+    }, [isPaused, selectedImage])
 
     const scrollManual = (direction) => {
         const container = scrollRef.current
@@ -60,6 +62,7 @@ const Gallery = () => {
     // Unified Interaction Logic
     const startDragging = (posX) => {
         dragInfo.current.isDown = true
+        dragInfo.current.hasDragged = false
         setIsPaused(true)
         dragInfo.current.startX = posX - scrollRef.current.offsetLeft
         dragInfo.current.scrollLeft = scrollRef.current.scrollLeft
@@ -76,7 +79,16 @@ const Gallery = () => {
         if (!dragInfo.current.isDown) return
         const x = posX - scrollRef.current.offsetLeft
         const walk = (x - dragInfo.current.startX) * 1.5 // multiplier for sensitivity
+        if (Math.abs(walk) > 5) {
+            dragInfo.current.hasDragged = true
+        }
         scrollRef.current.scrollLeft = dragInfo.current.scrollLeft - walk
+    }
+
+    const handleImageClick = (img) => {
+        if (!dragInfo.current.hasDragged) {
+            setSelectedImage(img)
+        }
     }
 
     return (
@@ -108,11 +120,11 @@ const Gallery = () => {
                 >
                     <div className="slider-track-manual">
                         {displayImages.map((img, idx) => (
-                            <div className="slide" key={idx}>
+                            <div className="slide" key={idx} onClick={() => handleImageClick(img)}>
                                 <div className="slide-inner">
                                     <img src={img} alt={`Trabajo ${idx}`} draggable="false" />
                                     <div className="slide-overlay">
-                                        <span>3DMON FDM</span>
+                                        <span>VER DETALLE</span>
                                     </div>
                                 </div>
                             </div>
@@ -124,8 +136,18 @@ const Gallery = () => {
             </div>
 
             <div className="gallery-info">
-                <p>Expertos en piezas técnicas, decorativas y mayoristas.</p>
+                <p>Haz clic en las imágenes para verlas en detalle.</p>
             </div>
+
+            {/* Lightbox Modal */}
+            {selectedImage && (
+                <div className="lightbox-overlay" onClick={() => setSelectedImage(null)}>
+                    <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+                        <button className="lightbox-close" onClick={() => setSelectedImage(null)}>&times;</button>
+                        <img src={selectedImage} alt="Trabajo detallado" className="lightbox-img" />
+                    </div>
+                </div>
+            )}
         </section>
     )
 }
