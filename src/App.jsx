@@ -39,6 +39,17 @@ function App() {
         <ServicesTeaser />
         <FunnelHighlights />
         <Gallery />
+        <section className="seo-text-block">
+          <div className="seo-container">
+            <h2>Especialistas en Impresión 3D en San Juan</h2>
+            <p>
+              En <strong>3DMON</strong> transformamos tus ideas digitales en objetos tangibles con la más alta precisión. Somos un laboratorio de <strong>impresión 3D a medida ubicado en San Juan, Argentina</strong>, realizando envíos a todo el territorio nacional. Principalmente trabajamos con materiales de ingeniería y diseño como <strong>PLA, PLA+ y PETG</strong>.
+            </p>
+            <p>
+              Tráenos tu proyecto: diseñamos repuestos descatalogados, souvenirs impresos al por mayor, trofeos personalizados, piezas mecánicas y cualquier desarrollo de prototipado rápido. Nos avala la calidad de cada capa en cada impresión.
+            </p>
+          </div>
+        </section>
       </main>
 
       <footer className="main-footer">

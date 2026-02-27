@@ -2,9 +2,14 @@ import React, { useRef, useEffect, useState } from 'react'
 import './Gallery.css'
 
 const images = [
-    '/portfolio/p1.jpg', '/portfolio/p3.jpg', '/portfolio/p4.jpg',
-    '/portfolio/p5.jpg', '/portfolio/p6.jpg', '/portfolio/p7.jpg',
-    '/portfolio/p8.jpg', '/portfolio/p9.jpg'
+    { src: '/portfolio/p1.jpg', alt: 'Abridor llavero personalizado impreso en 3D en San Juan' },
+    { src: '/portfolio/p3.jpg', alt: 'Soporte organizador impreso en PLA alta calidad' },
+    { src: '/portfolio/p4.jpg', alt: 'Pieza técnica y repuesto industrial en PETG' },
+    { src: '/portfolio/p5.jpg', alt: 'Cortante de galletas diseño a medida impresión 3D' },
+    { src: '/portfolio/p6.jpg', alt: 'Figura decorativa y maceta geométrica 3D' },
+    { src: '/portfolio/p7.jpg', alt: 'Llaveros y souvenirs por mayor impresos en 3D' },
+    { src: '/portfolio/p8.jpg', alt: 'Repuesto a medida para electrodoméstico impreso en 3D' },
+    { src: '/portfolio/p9.jpg', alt: 'Maqueta arquitectónica a escala impresión 3D San Juan' }
 ]
 
 const Gallery = () => {
@@ -119,10 +124,10 @@ const Gallery = () => {
                     }}
                 >
                     <div className="slider-track-manual">
-                        {displayImages.map((img, idx) => (
-                            <div className="slide" key={idx} onClick={() => handleImageClick(img)}>
+                        {displayImages.map((imgObj, idx) => (
+                            <div className="slide" key={idx} onClick={() => handleImageClick(imgObj)}>
                                 <div className="slide-inner">
-                                    <img src={img} alt={`Trabajo ${idx}`} draggable="false" />
+                                    <img src={imgObj.src} alt={imgObj.alt} draggable="false" />
                                     <div className="slide-overlay">
                                         <span>VER DETALLE</span>
                                     </div>
@@ -144,7 +149,7 @@ const Gallery = () => {
                 <div className="lightbox-overlay" onClick={() => setSelectedImage(null)}>
                     <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
                         <button className="lightbox-close" onClick={() => setSelectedImage(null)}>&times;</button>
-                        <img src={selectedImage} alt="Trabajo detallado" className="lightbox-img" />
+                        <img src={selectedImage.src} alt={selectedImage.alt} className="lightbox-img" />
                     </div>
                 </div>
             )}
