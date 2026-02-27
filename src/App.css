@@ -121,6 +121,41 @@
   opacity: 0.6;
 }
 
+/* SEO Text Block */
+.seo-text-block {
+  padding: 60px 10%;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.seo-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.seo-container h2 {
+  font-family: var(--font-brand);
+  color: var(--accent-green);
+  margin-bottom: 25px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.seo-container p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: var(--text-dim);
+}
+
+.seo-container strong {
+  color: var(--accent-gold-dark);
+  font-weight: 700;
+}
+
 @media (max-width: 900px) {
   .main-header {
     padding: 15px 5%;
