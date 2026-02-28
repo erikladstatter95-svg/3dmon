@@ -127,7 +127,7 @@ const Gallery = () => {
                         {displayImages.map((imgObj, idx) => (
                             <div className="slide" key={idx} onClick={() => handleImageClick(imgObj)}>
                                 <div className="slide-inner">
-                                    <img src={imgObj.src} alt={imgObj.alt} draggable="false" />
+                                    <img src={imgObj.src} alt={imgObj.alt} draggable="false" loading="lazy" width="300" height="300" />
                                     <div className="slide-overlay">
                                         <span>VER DETALLE</span>
                                     </div>

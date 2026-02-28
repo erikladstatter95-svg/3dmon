@@ -17,6 +17,7 @@
   /* Dark Mode (Default) */
   --bg-primary: #0f0f0f;
   --bg-secondary: #1a1a1a;
+  --bg-header-glass: rgba(15, 15, 15, 0.8);
   --text-main: #fcfcfc;
   --text-dim: #a0a0a0;
   --border-color: #2a2a2a;
@@ -27,9 +28,10 @@
   --bg-primary: #f5f2e8;
   /* Warm Beige */
   --bg-secondary: #ede8d5;
-  --text-main: #1a1a1a;
-  --text-dim: #4a4a4a;
-  --border-color: #d1ccb9;
+  --bg-header-glass: rgba(245, 242, 232, 0.8);
+  --text-main: #0f172a;
+  --text-dim: #475569;
+  --border-color: rgba(0, 0, 0, 0.1);
 }
 
 body {

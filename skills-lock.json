@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "skills": {
+    "concise-planning": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "63de2c473403cbf0d88208186247881a5da45e2298d73319b1413fa146f8b792"
+    },
+    "git-pushing": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "e792c9918bb37c086b6ea31bf5efac3440015362d30caa5473f21eeab0bf57f8"
+    },
+    "kaizen": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "191cd46b8e8d0cbb96362dc9994507c3b84493eabfa0b1866c00d0829f638339"
+    },
+    "lint-and-validate": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "b7688e1866d26507eef1bd84f1f752d97737004c848b1d824c635ce9a307eb42"
+    },
+    "systematic-debugging": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "fef15345be3a56b12e45319bfdd11f59329e40fd8613de2b4a00edf84c665a7c"
+    }
+  }
+}
