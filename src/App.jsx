@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import ServicesTeaser from './components/ServicesTeaser'
 import Gallery from './components/Gallery'
 import FunnelHighlights from './components/FunnelHighlights'
+import ImageComparison from './components/ImageComparison'
 import WhatsAppWidget from './components/WhatsAppWidget'
 
 function App() {
@@ -38,6 +39,20 @@ function App() {
         <Hero />
         <ServicesTeaser />
         <FunnelHighlights />
+
+        <section className="image-comparison-section" style={{ padding: '0 10% 40px', background: 'var(--bg-primary)' }}>
+          <div className="section-head" style={{ marginBottom: '40px' }}>
+            <h2 className="section-title">DE LA IDEA A LA REALIDAD</h2>
+            <p className="section-intro">Desliza para ver cómo materializamos tus modelos.</p>
+          </div>
+          <ImageComparison
+            beforeImage="/portfolio/before-llavero.jpg"
+            afterImage="/portfolio/after-llavero.jpg"
+            beforeLabel="Idea Inicial"
+            afterLabel="Producto Final"
+          />
+        </section>
+
         <Gallery />
         <section className="seo-text-block">
           <div className="seo-container">
