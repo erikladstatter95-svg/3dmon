@@ -90,7 +90,19 @@ function App() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>© 2026 3DMON - Laboratorio de Impresión</p>
+          <p>© 2026 3DMON - Laboratorio de Impresión. Todos los derechos reservados.</p>
+          <div className="footer-credit">
+            <a
+              href="https://erikwebsite.com/"
+              target="_blank"
+              rel="noopener"
+              title="Diseño y desarrollo web de alta velocidad - Erik Website"
+              className="erik-badge"
+            >
+              <span className="erik-dot"></span>
+              Desarrollo web por <strong>Erik Website</strong>
+            </a>
+          </div>
         </div>
       </footer>
 
