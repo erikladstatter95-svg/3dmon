@@ -5,7 +5,10 @@
 [build.environment]
   NODE_VERSION = "20"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Arquitectura MPA (Home React + /blog/ estático en Cloudflare Pages):
+# Se desactiva el catch-all /* -> /index.html 200 para evitar Soft-404 masivo
+# en URLs inexistentes (ej. viejos feeds de WordPress); 404.html responde HTTP 404 real.
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200

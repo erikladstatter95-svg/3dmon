@@ -3,7 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: dark;
+  color-scheme: dark light;
 
   /* Shared Defaults */
   --accent-green: #3D8700;
@@ -14,24 +14,32 @@
   --gold-gradient: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold-dark));
   --digi-blue: #00a2ff;
 
-  /* Dark Mode (Default) */
+  /* Dark Mode (Default 3DMON) */
   --bg-primary: #0f0f0f;
   --bg-secondary: #1a1a1a;
-  --bg-header-glass: rgba(15, 15, 15, 0.8);
+  --bg-header-glass: rgba(15, 15, 15, 0.85);
   --text-main: #fcfcfc;
   --text-dim: #a0a0a0;
   --border-color: #2a2a2a;
 }
 
-[data-theme='light'] {
+:root:has(> head > meta[name="color-scheme"][content="dark"]) {
+  color-scheme: dark;
+}
+
+:root:has(> head > meta[name="color-scheme"][content="light"]) {
   color-scheme: light;
+}
+
+[data-theme='light'],
+:root:has(> head > meta[name="color-scheme"][content="light"]) {
   --bg-primary: #f5f2e8;
   /* Warm Beige */
   --bg-secondary: #ede8d5;
-  --bg-header-glass: rgba(245, 242, 232, 0.8);
+  --bg-header-glass: rgba(245, 242, 232, 0.88);
   --text-main: #0f172a;
   --text-dim: #475569;
-  --border-color: rgba(0, 0, 0, 0.1);
+  --border-color: rgba(0, 0, 0, 0.12);
 }
 
 body {

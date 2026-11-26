@@ -141,7 +141,7 @@ const Gallery = () => {
             </div>
 
             <div className="gallery-info">
-                <p>Haz clic en las imágenes para verlas en detalle.</p>
+                <p>Hacé clic en las imágenes para verlas en detalle.</p>
             </div>
 
             {/* Lightbox Modal */}

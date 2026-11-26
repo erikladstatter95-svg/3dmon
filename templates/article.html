@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('3dmon_theme') || 'dark';
+      if (savedTheme !== 'light' && savedTheme !== 'dark') savedTheme = 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.querySelector('meta[name="color-scheme"]').content = savedTheme;
+    } catch (e) {}
+  </script>
+
+  <!-- Filtro de Trafico Interno (?soy_erik=1 / ?soy_3dmon=1 / localhost / localStorage) -->
+  <script id="dm-internal-filter">
+    (function () {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var mode = p.get('soy_erik') || p.get('soy_3dmon');
+        if (mode === '1') {
+          localStorage.setItem('dm_ignore_analytics', '1');
+        } else if (mode === '0') {
+          localStorage.removeItem('dm_ignore_analytics');
+        }
+        if (
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1' ||
+          localStorage.getItem('dm_ignore_analytics') === '1'
+        ) {
+          window._dmIgnoreAnalytics = true;
+          window['ga-disable-G-E76DZMT0FL'] = true;
+        }
+        if (mode === '1' || mode === '0') {
+          window.addEventListener('DOMContentLoaded', function () {
+            var b = document.createElement('div');
+            b.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999;background:#0f172a;color:#3D8700;border:1px solid #3D8700;padding:12px 18px;border-radius:10px;font-family:sans-serif;font-size:13px;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,0.5);max-width:340px;';
+            b.textContent = mode === '1'
+              ? 'Filtro Interno Activado: Tus visitas en este navegador ya NO cuentan en GA4.'
+              : 'Filtro Interno Desactivado: Este navegador vuelve a enviar datos a GA4.';
+            document.body.appendChild(b);
+            setTimeout(function () { b.remove(); }, 6000);
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- METADATOS: <title> <= 60c | <meta description> <= 160c | slug 3-5 palabras sin año -->
+  <title>{{TITLE_MAX_60C}} | 3DMON</title>
+  <meta name="description" content="{{META_DESCRIPTION_MAX_160C}}" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://3dmon.shop/blog/{{SLUG}}/" />
+  <link rel="icon" type="image/png" href="/logo-solo.png" />
+
+  <!-- Open Graph / Twitter (sincronizado con title y description) -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="3DMON" />
+  <meta property="og:url" content="https://3dmon.shop/blog/{{SLUG}}/" />
+  <meta property="og:title" content="{{TITLE_MAX_60C}} | 3DMON" />
+  <meta property="og:description" content="{{META_DESCRIPTION_MAX_160C}}" />
+  <meta property="og:image" content="https://3dmon.shop/images/blog/{{IMAGE_FILENAME}}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{TITLE_MAX_60C}} | 3DMON" />
+  <meta name="twitter:description" content="{{META_DESCRIPTION_MAX_160C}}" />
+  <meta name="twitter:image" content="https://3dmon.shop/images/blog/{{IMAGE_FILENAME}}" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E76DZMT0FL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    if (!window._dmIgnoreAnalytics) {
+      gtag('js', new Date());
+      gtag('config', 'G-E76DZMT0FL');
+    }
+  </script>
+
+  <!-- Schema.org: BlogPosting + BreadcrumbList + FAQPage (paridad 1:1 con 6 <details>) + Service opcional -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://3dmon.shop/blog/{{SLUG}}/#article",
+        "headline": "{{H1_MAX_78C}}",
+        "description": "{{META_DESCRIPTION_MAX_160C}}",
+        "inLanguage": "es-AR",
+        "mainEntityOfPage": "https://3dmon.shop/blog/{{SLUG}}/",
+        "datePublished": "{{ISO_DATE}}",
+        "dateModified": "{{ISO_DATE}}",
+        "author": {
+          "@type": "Organization",
+          "name": "3DMON",
+          "url": "https://3dmon.shop/"
+        },
+        "publisher": {
+          "@type": "LocalBusiness",
+          "@id": "https://3dmon.shop/#organization",
+          "name": "3DMON",
+          "url": "https://3dmon.shop/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://3dmon.shop/logo-main.png"
+          }
+        },
+        "image": "https://3dmon.shop/images/blog/{{IMAGE_FILENAME}}",
+        "breadcrumb": {
+          "@id": "https://3dmon.shop/blog/{{SLUG}}/#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://3dmon.shop/blog/{{SLUG}}/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://3dmon.shop/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://3dmon.shop/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{{BREADCRUMB_SHORT}}",
+            "item": "https://3dmon.shop/blog/{{SLUG}}/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://3dmon.shop/blog/{{SLUG}}/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "{{FAQ_Q1}}",
+            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A1}}" }
+          },
+          {
+            "@type": "Question",
+            "name": "{{FAQ_Q2}}",
+            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A2}}" }
+          },
+          {
+            "@type": "Question",
+            "name": "{{FAQ_Q3}}",
+            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A3}}" }
+          },
+          {
+            "@type": "Question",
+            "name": "{{FAQ_Q4}}",
+            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A4}}" }
+          },
+          {
+            "@type": "Question",
+            "name": "{{FAQ_Q5}}",
+            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A5}}" }
+          },
+          {
+            "@type": "Question",
+            "name": "{{FAQ_Q6}}",
+            "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_A6}}" }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/blog.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <a href="/" class="header-brand" aria-label="3DMON Inicio">
+      <img src="/logo-solo.png" alt="3DMON Logo" class="header-logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="/#servicios" class="nav-anchor-link">Cómo Trabajamos</a>
+      <a href="/#proyectos" class="nav-anchor-link">Portafolio</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+        <span class="theme-opt theme-opt-light">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <span class="theme-label">Modo Claro</span>
+        </span>
+        <span class="theme-opt theme-opt-dark">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <span class="theme-label">Modo Oscuro</span>
+        </span>
+      </button>
+      <a href="https://wa.me/542644113760" class="nav-cta" target="_blank" rel="noopener noreferrer">
+        Pedí tu Presupuesto
+      </a>
+    </nav>
+  </header>
+
+  <main class="article-shell">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a>
+      <span aria-hidden="true">/</span>
+      <span>{{BREADCRUMB_SHORT}}</span>
+    </nav>
+
+    <article>
+      <header>
+        <div class="article-meta-row">
+          <!-- Clases válidas: axis-principiantes | axis-tecnico | axis-comercial -->
+          <span class="axis-badge {{AXIS_CLASS}}">{{AXIS_LABEL}}</span>
+          <span>Actualizado {{HUMAN_DATE}} · {{READ_MINUTES}} min de lectura</span>
+        </div>
+
+        <h1 class="article-title">{{H1_MAX_78C}}</h1>
+
+        <!-- Bloque de Respuesta Directa AEO/GEO (40 a 60 palabras; keyword exacta en primeras 5-10 palabras) -->
+        <section class="direct-answer" aria-label="Respuesta directa">
+          <p class="direct-answer-label">Respuesta Directa</p>
+          <p>{{DIRECT_ANSWER_40_60_WORDS}}</p>
+        </section>
+
+        <figure class="article-hero-figure">
+          <img
+            src="/images/blog/{{IMAGE_FILENAME}}"
+            alt="{{IMAGE_ALT_DESCRIPTIVE}}"
+            width="1200"
+            height="675"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      </header>
+
+      <div class="article-body">
+        <h2>{{H2_FANOUT_1}}</h2>
+        <p>{{PARAGRAPH_1}}</p>
+
+        <h2>{{H2_FANOUT_2_COMPARATIVA}}</h2>
+        <p>{{PARAGRAPH_2}}</p>
+
+        <!-- Tabla comparativa HTML semántica accesible -->
+        <div tabindex="0" role="region" aria-labelledby="comparativa-caption" class="table-wrapper">
+          <table>
+            <caption id="comparativa-caption">{{TABLE_CAPTION}}</caption>
+            <thead>
+              <tr>
+                <th>{{COL_1}}</th>
+                <th>{{COL_2}}</th>
+                <th>{{COL_3}}</th>
+                <th>{{COL_4}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>{{ROW_1_TH}}</th>
+                <td data-label="{{COL_2}}">{{ROW_1_C2}}</td>
+                <td data-label="{{COL_3}}">{{ROW_1_C3}}</td>
+                <td data-label="{{COL_4}}">{{ROW_1_C4}}</td>
+              </tr>
+              <tr>
+                <th>{{ROW_2_TH}}</th>
+                <td data-label="{{COL_2}}">{{ROW_2_C2}}</td>
+                <td data-label="{{COL_3}}">{{ROW_2_C3}}</td>
+                <td data-label="{{COL_4}}">{{ROW_2_C4}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="interlink-callout">
+          <strong>Relacionado en 3DMON</strong>
+          <p style="margin:0;">
+            {{INTERLINK_CONTEXTUAL_HACIA_HOME_O_GUIA_HERMANA}}
+          </p>
+        </aside>
+
+        <h2>{{H2_FANOUT_3}}</h2>
+        <p>{{PARAGRAPH_3}}</p>
+
+        <!-- Acordeón FAQ no exclusivo, sin headings dentro de <summary>, paridad exacta 6/6 con JSON-LD -->
+        <section class="faq-section" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">Preguntas Frecuentes</h2>
+
+          <details class="faq-item">
+            <summary>{{FAQ_Q1}}</summary>
+            <div class="faq-answer"><p>{{FAQ_A1}}</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>{{FAQ_Q2}}</summary>
+            <div class="faq-answer"><p>{{FAQ_A2}}</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>{{FAQ_Q3}}</summary>
+            <div class="faq-answer"><p>{{FAQ_A3}}</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>{{FAQ_Q4}}</summary>
+            <div class="faq-answer"><p>{{FAQ_A4}}</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>{{FAQ_Q5}}</summary>
+            <div class="faq-answer"><p>{{FAQ_A5}}</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>{{FAQ_Q6}}</summary>
+            <div class="faq-answer"><p>{{FAQ_A6}}</p></div>
+          </details>
+        </section>
+
+        <!-- CTA Comercial a WhatsApp sin mostrar el número en el texto del botón -->
+        <aside class="cta-box">
+          <h2>{{CTA_HEADING}}</h2>
+          <p>{{CTA_BODY}}</p>
+          <div class="cta-actions">
+            <button
+              type="button"
+              class="nav-cta"
+              data-wa-msg="Hola 3DMON! Leí la guía sobre {{BREADCRUMB_SHORT}} y quiero pedir un presupuesto."
+            >
+              Consultar por WhatsApp
+            </button>
+            <a href="/" class="btn-outline-gold">Conocer Servicios 3DMON</a>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="/logo-solo.png" alt="3DMON" style="height: 40px; margin-bottom: 14px;" />
+        <p>Micropyme de Impresión 3D</p>
+        <p>San Juan, Capital</p>
+        <p>Envíos a todo el país</p>
+      </div>
+      <div class="footer-col">
+        <h4>SERVICIOS</h4>
+        <p>Impresión PLA / PETG</p>
+        <p>Prototipado Rápido</p>
+        <p>Pedidos Mayoristas</p>
+      </div>
+      <div class="footer-col">
+        <h4>GUÍAS Y BLOG</h4>
+        <a href="/blog/">Blog y Guías 3D</a>
+        <a href="/blog/?eje=principiantes">Guías para Principiantes</a>
+        <a href="/blog/?eje=tecnico">Información Técnica 3D</a>
+        <a href="/blog/?eje=comercial">Servicios y Presupuestos</a>
+      </div>
+      <div class="footer-col">
+        <h4>SEGUINOS</h4>
+        <a href="https://www.instagram.com/3d.mon_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://wa.me/542644113760" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 3DMON - Laboratorio de Impresión. Todos los derechos reservados.</p>
+      <a
+        href="https://erikwebsite.com/"
+        target="_blank"
+        rel="noopener"
+        title="Diseño y desarrollo web de alta velocidad - Erik Website"
+        class="erik-badge"
+      >
+        <span class="erik-dot" aria-hidden="true"></span>
+        Desarrollo web por <strong>Erik Website</strong>
+      </a>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/blog.js"></script>
+</body>
+
+</html>

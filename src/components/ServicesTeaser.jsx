@@ -2,7 +2,7 @@ import React from 'react'
 import './ServicesTeaser.css'
 
 const steps = [
-    { id: 1, title: 'Recibimos tu idea', desc: 'Envíanos tu archivo STL, fotos o cuéntanos tu idea por WhatsApp.' },
+    { id: 1, title: 'Recibimos tu idea', desc: 'Envianos tu archivo STL, fotos o contanos tu idea por WhatsApp.' },
     { id: 2, title: 'Presupuestamos', desc: 'Realizamos un análisis técnico y te pasamos el valor en 24-48hs.' },
     { id: 3, title: 'Imprimimos', desc: 'Materializamos tu pieza en PLA o PETG con control de calidad constante.' },
     { id: 4, title: 'Enviamos', desc: 'Realizamos envíos seguros a todo el país desde San Juan.' }

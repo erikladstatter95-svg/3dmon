@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# SEO local, grafo y CSVs privados de Google Ads
+scratch/
+graphify-out/
+keywords/
+

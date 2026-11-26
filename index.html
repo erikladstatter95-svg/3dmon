@@ -1,26 +1,76 @@
 <!doctype html>
-<html lang="en">
+<html lang="es-AR">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/logo-solo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('3dmon_theme') || 'dark';
+      if (savedTheme !== 'light' && savedTheme !== 'dark') savedTheme = 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.querySelector('meta[name="color-scheme"]').content = savedTheme;
+    } catch (e) {}
+  </script>
+
+  <!-- Filtro de Trafico Interno (?soy_erik=1 / ?soy_3dmon=1 / localhost / localStorage) -->
+  <script id="dm-internal-filter">
+    (function () {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var mode = p.get('soy_erik') || p.get('soy_3dmon');
+        if (mode === '1') {
+          localStorage.setItem('dm_ignore_analytics', '1');
+        } else if (mode === '0') {
+          localStorage.removeItem('dm_ignore_analytics');
+        }
+        if (
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1' ||
+          localStorage.getItem('dm_ignore_analytics') === '1'
+        ) {
+          window._dmIgnoreAnalytics = true;
+          window['ga-disable-G-E76DZMT0FL'] = true;
+        }
+        if (mode === '1' || mode === '0') {
+          window.addEventListener('DOMContentLoaded', function () {
+            var b = document.createElement('div');
+            b.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999;background:#0f172a;color:#3D8700;border:1px solid #3D8700;padding:12px 18px;border-radius:10px;font-family:sans-serif;font-size:13px;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,0.5);max-width:340px;';
+            b.textContent = mode === '1'
+              ? 'Filtro Interno Activado: Tus visitas en este navegador ya NO cuentan en GA4.'
+              : 'Filtro Interno Desactivado: Este navegador vuelve a enviar datos a GA4.';
+            document.body.appendChild(b);
+            setTimeout(function () { b.remove(); }, 6000);
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="icon" type="image/png" href="/logo-solo.png" />
   <link rel="canonical" href="https://3dmon.shop/" />
 
   <!-- SEO Primary -->
   <title>3DMON | Impresión 3D a Medida en San Juan y Argentina</title>
   <meta name="title" content="3DMON | Impresión 3D a Medida en San Juan y Argentina" />
+  <meta name="description"
+    content="Servicio profesional de impresión 3D en San Juan con envíos a toda Argentina. Especialistas en PLA, PETG, repuestos técnicos, prototipos y merchandising por mayor." />
+  <meta name="keywords"
+    content="impresión 3d argentina, impresión 3d san juan, diseño 3d personalizado, souvenirs 3d, repuestos 3d argentina, filamento pla petg" />
+  <meta name="author" content="3DMON" />
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f2e8" />
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f0f0f" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E76DZMT0FL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-E76DZMT0FL');
+    if (!window._dmIgnoreAnalytics) {
+      gtag('js', new Date());
+      gtag('config', 'G-E76DZMT0FL');
+    }
   </script>
 
   <!-- Structured Data (JSON-LD) -->
@@ -28,10 +78,10 @@
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
+      "@id": "https://3dmon.shop/#organization",
       "name": "3DMON",
       "image": "https://3dmon.shop/logo-main.png",
-      "@id": "https://3dmon.shop",
-      "url": "https://3dmon.shop",
+      "url": "https://3dmon.shop/",
       "telephone": "+542644113760",
       "address": {
         "@type": "PostalAddress",
@@ -44,42 +94,84 @@
         "latitude": -31.5375,
         "longitude": -68.5364
       },
-      "description": "Servicio profesional de impresión 3D en San Juan con envíos a toda Argentina. PLA, PETG y diseño personalizado.",
+      "areaServed": [
+        { "@type": "City", "name": "San Juan" },
+        { "@type": "Country", "name": "Argentina" }
+      ],
+      "description": "Laboratorio profesional de impresión 3D a medida en San Juan con envíos a toda Argentina. PLA, PETG, repuestos, prototipado rápido y diseño personalizado.",
       "sameAs": [
         "https://www.instagram.com/3d.mon_/"
-      ]
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Impresión y Diseño 3D",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Impresión 3D a medida en PLA, PLA+ y PETG"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Fabricación de repuestos rotos o discontinuados y diseño 3D"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Prototipado rápido para PyMEs e ingenieros"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Merchandising, llaveros y souvenirs 3D por mayor"
+            }
+          }
+        ]
+      }
     }
   </script>
-  <meta name="description"
-    content="Servicio profesional de impresión 3D en San Juan con envíos a toda Argentina. Especialistas en PLA, PETG, repuestos técnicos, medallas y souvenirs por mayor." />
-  <meta name="keywords"
-    content="impresión 3d argentina, impresión 3d san juan, diseño 3d personalizado, souvenirs 3d, repuestos 3d argentina, filamento pla petg" />
-  <meta name="author" content="3DMON" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="3DMON" />
   <meta property="og:url" content="https://3dmon.shop/" />
   <meta property="og:title" content="3DMON | Impresión 3D a Medida en San Juan y Argentina" />
   <meta property="og:description"
-    content="Materializamos tus ideas en San Juan. Envíos nacionales. Calidad en PLA y PETG." />
-  <meta property="og:image" content="/logo-main.png" />
+    content="Materializamos tus ideas en San Juan con envíos a toda Argentina. Especialistas en PLA, PETG, repuestos a medida y merchandising 3D." />
+  <meta property="og:image" content="https://3dmon.shop/logo-main.png" />
 
   <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:title" content="3DMON | Impresión 3D a Medida" />
-  <meta property="twitter:description"
-    content="Servicio profesional de impresión 3D en San Juan con envíos a toda Argentina." />
-  <meta property="twitter:image" content="/logo-main.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="3DMON | Impresión 3D a Medida en San Juan y Argentina" />
+  <meta name="twitter:description"
+    content="Servicio profesional de impresión 3D en San Juan con envíos a toda Argentina. PLA, PETG, repuestos y pedidos mayoristas." />
+  <meta name="twitter:image" content="https://3dmon.shop/logo-main.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@400;900&family=Press+Start+2P&display=swap"
-    rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700;900&family=Press+Start+2P&display=swap"
+    rel="stylesheet" />
 </head>
 
 <body>
   <div id="root"></div>
+  <noscript>
+    <main style="max-width:860px;margin:40px auto;padding:20px;font-family:sans-serif;line-height:1.6;">
+      <h1>3DMON | Impresión 3D a Medida en San Juan y Argentina</h1>
+      <p>Laboratorio de impresión 3D y modelado personalizado en San Juan Capital con envíos a todo el país. Fabricamos piezas en PLA, PLA+ y PETG, repuestos discontinuados, prototipos para PyMEs y merchandising por mayor.</p>
+      <p>Explorá nuestras guías prácticas y técnicas en el <a href="/blog/">Blog de Impresión 3D de 3DMON</a> o escribinos por <a href="https://wa.me/542644113760">WhatsApp</a>.</p>
+    </main>
+  </noscript>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 

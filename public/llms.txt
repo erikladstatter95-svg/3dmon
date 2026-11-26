@@ -1,0 +1,30 @@
+# 3DMON (3dmon.shop)
+
+> Laboratorio profesional de impresión 3D a medida en San Juan Capital, con envíos a toda la República Argentina. Especialistas en piezas personalizadas, repuestos discontinuados, prototipado rápido, merchandising corporativo y asesoramiento técnico en materiales (PLA, PLA+, PETG, ABS, ASA, TPU y resinas).
+
+## Servicios Principales
+
+1. **Impresión 3D a Medida en PLA y PETG (https://3dmon.shop/):**
+   - Fabricación de piezas funcionales, repuestos mecánicos, soportes, maquetas arquitectónicas y prototipos para PyMEs, talleres, emprendedores e ingenieros.
+   - Análisis técnico de archivo STL, OBJ o 3MF y presupuesto en 24 a 48 horas.
+2. **Repuestos Rotos o Discontinuados y Diseño 3D desde Fotos:**
+   - Modelado 3D a partir de fotos, medidas reales o piezas físicas dañadas para electrodomésticos, karting, industria y uso doméstico.
+3. **Merchandising Corporativo, Llaveros, Medallas y Souvenirs por Mayor:**
+   - Producción en serie para marcas, clubes deportivos, eventos y comercios con diseño personalizado a partir de un logotipo o idea.
+4. **Asesoramiento Técnico en Materiales y Optimización de Piezas:**
+   - Selección de filamento, altura de capa, perímetros, densidad de relleno (infill) y tolerancias mecánicas según exigencia térmica o de carga.
+
+## Ejes Editoriales y Guías Técnicas (/blog/)
+
+- **Eje 1 (Principiantes en el Mundo 3D):** Qué es la impresión 3D, diferencias entre PLA y PETG, formatos de archivo (STL, OBJ, 3MF), cuidados de piezas y errores frecuentes al pedir un presupuesto.
+- **Eje 2 (Información Técnica 3D / Ingeniería):** Tolerancias y holguras para encastres, altura de capa frente a resistencia mecánica, porcentaje de infill y perímetros, materiales técnicos (ABS, ASA, TPU, resinas) y post-procesado.
+- **Eje 3 (Comercial y Transaccional):** Servicio de impresión 3D por encargo en Argentina, fabricación de repuestos discontinuados, prototipado rápido para PyMEs, llaveros y merchandising por mayor y comparación costo/beneficio frente a comprar impresora propia.
+
+## Datos Verificables y Contacto
+
+- **Sitio Web Oficial:** https://3dmon.shop/
+- **Hub de Guías y Blog 3D:** https://3dmon.shop/blog/
+- **Mapa del Sitio Oficial:** https://3dmon.shop/sitemap.xml
+- **Ubicación:** San Juan Capital, Argentina (envíos nacionales a todo el país)
+- **WhatsApp Comercial:** +54 264 411-3760
+- **Instagram Oficial:** https://www.instagram.com/3d.mon_/

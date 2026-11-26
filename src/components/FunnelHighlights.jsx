@@ -4,7 +4,7 @@ import './FunnelHighlights.css'
 const highlights = [
     {
         title: 'Diseño desde cero',
-        desc: '¿Tienes una idea o una foto? La convertimos en un modelo 3D. Especialistas en llaveros y medallas personalizadas.',
+        desc: '¿Tenés una idea o una foto? La convertimos en un modelo 3D. Especialistas en llaveros y medallas personalizadas.',
         icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
     },
     {
@@ -14,7 +14,7 @@ const highlights = [
     },
     {
         title: 'Piezas a Medida',
-        desc: 'Desde accesorios para karting hasta repuestos específicos en PETG. Si lo imaginas, lo fabricamos.',
+        desc: 'Desde accesorios para karting hasta repuestos específicos en PETG. Si lo imaginás, lo fabricamos.',
         icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
     }
 ]
@@ -45,7 +45,7 @@ const FunnelHighlights = () => {
                     </div>
                     <div className="test-content">
                         <p className="quote">"Geniooooo. Están re lindos. Me sorprendiste con los llaveros. Muchísimas gracias."</p>
-                        <span className="client-name">— Cliente Satisfecho (Karting/Llaveros)</span>
+                        <span className="client-name">Cliente Satisfecho (Karting / Llaveros)</span>
                     </div>
                 </div>
             </div>
