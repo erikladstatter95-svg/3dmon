@@ -1,27 +1,37 @@
 # 3DMON (3dmon.shop)
 
-> Laboratorio profesional de impresión 3D a medida en San Juan Capital, con envíos a toda la República Argentina. Especialistas en piezas personalizadas, repuestos discontinuados, prototipado rápido, merchandising corporativo y asesoramiento técnico en materiales (PLA, PLA+, PETG, ABS, ASA, TPU y resinas).
+> Laboratorio profesional de impresión 3D a medida en San Juan Capital, con envíos a toda la República Argentina. Especialistas en piezas personalizadas, repuestos discontinuados, souvenirs para eventos, cortantes a medida, figuras, llaveros por mayor y prototipado rápido en PLA, PLA+, PETG y TPU.
 
 ## Servicios Principales
 
-1. **Impresión 3D a Medida en PLA y PETG (https://3dmon.shop/):**
-   - Fabricación de piezas funcionales, repuestos mecánicos, soportes, maquetas arquitectónicas y prototipos para PyMEs, talleres, emprendedores e ingenieros.
-   - Análisis técnico de archivo STL, OBJ o 3MF y presupuesto en 24 a 48 horas.
-2. **Repuestos Rotos o Discontinuados y Diseño 3D desde Fotos:**
-   - Modelado 3D a partir de fotos, medidas reales o piezas físicas dañadas para electrodomésticos, karting, industria y uso doméstico.
-3. **Merchandising Corporativo, Llaveros, Medallas y Souvenirs por Mayor:**
-   - Producción en serie para marcas, clubes deportivos, eventos y comercios con diseño personalizado a partir de un logotipo o idea.
-4. **Asesoramiento Técnico en Materiales y Optimización de Piezas:**
-   - Selección de filamento, altura de capa, perímetros, densidad de relleno (infill) y tolerancias mecánicas según exigencia térmica o de carga.
+1. **Impresión 3D a Medida en PLA, PETG y TPU (https://3dmon.shop/):**
+   - Venta directa desde taller sin comisiones de plataformas, con presupuesto gratuito en 24 a 48 horas por WhatsApp.
+   - Sin mínimos de compra: desde 1 pieza personalizada o un diseño que viste en redes hasta lotes mayoristas.
+2. **Repuestos Rotos o Discontinuados para Autos y Hogar:**
+   - Reconstrucción 3D desde fotos con medidas o pieza física rota en materiales resistentes al calor y al uso diario.
+3. **Souvenirs, Llaveros por Mayor, Cortantes y Regalos Personalizados:**
+   - Producción en serie con descuentos escalonados para fiestas de 15 años, cumpleaños, emprendimientos, marcas y eventos.
+4. **Figuras Coleccionables y Objetos a Pedido desde MakerWorld o Redes:**
+   - Impresión de modelos descargados o buscados a partir de enlaces de TikTok, Instagram, MakerWorld, Printables o Thingiverse.
 
-## Ejes Editoriales y Guías Técnicas (/blog/)
+## Ejes Editoriales (/blog/)
 
-- **Eje 1 (Principiantes en el Mundo 3D):** Qué es la impresión 3D, diferencias entre PLA y PETG, formatos de archivo (STL, OBJ, 3MF), seguridad del PLA y errores frecuentes al pedir un presupuesto.
-- **Eje 2 (Información Técnica 3D / Ingeniería):** Altura de capa y resistencia mecánica, soportes normales frente a árbol, regla de 45 grados, filamento TPU flexible y tolerancias técnicas.
-- **Eje 3 (Comercial y Transaccional):** Servicio de impresión 3D en San Juan y en toda Argentina, fabricación de repuestos a medida, prototipado rápido para PyMEs y llaveros personalizados por mayor.
+- **Comprador Nuevo, Regalos y Redes (`principiantes`):** Cómo encargar objetos vistos en redes o MakerWorld, figuras coleccionables, regalos personalizados y llaveros Spotify.
+- **Soluciones por Material y Uso (`tecnico`):** Qué material pedir para sol, calor o interior de autos, cortantes de galletitas seguros y diferencias reales entre PLA, PETG y TPU.
+- **Comercial, Precios y B2B (`comercial`):** Compra directa vs Mercado Libre, cómo se calcula el precio, dónde imprimir en Argentina, souvenirs por cantidad, repuestos y pedidos mayoristas.
 
 ## Guías Publicadas (/blog/)
 
+- [Impresión 3D en Mercado Libre vs compra directa: por qué conviene](https://3dmon.shop/blog/impresion-3d-mercado-libre/): Por qué encargar tus piezas 3D directo al taller te ahorra entre un 20% y un 35% frente a las comisiones de plataformas, con asesoramiento real.
+- [Precio de impresión 3D en Argentina: cómo se calcula tu presupuesto](https://3dmon.shop/blog/precio-presupuesto-impresion-3d/): Explicación clara y transparente de qué influye en el costo de una pieza impresa en 3D, rangos orientativos y cómo bajar el precio por unidad.
+- [Dónde imprimir en 3D en Argentina: local y envíos a todo el país](https://3dmon.shop/blog/donde-imprimir-piezas-3d/): Cómo encargar piezas impresas en 3D sin moverte de tu casa: retiro local en San Juan Capital, envíos a todo el país y control de calidad real.
+- [Souvenirs impresos en 3D: ideas para 15 años, cumpleaños y eventos](https://3dmon.shop/blog/souvenirs-impresos-en-3d/): Ideas originales y útiles de souvenirs en 3D personalizados con nombre y fecha para fiestas de 15, cumpleaños infantiles, bautismos y eventos.
+- [Repuestos impresos en 3D a medida para autos y electrodomésticos](https://3dmon.shop/blog/repuestos-impresos-en-3d/): Cómo reemplazar engranajes, trabas, perillas y clips rotos de autos o electrodomésticos sin pagar kits originales carísimos o discontinuados.
+- [Cortantes de galletitas en 3D a medida: usos, limpieza y pedidos](https://3dmon.shop/blog/cortantes-galletitas-3d-medida/): Cómo pedir cortantes y sellos de cookies personalizados para pastelería o cumpleaños, qué cuidados de higiene seguir y cómo ahorrar en combos.
+- [Piezas 3D resistentes al sol y al calor: qué material conviene pedir](https://3dmon.shop/blog/piezas-3d-resistentes-calor/): Qué material tenés que pedir si tu pieza va adentro del auto, en el patio o cerca del calor para que no se doble ni pierda firmeza en verano.
+- [¿Viste algo en TikTok, Instagram o MakerWorld? Cómo encargarlo en 3D](https://3dmon.shop/blog/encargar-impresion-3d-redes/): Paso a paso sin vueltas para pedir que te impriman ese objeto, accesorio o gadget viral que viste en un reel, TikTok o catálogo online.
+- [Figuras impresas en 3D a pedido: personajes, cine, series y bustos](https://3dmon.shop/blog/figuras-impresas-en-3d/): Cómo encargar figuras coleccionables, bustos y accesorios de películas, series, anime o videojuegos en el tamaño exacto que querés.
+- [Regalos personalizados en 3D: llaveros Spotify, lámparas e ideas](https://3dmon.shop/blog/regalos-personalizados-en-3d/): Ideas originales y listas para encargar de regalos personalizados en 3D con nombre, canción de Spotify, foto o temática favorita.
 - [Qué es la impresión 3D y cómo funciona en la práctica](https://3dmon.shop/blog/que-es-la-impresion-3d/): Entendé qué es la fabricación aditiva FDM, qué pasos sigue un archivo digital hasta volverse pieza física y qué usos conviene mandar a imprimir.
 - [PLA vs PETG: diferencias reales y cuál conviene elegir](https://3dmon.shop/blog/pla-vs-petg-diferencias/): Compará resistencia al calor, flexibilidad, terminación estética y precio entre PLA y PETG para no equivocarte de filamento al pedir tu pieza.
 - [Archivos STL para imprimir en 3D: qué son y cómo mandarlos](https://3dmon.shop/blog/archivos-stl-para-imprimir/): Aprendé qué es un archivo STL, cuándo conviene usar 3MF o STEP, dónde bajar modelos verificados y cómo chequear escalas antes de pedir presupuesto.

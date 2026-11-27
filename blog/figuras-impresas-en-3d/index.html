@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('3dmon_theme') || 'dark';
+      if (savedTheme !== 'light' && savedTheme !== 'dark') savedTheme = 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.querySelector('meta[name="color-scheme"]').content = savedTheme;
+    } catch (e) {}
+  </script>
+
+  <!-- Filtro de Trafico Interno (?soy_erik=1 / ?soy_3dmon=1 / localhost / localStorage) -->
+  <script id="dm-internal-filter">
+    (function () {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var mode = p.get('soy_erik') || p.get('soy_3dmon');
+        if (mode === '1') {
+          localStorage.setItem('dm_ignore_analytics', '1');
+        } else if (mode === '0') {
+          localStorage.removeItem('dm_ignore_analytics');
+        }
+        if (
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1' ||
+          localStorage.getItem('dm_ignore_analytics') === '1'
+        ) {
+          window._dmIgnoreAnalytics = true;
+          window['ga-disable-G-E76DZMT0FL'] = true;
+        }
+        if (mode === '1' || mode === '0') {
+          window.addEventListener('DOMContentLoaded', function () {
+            var b = document.createElement('div');
+            b.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999;background:#0f172a;color:#3D8700;border:1px solid #3D8700;padding:12px 18px;border-radius:10px;font-family:sans-serif;font-size:13px;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,0.5);max-width:340px;';
+            b.textContent = mode === '1'
+              ? 'Filtro Interno Activado: Tus visitas en este navegador ya NO cuentan en GA4.'
+              : 'Filtro Interno Desactivado: Este navegador vuelve a enviar datos a GA4.';
+            document.body.appendChild(b);
+            setTimeout(function () { b.remove(); }, 6000);
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>Figuras impresas en 3D a pedido: series y cine | 3DMON</title>
+  <meta name="description" content="Encargá figuras impresas en 3D a medida de películas, series, anime, videojuegos y coleccionables. Elegí tamaño, color o listas para pintar en 3DMON." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://3dmon.shop/blog/figuras-impresas-en-3d/" />
+  <link rel="icon" type="image/png" href="/logo-solo.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="3DMON" />
+  <meta property="og:url" content="https://3dmon.shop/blog/figuras-impresas-en-3d/" />
+  <meta property="og:title" content="Figuras impresas en 3D a pedido: series y cine | 3DMON" />
+  <meta property="og:description" content="Encargá figuras impresas en 3D a medida de películas, series, anime, videojuegos y coleccionables. Elegí tamaño, color o listas para pintar en 3DMON." />
+  <meta property="og:image" content="https://3dmon.shop/images/blog/figuras-impresas-en-3d.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Figuras impresas en 3D a pedido: series y cine | 3DMON" />
+  <meta name="twitter:description" content="Encargá figuras impresas en 3D a medida de películas, series, anime, videojuegos y coleccionables. Elegí tamaño, color o listas para pintar en 3DMON." />
+  <meta name="twitter:image" content="https://3dmon.shop/images/blog/figuras-impresas-en-3d.jpg" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E76DZMT0FL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    if (!window._dmIgnoreAnalytics) {
+      gtag('js', new Date());
+      gtag('config', 'G-E76DZMT0FL');
+    }
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://3dmon.shop/blog/figuras-impresas-en-3d/#article",
+      "headline": "Figuras impresas en 3D a pedido: personajes, cine, series y bustos",
+      "description": "Encargá figuras impresas en 3D a medida de películas, series, anime, videojuegos y coleccionables. Elegí tamaño, color o listas para pintar en 3DMON.",
+      "inLanguage": "es-AR",
+      "mainEntityOfPage": "https://3dmon.shop/blog/figuras-impresas-en-3d/",
+      "datePublished": "2026-11-27T12:30:00-03:00",
+      "dateModified": "2026-11-27T12:30:00-03:00",
+      "author": {
+        "@type": "Organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/"
+      },
+      "publisher": {
+        "@type": "LocalBusiness",
+        "@id": "https://3dmon.shop/#organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://3dmon.shop/logo-main.png"
+        }
+      },
+      "image": "https://3dmon.shop/images/blog/figuras-impresas-en-3d.jpg",
+      "breadcrumb": {
+        "@id": "https://3dmon.shop/blog/figuras-impresas-en-3d/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://3dmon.shop/blog/figuras-impresas-en-3d/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://3dmon.shop/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://3dmon.shop/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Figuras impresas en 3D a pedido",
+          "item": "https://3dmon.shop/blog/figuras-impresas-en-3d/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://3dmon.shop/blog/figuras-impresas-en-3d/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Las figuras impresas en 3D vienen pintadas a mano?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Entregamos las figuras en color sólido (incluyendo tonos metálicos, bronce, mármol o negro mate) o en gris/blanco neutro listas para que las pintes con acrílicos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Pueden imprimir un accesorio o símbolo de una película recién estrenada?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Apenas salen los modelos en comunidades 3D o si nos mandás buenas referencias visuales, te confirmamos viabilidad y cotización por WhatsApp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué tamaño máximo puede tener una figura?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Imprimimos figuras de una sola pieza hasta unos 22 a 25 cm según el volumen, y piezas más grandes divididas en partes con encastre firme."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se notan las líneas de impresión en una figura coleccionable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para figuras trabajamos con capas finas que priorizan el detalle y la prolijidad visual para que luzcan limpias en vitrina o al pintarlas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Las figuras impresas en 3D son frágiles si se caen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las fabricamos con paredes resistentes para manipulación normal y exhibición, aunque como cualquier figura coleccionable de estantería conviene evitar caídas fuertes desde altura."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Hacen envíos de figuras coleccionables a toda Argentina?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Embalamos cada figura con protección extra para evitar golpes en detalles salientes y despachamos a todo el país."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/blog.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <a href="/" class="header-brand" aria-label="3DMON Inicio">
+      <img src="/logo-solo.png" alt="3DMON Logo" class="header-logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="/#servicios" class="nav-anchor-link">Cómo Trabajamos</a>
+      <a href="/#proyectos" class="nav-anchor-link">Portafolio</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+        <span class="theme-opt theme-opt-light">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <span class="theme-label">Modo Claro</span>
+        </span>
+        <span class="theme-opt theme-opt-dark">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <span class="theme-label">Modo Oscuro</span>
+        </span>
+      </button>
+      <a href="https://wa.me/542644113760" class="nav-cta" target="_blank" rel="noopener noreferrer">
+        Pedí tu Presupuesto
+      </a>
+    </nav>
+  </header>
+
+  <main class="article-shell">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a>
+      <span aria-hidden="true">/</span>
+      <span>Figuras impresas en 3D a pedido</span>
+    </nav>
+
+    <article>
+      <header>
+        <div class="article-meta-row">
+          <span class="axis-badge axis-principiantes">Comprador y Redes</span>
+          <span>Actualizado 27 de noviembre de 2026 · 6 min de lectura</span>
+        </div>
+
+        <h1 class="article-title">Figuras impresas en 3D a pedido: personajes, cine, series y bustos</h1>
+
+        <section class="direct-answer" aria-label="Respuesta directa">
+          <p class="direct-answer-label">Respuesta Directa</p>
+          <p>Las <strong>figuras impresas en 3D</strong> a pedido te permiten conseguir personajes de películas, series, anime, videojuegos, bustos y accesorios icónicos que no se venden en jugueterías locales. En 3DMON las fabricamos en el tamaño que quieras, en colores listos para exhibir o en tono neutro preparadas para pintar a mano.</p>
+        </section>
+
+        <figure class="article-hero-figure">
+          <img
+            src="/images/blog/figuras-impresas-en-3d.jpg"
+            alt="Figuras coleccionables, busto escultórico y medallón temático de película impresos en 3D sobre base oscura con luz dorada"
+            width="1200"
+            height="675"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      </header>
+
+      <div class="article-body">
+<p>Cada vez que se estrena una película esperada, una temporada nueva de una serie o un videojuego viral, los fans buscan figuras, bustos, medallones, tokens o réplicas que todavía ni existen en las tiendas locales o que llegan importadas a precios imposibles. La impresión 3D a pedido resuelve exactamente eso: podés tener la pieza que te gusta en la escala que entra en tu repisa.</p>
+
+        <h2>Qué tipos de figuras y accesorios coleccionables fabricamos</h2>
+        <ul>
+          <li><strong>Bustos y estatuas de cine, series y anime:</strong> desde piezas compactas de 12 cm para el escritorio hasta figuras de exhibición de 25 cm o más.</li>
+          <li><strong>Accesorios y props de películas y sagas:</strong> medallones, escudos, insignias, soportes temáticos, varitas, tokens y réplicas decorativas para coleccionistas o cosplay.</li>
+          <li><strong>Miniaturas y escenografía para juegos de mesa:</strong> piezas, marcadores, torres de dados y organizadores para rol y estrategia.</li>
+          <li><strong>Figuras estilo caricatura o trofeos personalizados:</strong> ideales para regalar a amigos, streamers o fans de un club deportivo.</li>
+        </ul>
+
+        <h2>Opciones de terminación: ¿lista para exhibir o para pintar?</h2>
+        <div class="table-wrapper" tabindex="0" role="region" aria-label="Opciones de acabado para figuras impresas en 3D en 3DMON">
+          <table>
+            <caption>Cómo elegir la terminación de tu figura según cómo la vas a usar</caption>
+            <thead>
+              <tr>
+                <th>Opción</th>
+                <th>Cómo se entrega</th>
+                <th>Ideal para</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Opción"><strong>Color sólido o seda/metálico</strong></td>
+                <td data-label="Cómo se entrega">Impresa en dorado, bronce, mármol, negro mate o color temático</td>
+                <td data-label="Ideal para">Bustos estilo estatua, props y decoración minimalista</td>
+              </tr>
+              <tr>
+                <td data-label="Opción"><strong>Gris o blanco neutro (para pintar)</strong></td>
+                <td data-label="Cómo se entrega">Limpia de soportes y lista para aplicar primer y acrílicos</td>
+                <td data-label="Ideal para">Quienes disfrutan pintar sus propias figuras a pincel o aerógrafo</td>
+              </tr>
+              <tr>
+                <td data-label="Opción"><strong>Piezas por partes encastrables</strong></td>
+                <td data-label="Cómo se entrega">Dividida por color o para lograr tamaños grandes</td>
+                <td data-label="Ideal para">Figuras grandes o accesorios con colores bien definidos</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Cómo elegir el tamaño ideal sin que se dispare el presupuesto</h2>
+        <p>En impresión 3D el volumen crece rápido al agrandar una figura: pasar de 12 cm a 24 cm de altura no duplica el tiempo de máquina, sino que puede multiplicarlo por cuatro o más. Por eso, si buscás un excelente equilibrio entre presencia visual y precio accesible, el rango de <strong>14 a 18 cm</strong> suele ser el punto dulce favorito para escritorios y vitrinas.</p>
+        <p>Además, si ya viste el personaje en MakerWorld, Cults3D o en un video de redes, mirá cómo enviarnos el enlace en <a href="/blog/encargar-impresion-3d-redes/">cómo encargar algo en 3D que viste en redes</a>. Y si estás buscando un obsequio especial, descubrí más opciones en <a href="/blog/regalos-personalizados-en-3d/">regalos personalizados en 3D</a>.</p>
+
+        <section class="faq-section" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">Preguntas Frecuentes</h2>
+          <details class="faq-item">
+            <summary>¿Las figuras impresas en 3D vienen pintadas a mano?</summary>
+            <div class="faq-answer"><p>Entregamos las figuras en color sólido (incluyendo tonos metálicos, bronce, mármol o negro mate) o en gris/blanco neutro listas para que las pintes con acrílicos.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Pueden imprimir un accesorio o símbolo de una película recién estrenada?</summary>
+            <div class="faq-answer"><p>Sí. Apenas salen los modelos en comunidades 3D o si nos mandás buenas referencias visuales, te confirmamos viabilidad y cotización por WhatsApp.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué tamaño máximo puede tener una figura?</summary>
+            <div class="faq-answer"><p>Imprimimos figuras de una sola pieza hasta unos 22 a 25 cm según el volumen, y piezas más grandes divididas en partes con encastre firme.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Se notan las líneas de impresión en una figura coleccionable?</summary>
+            <div class="faq-answer"><p>Para figuras trabajamos con capas finas que priorizan el detalle y la prolijidad visual para que luzcan limpias en vitrina o al pintarlas.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Las figuras impresas en 3D son frágiles si se caen?</summary>
+            <div class="faq-answer"><p>Las fabricamos con paredes resistentes para manipulación normal y exhibición, aunque como cualquier figura coleccionable de estantería conviene evitar caídas fuertes desde altura.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Hacen envíos de figuras coleccionables a toda Argentina?</summary>
+            <div class="faq-answer"><p>Sí. Embalamos cada figura con protección extra para evitar golpes en detalles salientes y despachamos a todo el país.</p></div>
+          </details>
+        </section>
+
+        <aside class="cta-box">
+          <h2>Pedí tu figura o accesorio coleccionable a medida</h2>
+          <p>Contanos qué personaje, película o serie buscás y de qué altura la querés; te ayudamos a elegir el mejor modelo y presupuesto.</p>
+          <div class="cta-actions">
+            <button
+              type="button"
+              class="nav-cta"
+              data-wa-msg="Hola 3DMON, quiero consultar por una figura o accesorio coleccionable impreso en 3D a pedido."
+            >
+              Consultar por WhatsApp
+            </button>
+            <a href="/" class="btn-outline-gold">Conocer Servicios 3DMON</a>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="/logo-solo.png" alt="3DMON" style="height: 40px; margin-bottom: 14px;" />
+        <p>Micropyme de Impresión 3D</p>
+        <p>San Juan, Capital</p>
+        <p>Envíos a todo el país</p>
+      </div>
+      <div class="footer-col">
+        <h4>SERVICIOS</h4>
+        <p>Impresión PLA / PETG</p>
+        <p>Prototipado Rápido</p>
+        <p>Pedidos Mayoristas</p>
+      </div>
+      <div class="footer-col">
+        <h4>GUÍAS Y BLOG</h4>
+        <a href="/blog/">Blog y Guías 3D</a>
+        <a href="/blog/?eje=principiantes">Comprador y Redes</a>
+        <a href="/blog/?eje=tecnico">Soluciones por Material</a>
+        <a href="/blog/?eje=comercial">Servicios y Presupuestos</a>
+      </div>
+      <div class="footer-col">
+        <h4>SEGUINOS</h4>
+        <a href="https://www.instagram.com/3d.mon_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://wa.me/542644113760" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 3DMON - Laboratorio de Impresión. Todos los derechos reservados.</p>
+      <a
+        href="https://erikwebsite.com/"
+        target="_blank"
+        rel="noopener"
+        title="Diseño y desarrollo web de alta velocidad - Erik Website"
+        class="erik-badge"
+      >
+        <span class="erik-dot" aria-hidden="true"></span>
+        Desarrollo web por <strong>Erik Website</strong>
+      </a>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/blog.js"></script>
+</body>
+
+</html>

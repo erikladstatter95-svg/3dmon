@@ -41,8 +41,9 @@
    - **0 emojis decorativos** en textos, títulos, badges, botones o código HTML/JSX.
    - **0 guiones largos (`—`)** típicos de IA: reemplazar por comas, dos puntos o paréntesis.
    - **Regla #31 (Honestidad SEO):** Nunca prometer el puesto `#1` en Google ni garantizar posiciones exactas; comunicar siempre que optimizamos para posicionarnos lo más alto posible y competir por los primeros lugares.
-5. **Taxonomía Cerrada del Blog (3 Ejes):**
-   - Toda tarjeta en `blog/index.html` debe usar exclusivamente uno de los 3 valores de `data-cat`: `principiantes`, `tecnico`, `comercial`.
+5. **Taxonomía Cerrada del Blog (3 Ejes — Pivote 100% Comprador desde 27/11/2026):**
+   - Toda tarjeta en `blog/index.html` debe usar exclusivamente uno de los 3 valores de `data-cat`: `principiantes` (Comprador Nuevo, Regalos y Redes), `tecnico` (Soluciones por Material y Uso para clientes, NO makers) y `comercial` (Transaccional Directo, Precios, Eventos y B2B).
+   - **Prohibido contenido maker/dueño de impresora:** No escribir tutoriales de calibración, temperatura de cama, warping ni cómo reparar impresoras; todo artículo debe atraer compradores listos para encargar piezas.
    - Mantener sincronizados los contadores en las píldoras, el `<select>` y el texto `Mostrando N guías`.
 6. **Teléfono Oficial Único y Botones WhatsApp:**
    - El único teléfono permitido en todo el repositorio (`wa.me/`, `data-wa-phone` y `Schema.org`) es `542644113760`.
@@ -90,5 +91,10 @@
   - Generadas y procesadas 10 fotografías editoriales `1200x675` JPEG (`93.2 KB`–`173.2 KB`, todas `< 490 KB`) en `public/images/blog/` con pastilla por eje y sello `3dmon.shop`.
   - Publicados `10` artículos HTML5 completos (`4` Principiantes, `3` Técnico 3D, `3` Comercial con Schema `Service`) con paridad FAQ 6/6, tablas accesibles, Respuesta Directa Sturm, interlinking cruzado y voseo natural.
   - Sincronizados `blog/index.html` (`10` guías activas), `sitemap.xml` + `public/sitemap.xml` (`12` URLs) y `llms.txt` + `public/llms.txt`.
+- [x] **2026-11-27 — Pivote Estratégico 100% Comprador + Publicación Tanda 2 del Blog (10 artículos comerciales/comprador):**
+  - Procesado nuevo CSV `keywords/Keyword Stats 2026-11-27 at 11_47_38.csv` (`124` keywords filtradas de compra 3D: `souvenirs 3d`, `cortantes 3d`, `repuestos impresion 3d`, `donde imprimir en 3d`, `impresion 3d mercado libre`).
+  - Reestructurado `PLAN_SEMANAL_SEO.md` eliminando temas para dueños de impresoras y enfocando los 3 ejes 100% en compradores y empresas.
+  - Publicados `10` artículos nuevos (`5` Comerciales con Schema `Service`, `2` Soluciones por Material, `3` Comprador y Redes) + `10` imágenes `1200x675` `< 490 KB` en `public/images/blog/` (8 fotos editoriales nuevas + 2 fotos reales del taller `p4.jpg` y `p1.jpg`).
+  - Sincronizados `blog/index.html` (`20` guías activas: `P=7`, `T=5`, `C=8`), `sitemap.xml` + `public/sitemap.xml` (`22` URLs) y `llms.txt` + `public/llms.txt`.
 - [ ] **Pendiente Bloque 0 (Acciones en Panel):** Revisar *Managed `robots.txt`* y *Always Use HTTPS* en Cloudflare, limpiar sitemaps WP viejos en GSC/Bing y comprimir `public/portfolio/p1.jpg`..`p9.jpg` (`24,2 MB`).
-- [ ] **Pendiente Sprint Fundacional del Blog (20 artículos restantes):** Tanda 2 (10 viernes 27/11) + Tanda 3 (10 sábado 28/11) según matriz cerrada en `PLAN_SEMANAL_SEO.md`.
+- [ ] **Pendiente Sprint Fundacional del Blog (10 artículos restantes):** Tanda 3 (10 sábado 28/11 — 100% comprador/comercial) según matriz actualizada en `PLAN_SEMANAL_SEO.md`.

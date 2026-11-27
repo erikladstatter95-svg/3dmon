@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('3dmon_theme') || 'dark';
+      if (savedTheme !== 'light' && savedTheme !== 'dark') savedTheme = 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.querySelector('meta[name="color-scheme"]').content = savedTheme;
+    } catch (e) {}
+  </script>
+
+  <!-- Filtro de Trafico Interno (?soy_erik=1 / ?soy_3dmon=1 / localhost / localStorage) -->
+  <script id="dm-internal-filter">
+    (function () {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var mode = p.get('soy_erik') || p.get('soy_3dmon');
+        if (mode === '1') {
+          localStorage.setItem('dm_ignore_analytics', '1');
+        } else if (mode === '0') {
+          localStorage.removeItem('dm_ignore_analytics');
+        }
+        if (
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1' ||
+          localStorage.getItem('dm_ignore_analytics') === '1'
+        ) {
+          window._dmIgnoreAnalytics = true;
+          window['ga-disable-G-E76DZMT0FL'] = true;
+        }
+        if (mode === '1' || mode === '0') {
+          window.addEventListener('DOMContentLoaded', function () {
+            var b = document.createElement('div');
+            b.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999;background:#0f172a;color:#3D8700;border:1px solid #3D8700;padding:12px 18px;border-radius:10px;font-family:sans-serif;font-size:13px;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,0.5);max-width:340px;';
+            b.textContent = mode === '1'
+              ? 'Filtro Interno Activado: Tus visitas en este navegador ya NO cuentan en GA4.'
+              : 'Filtro Interno Desactivado: Este navegador vuelve a enviar datos a GA4.';
+            document.body.appendChild(b);
+            setTimeout(function () { b.remove(); }, 6000);
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>Repuestos impresos en 3D para autos y hogar | 3DMON</title>
+  <meta name="description" content="Fabricamos repuestos impresos en 3D que ya no se consiguen para autos, electrodomésticos y máquinas. Traenos la pieza rota o envianos fotos." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://3dmon.shop/blog/repuestos-impresos-en-3d/" />
+  <link rel="icon" type="image/png" href="/logo-solo.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="3DMON" />
+  <meta property="og:url" content="https://3dmon.shop/blog/repuestos-impresos-en-3d/" />
+  <meta property="og:title" content="Repuestos impresos en 3D para autos y hogar | 3DMON" />
+  <meta property="og:description" content="Fabricamos repuestos impresos en 3D que ya no se consiguen para autos, electrodomésticos y máquinas. Traenos la pieza rota o envianos fotos." />
+  <meta property="og:image" content="https://3dmon.shop/images/blog/repuestos-impresos-en-3d.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Repuestos impresos en 3D para autos y hogar | 3DMON" />
+  <meta name="twitter:description" content="Fabricamos repuestos impresos en 3D que ya no se consiguen para autos, electrodomésticos y máquinas. Traenos la pieza rota o envianos fotos." />
+  <meta name="twitter:image" content="https://3dmon.shop/images/blog/repuestos-impresos-en-3d.jpg" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E76DZMT0FL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    if (!window._dmIgnoreAnalytics) {
+      gtag('js', new Date());
+      gtag('config', 'G-E76DZMT0FL');
+    }
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://3dmon.shop/blog/repuestos-impresos-en-3d/#article",
+      "headline": "Repuestos impresos en 3D a medida para autos y electrodomésticos",
+      "description": "Fabricamos repuestos impresos en 3D que ya no se consiguen para autos, electrodomésticos y máquinas. Traenos la pieza rota o envianos fotos.",
+      "inLanguage": "es-AR",
+      "mainEntityOfPage": "https://3dmon.shop/blog/repuestos-impresos-en-3d/",
+      "datePublished": "2026-11-27T12:30:00-03:00",
+      "dateModified": "2026-11-27T12:30:00-03:00",
+      "author": {
+        "@type": "Organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/"
+      },
+      "publisher": {
+        "@type": "LocalBusiness",
+        "@id": "https://3dmon.shop/#organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://3dmon.shop/logo-main.png"
+        }
+      },
+      "image": "https://3dmon.shop/images/blog/repuestos-impresos-en-3d.jpg",
+      "breadcrumb": {
+        "@id": "https://3dmon.shop/blog/repuestos-impresos-en-3d/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://3dmon.shop/blog/repuestos-impresos-en-3d/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://3dmon.shop/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://3dmon.shop/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Repuestos impresos en 3D",
+          "item": "https://3dmon.shop/blog/repuestos-impresos-en-3d/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://3dmon.shop/blog/repuestos-impresos-en-3d/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Pueden hacer un repuesto si la pieza original está rota en dos o tres partes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Mientras conserve las partes clave o tengamos las medidas del alojamiento donde encaja, podemos reconstruir el modelo 3D y reforzar el punto donde se quebró."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Los repuestos impresos en 3D aguantan el calor adentro del auto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, siempre que se fabriquen en el material correcto. Para autos evitamos el PLA común y usamos PETG reforzado, que tolera mucho mejor las temperaturas de cabina."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tengo que llevar el archivo 3D o ustedes diseñan el repuesto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nosotros lo diseñamos desde cero a partir de tu muestra física o de fotos con medidas. No necesitás saber nada de diseño 3D."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tarda fabricar un repuesto a medida?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El relevamiento, modelado e impresión suele demorar entre 2 y 5 días hábiles según la complejidad de la pieza."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo pedir varias copias del mismo repuesto para tener de reserva?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, y te conviene mucho: el diseño se paga una sola vez, por lo que las copias extra salen bastante más económicas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Envían repuestos a otras provincias de Argentina?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Si no estás en San Juan Capital, te guiamos para medir tu pieza por WhatsApp y te despachamos el repuesto terminado a todo el país."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://3dmon.shop/blog/repuestos-impresos-en-3d/#service",
+      "name": "Fabricación de repuestos impresos en 3D a medida",
+      "description": "Diseño y fabricación de repuestos plásticos discontinuados para autos, electrodomésticos y maquinaria en PETG, TPU y materiales técnicos.",
+      "serviceType": "Impresión 3D a medida",
+      "areaServed": "Argentina",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://3dmon.shop/#organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/",
+        "telephone": "+542644113760"
+      }
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/blog.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <a href="/" class="header-brand" aria-label="3DMON Inicio">
+      <img src="/logo-solo.png" alt="3DMON Logo" class="header-logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="/#servicios" class="nav-anchor-link">Cómo Trabajamos</a>
+      <a href="/#proyectos" class="nav-anchor-link">Portafolio</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+        <span class="theme-opt theme-opt-light">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <span class="theme-label">Modo Claro</span>
+        </span>
+        <span class="theme-opt theme-opt-dark">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <span class="theme-label">Modo Oscuro</span>
+        </span>
+      </button>
+      <a href="https://wa.me/542644113760" class="nav-cta" target="_blank" rel="noopener noreferrer">
+        Pedí tu Presupuesto
+      </a>
+    </nav>
+  </header>
+
+  <main class="article-shell">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a>
+      <span aria-hidden="true">/</span>
+      <span>Repuestos impresos en 3D</span>
+    </nav>
+
+    <article>
+      <header>
+        <div class="article-meta-row">
+          <span class="axis-badge axis-comercial">Comercial y Servicios</span>
+          <span>Actualizado 27 de noviembre de 2026 · 6 min de lectura</span>
+        </div>
+
+        <h1 class="article-title">Repuestos impresos en 3D a medida para autos y electrodomésticos</h1>
+
+        <section class="direct-answer" aria-label="Respuesta directa">
+          <p class="direct-answer-label">Respuesta Directa</p>
+          <p>Los <strong>repuestos impresos en 3D</strong> solucionan roturas de piezas plásticas discontinuadas o importadas en autos, electrodomésticos, muebles y herramientas sin pagar kits completos. En 3DMON relevamos tu pieza rota a partir de fotos con medidas o muestra física, elegimos el material resistente adecuado y te la entregamos lista para instalar.</p>
+        </section>
+
+        <figure class="article-hero-figure">
+          <img
+            src="/images/blog/repuestos-impresos-en-3d.jpg"
+            alt="Comparativa de un repuesto plástico roto junto a su copia nueva impresa en 3D en PETG negro resistente con calibre metálico"
+            width="1200"
+            height="675"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      </header>
+
+      <div class="article-body">
+<p>Pasa todo el tiempo: se quiebra una trabita plástica del levantavidrios del auto, se barre un engranaje de la procesadora o se parte la manija de la heladera. Cuando vas a la casa de repuestos te dicen que la pieza no se vende suelta y que tenés que comprar el módulo entero, o directamente que ya no entra al país. Ahí es donde fabricar el repuesto en 3D te ahorra plata y meses de espera.</p>
+
+        <h2>Qué repuestos funcionan excelente impresos en 3D</h2>
+        <div class="table-wrapper" tabindex="0" role="region" aria-label="Ejemplos de repuestos impresos en 3D por rubro y material recomendado">
+          <table>
+            <caption>Repuestos más solicitados en 3DMON y material recomendado según exigencia</caption>
+            <thead>
+              <tr>
+                <th>Rubro</th>
+                <th>Piezas habituales</th>
+                <th>Material recomendado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Rubro"><strong>Autos y camionetas</strong></td>
+                <td data-label="Piezas">Clips de tapizado, tapas de consola, guías de levantavidrios, perillas de aire</td>
+                <td data-label="Material">PETG reforzado (aguanta calor de cabina)</td>
+              </tr>
+              <tr>
+                <td data-label="Rubro"><strong>Electrodomésticos</strong></td>
+                <td data-label="Piezas">Perillas de cocina/lavarropas, bisagras plásticas, trabas de puertas, acoples</td>
+                <td data-label="Material">PETG o PLA+ según temperatura</td>
+              </tr>
+              <tr>
+                <td data-label="Rubro"><strong>Hogar y aberturas</strong></td>
+                <td data-label="Piezas">Tapones de sillas, guías de cajones, trabas de persianas y ventanas</td>
+                <td data-label="Material">PETG o TPU para topes flexibles</td>
+              </tr>
+              <tr>
+                <td data-label="Rubro"><strong>Deporte, bicis y karting</strong></td>
+                <td data-label="Piezas">Soportes de sensores, protectores de goma, tapas y espaciadores</td>
+                <td data-label="Material">PETG o <a href="/blog/filamento-tpu-caracteristicas-usos/">TPU flexible</a></td>
+              </tr>
+              <tr>
+                <td data-label="Rubro"><strong>Máquinas y taller</strong></td>
+                <td data-label="Piezas">Engranajes plásticos, tapas protectoras, bujes y adaptadores de aspiración</td>
+                <td data-label="Material">PETG de alta densidad</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Qué repuestos NO conviene imprimir en 3D (honestidad ante todo)</h2>
+        <p>En 3DMON preferimos ser directos antes de hacerte gastar plata en algo que no va a durar. No recomendamos imprimir en 3D piezas que trabajen en contacto directo con fuego, escapes de motor, fluidos a alta presión o elementos críticos de seguridad vehicular (como frenos o dirección). Para todo lo demás que sea plástico estructural, carcasas, trabas y accesorios, la impresión 3D bien diseñada funciona de maravilla.</p>
+
+        <h2>Cómo fabricamos tu repuesto aunque esté partido en pedazos</h2>
+        <ol>
+          <li><strong>Evaluación inicial por foto:</strong> nos mandás 2 o 3 fotos claras de la pieza rota apoyada al lado de una regla o calibre, y nos contás dónde va colocada.</li>
+          <li><strong>Relevamiento exacto:</strong> si estás en <a href="/blog/impresion-3d-san-juan/">San Juan Capital</a>, podés acercarnos la muestra física para medirla con calibre digital. Si sos de otra provincia, te guiamos paso a paso para tomar las cotas clave.</li>
+          <li><strong>Refuerzo del punto débil:</strong> muchas piezas originales se rompen siempre en el mismo lugar por diseño fino; al modelar tu repuesto podemos reforzar esa zona sin afectar el encastre.</li>
+          <li><strong>Selección de material resistente:</strong> para interior de auto o zonas expuestas al sol usamos materiales con mayor tolerancia térmica (podés leer más en <a href="/blog/piezas-3d-resistentes-calor/">piezas 3D resistentes al calor y al sol</a>).</li>
+        </ol>
+
+        <p>Consultá también cómo calculamos el valor del diseño y la fabricación en nuestra guía de <a href="/blog/precio-presupuesto-impresion-3d/">precio y presupuesto de impresión 3D</a>.</p>
+
+        <section class="faq-section" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">Preguntas Frecuentes</h2>
+          <details class="faq-item">
+            <summary>¿Pueden hacer un repuesto si la pieza original está rota en dos o tres partes?</summary>
+            <div class="faq-answer"><p>Sí. Mientras conserve las partes clave o tengamos las medidas del alojamiento donde encaja, podemos reconstruir el modelo 3D y reforzar el punto donde se quebró.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Los repuestos impresos en 3D aguantan el calor adentro del auto?</summary>
+            <div class="faq-answer"><p>Sí, siempre que se fabriquen en el material correcto. Para autos evitamos el PLA común y usamos PETG reforzado, que tolera mucho mejor las temperaturas de cabina.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Tengo que llevar el archivo 3D o ustedes diseñan el repuesto?</summary>
+            <div class="faq-answer"><p>Nosotros lo diseñamos desde cero a partir de tu muestra física o de fotos con medidas. No necesitás saber nada de diseño 3D.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Cuánto tarda fabricar un repuesto a medida?</summary>
+            <div class="faq-answer"><p>El relevamiento, modelado e impresión suele demorar entre 2 y 5 días hábiles según la complejidad de la pieza.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Puedo pedir varias copias del mismo repuesto para tener de reserva?</summary>
+            <div class="faq-answer"><p>Sí, y te conviene mucho: el diseño se paga una sola vez, por lo que las copias extra salen bastante más económicas.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Envían repuestos a otras provincias de Argentina?</summary>
+            <div class="faq-answer"><p>Sí. Si no estás en San Juan Capital, te guiamos para medir tu pieza por WhatsApp y te despachamos el repuesto terminado a todo el país.</p></div>
+          </details>
+        </section>
+
+        <aside class="cta-box">
+          <h2>Resolvé ese repuesto que no se consigue en ningún lado</h2>
+          <p>Mandanos fotos de tu pieza rota junto a una regla por WhatsApp y te confirmamos viabilidad, material recomendado y presupuesto.</p>
+          <div class="cta-actions">
+            <button
+              type="button"
+              class="nav-cta"
+              data-wa-msg="Hola 3DMON, se me rompió una pieza plástica y quiero consultar si pueden fabricar el repuesto en 3D."
+            >
+              Consultar por WhatsApp
+            </button>
+            <a href="/" class="btn-outline-gold">Conocer Servicios 3DMON</a>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="/logo-solo.png" alt="3DMON" style="height: 40px; margin-bottom: 14px;" />
+        <p>Micropyme de Impresión 3D</p>
+        <p>San Juan, Capital</p>
+        <p>Envíos a todo el país</p>
+      </div>
+      <div class="footer-col">
+        <h4>SERVICIOS</h4>
+        <p>Impresión PLA / PETG</p>
+        <p>Prototipado Rápido</p>
+        <p>Pedidos Mayoristas</p>
+      </div>
+      <div class="footer-col">
+        <h4>GUÍAS Y BLOG</h4>
+        <a href="/blog/">Blog y Guías 3D</a>
+        <a href="/blog/?eje=principiantes">Comprador y Redes</a>
+        <a href="/blog/?eje=tecnico">Soluciones por Material</a>
+        <a href="/blog/?eje=comercial">Servicios y Presupuestos</a>
+      </div>
+      <div class="footer-col">
+        <h4>SEGUINOS</h4>
+        <a href="https://www.instagram.com/3d.mon_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://wa.me/542644113760" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 3DMON - Laboratorio de Impresión. Todos los derechos reservados.</p>
+      <a
+        href="https://erikwebsite.com/"
+        target="_blank"
+        rel="noopener"
+        title="Diseño y desarrollo web de alta velocidad - Erik Website"
+        class="erik-badge"
+      >
+        <span class="erik-dot" aria-hidden="true"></span>
+        Desarrollo web por <strong>Erik Website</strong>
+      </a>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/blog.js"></script>
+</body>
+
+</html>

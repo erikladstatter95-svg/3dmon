@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('3dmon_theme') || 'dark';
+      if (savedTheme !== 'light' && savedTheme !== 'dark') savedTheme = 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.querySelector('meta[name="color-scheme"]').content = savedTheme;
+    } catch (e) {}
+  </script>
+
+  <!-- Filtro de Trafico Interno (?soy_erik=1 / ?soy_3dmon=1 / localhost / localStorage) -->
+  <script id="dm-internal-filter">
+    (function () {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var mode = p.get('soy_erik') || p.get('soy_3dmon');
+        if (mode === '1') {
+          localStorage.setItem('dm_ignore_analytics', '1');
+        } else if (mode === '0') {
+          localStorage.removeItem('dm_ignore_analytics');
+        }
+        if (
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1' ||
+          localStorage.getItem('dm_ignore_analytics') === '1'
+        ) {
+          window._dmIgnoreAnalytics = true;
+          window['ga-disable-G-E76DZMT0FL'] = true;
+        }
+        if (mode === '1' || mode === '0') {
+          window.addEventListener('DOMContentLoaded', function () {
+            var b = document.createElement('div');
+            b.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999;background:#0f172a;color:#3D8700;border:1px solid #3D8700;padding:12px 18px;border-radius:10px;font-family:sans-serif;font-size:13px;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,0.5);max-width:340px;';
+            b.textContent = mode === '1'
+              ? 'Filtro Interno Activado: Tus visitas en este navegador ya NO cuentan en GA4.'
+              : 'Filtro Interno Desactivado: Este navegador vuelve a enviar datos a GA4.';
+            document.body.appendChild(b);
+            setTimeout(function () { b.remove(); }, 6000);
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>Souvenirs impresos en 3D para 15 años y eventos | 3DMON</title>
+  <meta name="description" content="Encargá souvenirs impresos en 3D personalizados con nombre y fecha para 15 años, cumpleaños, bautismos o comuniones. Precios por cantidad en 3DMON." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://3dmon.shop/blog/souvenirs-impresos-en-3d/" />
+  <link rel="icon" type="image/png" href="/logo-solo.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="3DMON" />
+  <meta property="og:url" content="https://3dmon.shop/blog/souvenirs-impresos-en-3d/" />
+  <meta property="og:title" content="Souvenirs impresos en 3D para 15 años y eventos | 3DMON" />
+  <meta property="og:description" content="Encargá souvenirs impresos en 3D personalizados con nombre y fecha para 15 años, cumpleaños, bautismos o comuniones. Precios por cantidad en 3DMON." />
+  <meta property="og:image" content="https://3dmon.shop/images/blog/souvenirs-impresos-en-3d.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Souvenirs impresos en 3D para 15 años y eventos | 3DMON" />
+  <meta name="twitter:description" content="Encargá souvenirs impresos en 3D personalizados con nombre y fecha para 15 años, cumpleaños, bautismos o comuniones. Precios por cantidad en 3DMON." />
+  <meta name="twitter:image" content="https://3dmon.shop/images/blog/souvenirs-impresos-en-3d.jpg" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E76DZMT0FL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    if (!window._dmIgnoreAnalytics) {
+      gtag('js', new Date());
+      gtag('config', 'G-E76DZMT0FL');
+    }
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://3dmon.shop/blog/souvenirs-impresos-en-3d/#article",
+      "headline": "Souvenirs impresos en 3D: ideas para 15 años, cumpleaños y eventos",
+      "description": "Encargá souvenirs impresos en 3D personalizados con nombre y fecha para 15 años, cumpleaños, bautismos o comuniones. Precios por cantidad en 3DMON.",
+      "inLanguage": "es-AR",
+      "mainEntityOfPage": "https://3dmon.shop/blog/souvenirs-impresos-en-3d/",
+      "datePublished": "2026-11-27T12:30:00-03:00",
+      "dateModified": "2026-11-27T12:30:00-03:00",
+      "author": {
+        "@type": "Organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/"
+      },
+      "publisher": {
+        "@type": "LocalBusiness",
+        "@id": "https://3dmon.shop/#organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://3dmon.shop/logo-main.png"
+        }
+      },
+      "image": "https://3dmon.shop/images/blog/souvenirs-impresos-en-3d.jpg",
+      "breadcrumb": {
+        "@id": "https://3dmon.shop/blog/souvenirs-impresos-en-3d/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://3dmon.shop/blog/souvenirs-impresos-en-3d/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://3dmon.shop/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://3dmon.shop/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Souvenirs impresos en 3D",
+          "item": "https://3dmon.shop/blog/souvenirs-impresos-en-3d/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://3dmon.shop/blog/souvenirs-impresos-en-3d/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la cantidad mínima para encargar souvenirs impresos en 3D?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Podés encargar desde 10 unidades para festejos íntimos, aunque los mayores descuentos escalonados arrancan a partir de las 25, 50 y 100 unidades."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se puede poner el nombre de cada invitado o solo el del homenajeado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Podemos hacer ambas cosas: poner el nombre y fecha del evento en todos iguales (opción más económica) o personalizar cada souvenir con el nombre de cada invitado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Vienen armados con argolla o cadena si elegimos llaveros?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Los souvenirs tipo llavero se entregan listos para repartir con argolla metálica incluida."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo ver cómo va a quedar el diseño antes de imprimir todo el lote?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Antes de arrancar la producción en serie te enviamos una vista previa digital del diseño y, en lotes grandes, foto de la primera pieza de prueba."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si quiero una temática de película, serie o personaje que no vi publicado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Envianos una foto de referencia o la tarjeta de invitación por WhatsApp y armamos una propuesta a medida para tu fiesta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Hacen envíos de souvenirs a todo el país?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, enviamos cajas protegidas desde San Juan Capital a cualquier ciudad de Argentina con seguimiento online."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://3dmon.shop/blog/souvenirs-impresos-en-3d/#service",
+      "name": "Souvenirs impresos en 3D personalizados por mayor",
+      "description": "Producción en serie de souvenirs personalizados con nombre, fecha y colores temáticos para eventos en Argentina.",
+      "serviceType": "Impresión 3D a medida",
+      "areaServed": "Argentina",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://3dmon.shop/#organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/",
+        "telephone": "+542644113760"
+      }
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/blog.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <a href="/" class="header-brand" aria-label="3DMON Inicio">
+      <img src="/logo-solo.png" alt="3DMON Logo" class="header-logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="/#servicios" class="nav-anchor-link">Cómo Trabajamos</a>
+      <a href="/#proyectos" class="nav-anchor-link">Portafolio</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+        <span class="theme-opt theme-opt-light">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <span class="theme-label">Modo Claro</span>
+        </span>
+        <span class="theme-opt theme-opt-dark">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <span class="theme-label">Modo Oscuro</span>
+        </span>
+      </button>
+      <a href="https://wa.me/542644113760" class="nav-cta" target="_blank" rel="noopener noreferrer">
+        Pedí tu Presupuesto
+      </a>
+    </nav>
+  </header>
+
+  <main class="article-shell">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a>
+      <span aria-hidden="true">/</span>
+      <span>Souvenirs impresos en 3D</span>
+    </nav>
+
+    <article>
+      <header>
+        <div class="article-meta-row">
+          <span class="axis-badge axis-comercial">Comercial y Servicios</span>
+          <span>Actualizado 27 de noviembre de 2026 · 6 min de lectura</span>
+        </div>
+
+        <h1 class="article-title">Souvenirs impresos en 3D: ideas para 15 años, cumpleaños y eventos</h1>
+
+        <section class="direct-answer" aria-label="Respuesta directa">
+          <p class="direct-answer-label">Respuesta Directa</p>
+          <p>Los <strong>souvenirs impresos en 3D</strong> permiten regalar recuerdos originales, útiles y personalizados con nombre, fecha o temática para cumpleaños, fiestas de 15 años, bautismos, comuniones y casamientos. En 3DMON fabricamos llaveros, mini macetas, imanes y figuras por cantidad con descuentos escalonados y envíos a toda Argentina.</p>
+        </section>
+
+        <figure class="article-hero-figure">
+          <img
+            src="/images/blog/souvenirs-impresos-en-3d.jpg"
+            alt="Colección colorida de souvenirs impresos en 3D personalizados incluyendo mini macetas, llaveros y figuras temáticas sobre mesa oscura"
+            width="1200"
+            height="675"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      </header>
+
+      <div class="article-body">
+<p>El gran problema de los souvenirs tradicionales es que terminan guardados en un cajón a la semana siguiente. Con la impresión 3D a medida podés entregar un recuerdo que combina la temática exacta de tu fiesta con un objeto práctico que tus invitados usan todos los días, y a un costo muy competitivo cuando pedís por cantidad.</p>
+
+        <h2>Ideas de souvenirs impresos en 3D según el tipo de evento</h2>
+        <div class="table-wrapper" tabindex="0" role="region" aria-label="Ideas de souvenirs impresos en 3D por tipo de evento">
+          <table>
+            <caption>Opciones de souvenirs 3D más elegidos según la celebración</caption>
+            <thead>
+              <tr>
+                <th>Evento</th>
+                <th>Souvenirs más pedidos</th>
+                <th>Personalización posible</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Evento"><strong>Cumpleaños infantiles</strong></td>
+                <td data-label="Souvenirs">Llaveros de personajes, cortantes, mini figuras o porta lápices</td>
+                <td data-label="Personalización">Nombre del cumpleañero y edad en relieve</td>
+              </tr>
+              <tr>
+                <td data-label="Evento"><strong>Fiestas de 15 años</strong></td>
+                <td data-label="Souvenirs">Mini macetas geométricas, llaveros con iniciales o porta celulares</td>
+                <td data-label="Personalización">Colores de la fiesta, iniciales y fecha</td>
+              </tr>
+              <tr>
+                <td data-label="Evento"><strong>Bautismos y comuniones</strong></td>
+                <td data-label="Souvenirs">Angelitos, cruces minimalistas, imanes o señaladores</td>
+                <td data-label="Personalización">Nombre, fecha y tonos pastel o dorados</td>
+              </tr>
+              <tr>
+                <td data-label="Evento"><strong>Casamientos y aniversarios</strong></td>
+                <td data-label="Souvenirs">Destapadores, imanes con iniciales o mini macetas para suculentas</td>
+                <td data-label="Personalización">Monograma de la pareja y fecha del evento</td>
+              </tr>
+              <tr>
+                <td data-label="Evento"><strong>Egresados y eventos escolares</strong></td>
+                <td data-label="Souvenirs">Llaveros con logo de la promo o medallas conmemorativas</td>
+                <td data-label="Personalización">Escudo del curso y nombre de cada egresado</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Por qué elegir souvenirs en 3D frente a opciones genéricas</h2>
+        <ul>
+          <li><strong>Colores exactos a tu decoración:</strong> podés combinar tonos metálicos, pastel, flúor, negro mate o blanco sin depender del stock de un cotillón.</li>
+          <li><strong>Resistencia y limpieza:</strong> fabricados en PLA firme y liviano, no se rompen como la cerámica ni se despegan como los stickers impresos en papel.</li>
+          <li><strong>Diseño exclusivo:</strong> si tenés la invitación del evento o un personaje favorito, adaptamos el souvenir para que haga juego.</li>
+          <li><strong>Ahorro real por lote:</strong> al comprar directo al taller evitás los recargos de plataformas que detallamos en <a href="/blog/impresion-3d-mercado-libre/">impresión 3D en Mercado Libre vs compra directa</a>.</li>
+        </ul>
+
+        <h2>Con cuánta anticipación conviene encargar tus souvenirs</h2>
+        <p>Para lotes de 20 a 50 unidades recomendamos reservar con <strong>10 a 15 días de anticipación</strong>. Si tu evento supera las 80 o 100 unidades o requiere envío a otra provincia, lo ideal es escribirnos con <strong>3 semanas de margen</strong> para diseñar la muestra digital, producir con tranquilidad y despachar a tiempo.</p>
+        <p>Si lo que buscás son específicamente llaveros corporativos o para egresados con logo en varios colores, revisá también nuestra guía de <a href="/blog/llaveros-3d-personalizados-mayor/">llaveros 3D personalizados por mayor</a> o mirá otras opciones en <a href="/blog/regalos-personalizados-en-3d/">regalos personalizados en 3D</a>.</p>
+
+        <section class="faq-section" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">Preguntas Frecuentes</h2>
+          <details class="faq-item">
+            <summary>¿Cuál es la cantidad mínima para encargar souvenirs impresos en 3D?</summary>
+            <div class="faq-answer"><p>Podés encargar desde 10 unidades para festejos íntimos, aunque los mayores descuentos escalonados arrancan a partir de las 25, 50 y 100 unidades.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Se puede poner el nombre de cada invitado o solo el del homenajeado?</summary>
+            <div class="faq-answer"><p>Podemos hacer ambas cosas: poner el nombre y fecha del evento en todos iguales (opción más económica) o personalizar cada souvenir con el nombre de cada invitado.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Vienen armados con argolla o cadena si elegimos llaveros?</summary>
+            <div class="faq-answer"><p>Sí. Los souvenirs tipo llavero se entregan listos para repartir con argolla metálica incluida.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Puedo ver cómo va a quedar el diseño antes de imprimir todo el lote?</summary>
+            <div class="faq-answer"><p>Sí. Antes de arrancar la producción en serie te enviamos una vista previa digital del diseño y, en lotes grandes, foto de la primera pieza de prueba.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué pasa si quiero una temática de película, serie o personaje que no vi publicado?</summary>
+            <div class="faq-answer"><p>Envianos una foto de referencia o la tarjeta de invitación por WhatsApp y armamos una propuesta a medida para tu fiesta.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Hacen envíos de souvenirs a todo el país?</summary>
+            <div class="faq-answer"><p>Sí, enviamos cajas protegidas desde San Juan Capital a cualquier ciudad de Argentina con seguimiento online.</p></div>
+          </details>
+        </section>
+
+        <aside class="cta-box">
+          <h2>Encargá souvenirs 3D que tus invitados sí van a usar</h2>
+          <p>Contanos la temática del evento, la fecha y la cantidad aproximada por WhatsApp y te armamos opciones con precio por lote.</p>
+          <div class="cta-actions">
+            <button
+              type="button"
+              class="nav-cta"
+              data-wa-msg="Hola 3DMON, quiero cotizar souvenirs impresos en 3D para un evento (cantidad y temática)."
+            >
+              Consultar por WhatsApp
+            </button>
+            <a href="/" class="btn-outline-gold">Conocer Servicios 3DMON</a>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="/logo-solo.png" alt="3DMON" style="height: 40px; margin-bottom: 14px;" />
+        <p>Micropyme de Impresión 3D</p>
+        <p>San Juan, Capital</p>
+        <p>Envíos a todo el país</p>
+      </div>
+      <div class="footer-col">
+        <h4>SERVICIOS</h4>
+        <p>Impresión PLA / PETG</p>
+        <p>Prototipado Rápido</p>
+        <p>Pedidos Mayoristas</p>
+      </div>
+      <div class="footer-col">
+        <h4>GUÍAS Y BLOG</h4>
+        <a href="/blog/">Blog y Guías 3D</a>
+        <a href="/blog/?eje=principiantes">Comprador y Redes</a>
+        <a href="/blog/?eje=tecnico">Soluciones por Material</a>
+        <a href="/blog/?eje=comercial">Servicios y Presupuestos</a>
+      </div>
+      <div class="footer-col">
+        <h4>SEGUINOS</h4>
+        <a href="https://www.instagram.com/3d.mon_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://wa.me/542644113760" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 3DMON - Laboratorio de Impresión. Todos los derechos reservados.</p>
+      <a
+        href="https://erikwebsite.com/"
+        target="_blank"
+        rel="noopener"
+        title="Diseño y desarrollo web de alta velocidad - Erik Website"
+        class="erik-badge"
+      >
+        <span class="erik-dot" aria-hidden="true"></span>
+        Desarrollo web por <strong>Erik Website</strong>
+      </a>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/blog.js"></script>
+</body>
+
+</html>

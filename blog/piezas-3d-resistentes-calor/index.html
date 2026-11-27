@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('3dmon_theme') || 'dark';
+      if (savedTheme !== 'light' && savedTheme !== 'dark') savedTheme = 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.querySelector('meta[name="color-scheme"]').content = savedTheme;
+    } catch (e) {}
+  </script>
+
+  <!-- Filtro de Trafico Interno (?soy_erik=1 / ?soy_3dmon=1 / localhost / localStorage) -->
+  <script id="dm-internal-filter">
+    (function () {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var mode = p.get('soy_erik') || p.get('soy_3dmon');
+        if (mode === '1') {
+          localStorage.setItem('dm_ignore_analytics', '1');
+        } else if (mode === '0') {
+          localStorage.removeItem('dm_ignore_analytics');
+        }
+        if (
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1' ||
+          localStorage.getItem('dm_ignore_analytics') === '1'
+        ) {
+          window._dmIgnoreAnalytics = true;
+          window['ga-disable-G-E76DZMT0FL'] = true;
+        }
+        if (mode === '1' || mode === '0') {
+          window.addEventListener('DOMContentLoaded', function () {
+            var b = document.createElement('div');
+            b.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999;background:#0f172a;color:#3D8700;border:1px solid #3D8700;padding:12px 18px;border-radius:10px;font-family:sans-serif;font-size:13px;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,0.5);max-width:340px;';
+            b.textContent = mode === '1'
+              ? 'Filtro Interno Activado: Tus visitas en este navegador ya NO cuentan en GA4.'
+              : 'Filtro Interno Desactivado: Este navegador vuelve a enviar datos a GA4.';
+            document.body.appendChild(b);
+            setTimeout(function () { b.remove(); }, 6000);
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>Piezas 3D resistentes al sol, calor y auto | 3DMON</title>
+  <meta name="description" content="¿Tu pieza impresa en 3D va al sol, en el auto o cerca del calor? Guía para compradores sobre qué material pedir para que no se deforme ni ablande." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://3dmon.shop/blog/piezas-3d-resistentes-calor/" />
+  <link rel="icon" type="image/png" href="/logo-solo.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="3DMON" />
+  <meta property="og:url" content="https://3dmon.shop/blog/piezas-3d-resistentes-calor/" />
+  <meta property="og:title" content="Piezas 3D resistentes al sol, calor y auto | 3DMON" />
+  <meta property="og:description" content="¿Tu pieza impresa en 3D va al sol, en el auto o cerca del calor? Guía para compradores sobre qué material pedir para que no se deforme ni ablande." />
+  <meta property="og:image" content="https://3dmon.shop/images/blog/piezas-3d-resistentes-calor.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Piezas 3D resistentes al sol, calor y auto | 3DMON" />
+  <meta name="twitter:description" content="¿Tu pieza impresa en 3D va al sol, en el auto o cerca del calor? Guía para compradores sobre qué material pedir para que no se deforme ni ablande." />
+  <meta name="twitter:image" content="https://3dmon.shop/images/blog/piezas-3d-resistentes-calor.jpg" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E76DZMT0FL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    if (!window._dmIgnoreAnalytics) {
+      gtag('js', new Date());
+      gtag('config', 'G-E76DZMT0FL');
+    }
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://3dmon.shop/blog/piezas-3d-resistentes-calor/#article",
+      "headline": "Piezas 3D resistentes al sol y al calor: qué material conviene pedir",
+      "description": "¿Tu pieza impresa en 3D va al sol, en el auto o cerca del calor? Guía para compradores sobre qué material pedir para que no se deforme ni ablande.",
+      "inLanguage": "es-AR",
+      "mainEntityOfPage": "https://3dmon.shop/blog/piezas-3d-resistentes-calor/",
+      "datePublished": "2026-11-27T12:30:00-03:00",
+      "dateModified": "2026-11-27T12:30:00-03:00",
+      "author": {
+        "@type": "Organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/"
+      },
+      "publisher": {
+        "@type": "LocalBusiness",
+        "@id": "https://3dmon.shop/#organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://3dmon.shop/logo-main.png"
+        }
+      },
+      "image": "https://3dmon.shop/images/blog/piezas-3d-resistentes-calor.jpg",
+      "breadcrumb": {
+        "@id": "https://3dmon.shop/blog/piezas-3d-resistentes-calor/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://3dmon.shop/blog/piezas-3d-resistentes-calor/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://3dmon.shop/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://3dmon.shop/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Piezas 3D resistentes al sol y al calor",
+          "item": "https://3dmon.shop/blog/piezas-3d-resistentes-calor/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://3dmon.shop/blog/piezas-3d-resistentes-calor/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Una pieza impresa en 3D en PLA se derrite adentro del auto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No llega a derretirse líquida, pero a partir de los 55 o 60 grados se ablanda y se deforma con su propio peso. Por eso para autos siempre recomendamos PETG."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El PETG resiste el agua y la lluvia en el exterior?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. El PETG no absorbe humedad del ambiente ni se pudre con la lluvia, lo que lo hace ideal para soportes de jardín, tapas exteriores y accesorios de bici o moto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Sale mucho más caro pedir una pieza en PETG que en PLA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La diferencia suele ser muy moderada (alrededor de un 10% a 20% según la pieza) y vale totalmente la pena cuando la pieza va a recibir sol, calor o esfuerzo mecánico."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Las macetas impresas en 3D pueden ir al sol?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para interior o galería techada el PLA funciona perfecto. Si la maceta va a recibir sol directo todo el día en verano, te conviene pedirla en PETG y preferentemente en colores claros."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Sirven las piezas impresas en 3D cerca de hornallas o motores calientes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No recomendamos plásticos impresos en contacto directo con llamas, escapes o zonas que superen los 85 a 90 grados continuos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿En 3DMON me avisan qué material conviene si no estoy seguro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Siempre te preguntamos para qué vas a usar la pieza y dónde va ubicada para recomendarte el material exacto antes de imprimir."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/blog.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <a href="/" class="header-brand" aria-label="3DMON Inicio">
+      <img src="/logo-solo.png" alt="3DMON Logo" class="header-logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="/#servicios" class="nav-anchor-link">Cómo Trabajamos</a>
+      <a href="/#proyectos" class="nav-anchor-link">Portafolio</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+        <span class="theme-opt theme-opt-light">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <span class="theme-label">Modo Claro</span>
+        </span>
+        <span class="theme-opt theme-opt-dark">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <span class="theme-label">Modo Oscuro</span>
+        </span>
+      </button>
+      <a href="https://wa.me/542644113760" class="nav-cta" target="_blank" rel="noopener noreferrer">
+        Pedí tu Presupuesto
+      </a>
+    </nav>
+  </header>
+
+  <main class="article-shell">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a>
+      <span aria-hidden="true">/</span>
+      <span>Piezas 3D resistentes al sol y al calor</span>
+    </nav>
+
+    <article>
+      <header>
+        <div class="article-meta-row">
+          <span class="axis-badge axis-tecnico">Soluciones por Material</span>
+          <span>Actualizado 27 de noviembre de 2026 · 5 min de lectura</span>
+        </div>
+
+        <h1 class="article-title">Piezas 3D resistentes al sol y al calor: qué material conviene pedir</h1>
+
+        <section class="direct-answer" aria-label="Respuesta directa">
+          <p class="direct-answer-label">Respuesta Directa</p>
+          <p>Las <strong>piezas 3D resistentes al calor</strong> y al sol requieren elegir el material correcto antes de imprimir para evitar que se deformen en verano. Mientras el PLA común se ablanda desde los 55 grados, pedir tu pieza en PETG o materiales técnicos asegura estabilidad térmica en autos, exteriores y usos exigentes.</p>
+        </section>
+
+        <figure class="article-hero-figure">
+          <img
+            src="/images/blog/piezas-3d-resistentes-calor.jpg"
+            alt="Soporte de tablero para auto y pieza técnica negra impresa en 3D en PETG bajo luz solar intensa"
+            width="1200"
+            height="675"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      </header>
+
+      <div class="article-body">
+<p>Un error muy común al comprar una pieza impresa en 3D barata es no preguntar de qué material está hecha. Si comprás un soporte de celular para el tablero del auto o una traba para el jardín hechos en PLA común, en el primer día de verano con el auto cerrado al sol la pieza se va a ablandar y torcer como un chicle.</p>
+        <p>Para que no tires tu plata, no hace falta que estudies química de polímeros: alcanza con contarle al taller dónde va a trabajar tu pieza y saber qué material corresponde pedir.</p>
+
+        <h2>Comparativa práctica: qué material pedir según el lugar de uso</h2>
+        <div class="table-wrapper" tabindex="0" role="region" aria-label="Resistencia al calor y al sol de los materiales de impresión 3D para clientes">
+          <table>
+            <caption>Qué material conviene encargar según la exposición térmica y climática</caption>
+            <thead>
+              <tr>
+                <th>Dónde va la pieza</th>
+                <th>Temperatura habitual</th>
+                <th>Material recomendado</th>
+                <th>Por qué conviene</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Dónde va"><strong>Interior de casa u oficina</strong></td>
+                <td data-label="Temperatura">15 °C a 35 °C</td>
+                <td data-label="Material">PLA o PLA+</td>
+                <td data-label="Por qué">Excelente terminación visual y mejor precio</td>
+              </tr>
+              <tr>
+                <td data-label="Dónde va"><strong>Interior de auto / tablero</strong></td>
+                <td data-label="Temperatura">Hasta 65 °C - 75 °C</td>
+                <td data-label="Material">PETG reforzado</td>
+                <td data-label="Por qué">No se deforma con el calor de cabina</td>
+              </tr>
+              <tr>
+                <td data-label="Dónde va"><strong>Exterior, sol y lluvia</strong></td>
+                <td data-label="Temperatura">Sol directo + humedad</td>
+                <td data-label="Material">PETG (o ASA a pedido)</td>
+                <td data-label="Por qué">Resiste agua, humedad y rayos UV mucho mejor que el PLA</td>
+              </tr>
+              <tr>
+                <td data-label="Dónde va"><strong>Topes, fundas y amortiguadores</strong></td>
+                <td data-label="Temperatura">Uso diario + golpes</td>
+                <td data-label="Material"><a href="/blog/filamento-tpu-caracteristicas-usos/">TPU flexible</a></td>
+                <td data-label="Por qué">Absorbe impactos sin quebrarse ni rajarse</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>El truco del color cuando la pieza va al sol</h2>
+        <p>Además del material, el color influye bastante en regiones soleadas como San Juan, Mendoza, Córdoba o el norte argentino. Una pieza negra expuesta al sol directo puede levantar entre 10 y 15 grados más que la misma pieza en blanco, gris claro o arena. Si el diseño lo permite, elegir un tono claro suma un margen extra de durabilidad en exteriores.</p>
+
+        <h2>Por qué el PETG es el rey de los repuestos y soportes funcionales</h2>
+        <p>El PETG es de la misma familia del plástico de las botellas resistentes, pero formulado para impresión 3D. Combina tres ventajas clave para el comprador: tolera mucho mejor el calor que el PLA, tiene una leve flexibilidad que evita que se quiebre de golpe al recibir un impacto y resiste bien el agua y los productos de limpieza suaves.</p>
+        <p>Si querés ver la diferencia completa entre los dos plásticos más usados antes de encargar, revisá <a href="/blog/pla-vs-petg-diferencias/">PLA vs PETG: diferencias y cuál conviene</a>, y si estás buscando reemplazar una pieza rota del auto o de un electrodoméstico, entrá a <a href="/blog/repuestos-impresos-en-3d/">repuestos impresos en 3D a medida</a>.</p>
+
+        <section class="faq-section" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">Preguntas Frecuentes</h2>
+          <details class="faq-item">
+            <summary>¿Una pieza impresa en 3D en PLA se derrite adentro del auto?</summary>
+            <div class="faq-answer"><p>No llega a derretirse líquida, pero a partir de los 55 o 60 grados se ablanda y se deforma con su propio peso. Por eso para autos siempre recomendamos PETG.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿El PETG resiste el agua y la lluvia en el exterior?</summary>
+            <div class="faq-answer"><p>Sí. El PETG no absorbe humedad del ambiente ni se pudre con la lluvia, lo que lo hace ideal para soportes de jardín, tapas exteriores y accesorios de bici o moto.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Sale mucho más caro pedir una pieza en PETG que en PLA?</summary>
+            <div class="faq-answer"><p>La diferencia suele ser muy moderada (alrededor de un 10% a 20% según la pieza) y vale totalmente la pena cuando la pieza va a recibir sol, calor o esfuerzo mecánico.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Las macetas impresas en 3D pueden ir al sol?</summary>
+            <div class="faq-answer"><p>Para interior o galería techada el PLA funciona perfecto. Si la maceta va a recibir sol directo todo el día en verano, te conviene pedirla en PETG y preferentemente en colores claros.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Sirven las piezas impresas en 3D cerca de hornallas o motores calientes?</summary>
+            <div class="faq-answer"><p>No recomendamos plásticos impresos en contacto directo con llamas, escapes o zonas que superen los 85 a 90 grados continuos.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿En 3DMON me avisan qué material conviene si no estoy seguro?</summary>
+            <div class="faq-answer"><p>Sí. Siempre te preguntamos para qué vas a usar la pieza y dónde va ubicada para recomendarte el material exacto antes de imprimir.</p></div>
+          </details>
+        </section>
+
+        <aside class="cta-box">
+          <h2>Te ayudamos a elegir el material que sí aguanta</h2>
+          <p>Contanos dónde va a ir colocada tu pieza y qué esfuerzo soporta para fabricarla en el filamento correcto desde el primer intento.</p>
+          <div class="cta-actions">
+            <button
+              type="button"
+              class="nav-cta"
+              data-wa-msg="Hola 3DMON, necesito encargar una pieza en 3D que va a estar expuesta al sol o al calor y quiero saber qué material conviene."
+            >
+              Consultar por WhatsApp
+            </button>
+            <a href="/" class="btn-outline-gold">Conocer Servicios 3DMON</a>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="/logo-solo.png" alt="3DMON" style="height: 40px; margin-bottom: 14px;" />
+        <p>Micropyme de Impresión 3D</p>
+        <p>San Juan, Capital</p>
+        <p>Envíos a todo el país</p>
+      </div>
+      <div class="footer-col">
+        <h4>SERVICIOS</h4>
+        <p>Impresión PLA / PETG</p>
+        <p>Prototipado Rápido</p>
+        <p>Pedidos Mayoristas</p>
+      </div>
+      <div class="footer-col">
+        <h4>GUÍAS Y BLOG</h4>
+        <a href="/blog/">Blog y Guías 3D</a>
+        <a href="/blog/?eje=principiantes">Comprador y Redes</a>
+        <a href="/blog/?eje=tecnico">Soluciones por Material</a>
+        <a href="/blog/?eje=comercial">Servicios y Presupuestos</a>
+      </div>
+      <div class="footer-col">
+        <h4>SEGUINOS</h4>
+        <a href="https://www.instagram.com/3d.mon_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://wa.me/542644113760" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 3DMON - Laboratorio de Impresión. Todos los derechos reservados.</p>
+      <a
+        href="https://erikwebsite.com/"
+        target="_blank"
+        rel="noopener"
+        title="Diseño y desarrollo web de alta velocidad - Erik Website"
+        class="erik-badge"
+      >
+        <span class="erik-dot" aria-hidden="true"></span>
+        Desarrollo web por <strong>Erik Website</strong>
+      </a>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/blog.js"></script>
+</body>
+
+</html>

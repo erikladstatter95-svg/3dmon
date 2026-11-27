@@ -4,16 +4,18 @@
 
 ---
 
-## 1. Cadencia Semanal en 3 Ejes + Comando Dominical
+## 1. Cadencia Semanal en 3 Ejes (100% Enfoque Comprador y Ventas) + Comando Dominical
 
-| Día | Eje Estratégico | Foco Editorial y Comercial | Regla Operativa |
+> **Pivote Estratégico (27/11/2026):** Se eliminan los temas orientados a personas que ya tienen impresora 3D (calibración, temperatura de cama, warping o fallas de impresión). Los 3 ejes apuntan 100% a **compradores, curiosos listos para encargar y empresas** que buscan soluciones impresas a medida, regalos, tendencias de redes, repuestos y pedidos por mayor.
+
+| Día | Eje Estratégico | Foco Editorial y Comercial (Compradores) | Regla Operativa |
 | :--- | :--- | :--- | :--- |
-| **Lunes** | **Eje 1: Principiantes en el Mundo 3D** | Guías introductorias: PLA vs PETG, formatos STL/OBJ/3MF, cuidados, ideas útiles y errores al pedir piezas | Boost (si hay URL >= 14d en pos. 4–20) + 1 guía nueva + interlinking |
-| **Martes** | **Eje 2: Información Técnica 3D** | Autoridad E-E-A-T: tolerancias y encastres, altura de capa, infill y perímetros, ABS, ASA, TPU, resinas y post-procesado | Boost (>= 14d) + 1 guía técnica nueva + interlinking |
-| **Miércoles** | **Eje 3: Comercial y Transaccional** | Conversión B2C/B2B: servicio en Argentina/San Juan, repuestos discontinuados, prototipado PyMEs, llaveros/merchandising por mayor | Boost (>= 14d) + 1 landing/artículo comercial + CTA directo a WhatsApp |
-| **Jueves** | **Eje 1: Principiantes en el Mundo 3D** | Dudas frecuentes de compradores nuevos, archivos, acabados y usos cotidianos | Boost (>= 14d) + 1 guía nueva + interlinking |
-| **Viernes** | **Eje 2: Información Técnica 3D** | Propiedades térmicas, mecánicas, orientación de capas, resistencia al sol y piezas funcionales | Boost (>= 14d) + 1 guía técnica nueva + interlinking |
-| **Sábado** | **Eje 3: Comercial y Transaccional** | Comparativas de costo (imprimir por encargo vs comprar impresora), pedidos mayoristas y casos industriales | Boost (>= 14d) + 1 artículo comercial + interlinking |
+| **Lunes** | **Eje 1: Comprador Nuevo, Regalos y Redes (`principiantes`)** | "Vi algo en TikTok/Instagram/MakerWorld, cómo lo encargo", regalos personalizados, llaveros Spotify, figuras coleccionables, macetas y tendencias virales | Boost (si hay URL >= 14d en pos. 4–20) + 1 guía nueva + interlinking |
+| **Martes** | **Eje 2: Soluciones por Material y Uso (`tecnico`)** | Qué material pedir según el uso real (piezas para sol/auto/calor, cortantes de galletitas seguros, acabados multicolor/transparentes, modelado desde foto o pieza rota) | Boost (>= 14d) + 1 guía práctica para clientes + interlinking |
+| **Miércoles** | **Eje 3: Comercial, Precios y B2B (`comercial`)** | Conversión directa: Mercado Libre vs compra directa sin comisiones, precios y presupuestos, dónde imprimir cerca de mí, souvenirs de eventos, repuestos y prototipos PyMEs | Boost (>= 14d) + 1 artículo transaccional + CTA directo a WhatsApp |
+| **Jueves** | **Eje 1: Comprador Nuevo, Regalos y Redes (`principiantes`)** | Productos virales, accesorios de películas/series, organizadores gamer/escritorio y guías sin jerga para encargar por primera vez | Boost (>= 14d) + 1 guía nueva + interlinking |
+| **Viernes** | **Eje 2: Soluciones por Material y Uso (`tecnico`)** | Comparativas orientadas a durabilidad y acabado para el comprador que necesita que su pieza aguante uso diario, agua, calor o impacto | Boost (>= 14d) + 1 guía práctica nueva + interlinking |
+| **Sábado** | **Eje 3: Comercial, Precios y B2B (`comercial`)** | Pedidos mayoristas, medallas y trofeos, maquetas de arquitectura, comprar impresora vs encargar, empresas y envíos nacionales | Boost (>= 14d) + 1 artículo comercial + interlinking |
 | **Domingo** | **Comando Dominical de Auditoría** | Correr `python scratch/sunday_seo_command.py` (GSC + Bing + GA4 `513929397` + SerpBear), evaluar URLs >= 14 días, detectar canibalización y definir el plan de la semana | Reporte en `PLAN_SEMANAL_SEO.md` + selección de 2–3 URLs comerciales para interlinking |
 
 ### Protocolo de Interlinking Semanal y Control de Canibalización
@@ -76,29 +78,29 @@ Al existir **0 artículos publicados/indexados** en `/blog/`, durante este lanza
 9. [x] **`[comercial]`** `/blog/servicio-impresion-3d-argentina/` — *Main KW:* `servicio de impresion 3d` / `impresiones 3d argentina` (`500/mes` · Medio `58`)
 10. [x] **`[comercial]`** `/blog/llaveros-3d-personalizados-mayor/` — *Main KW:* `llaveros 3d personalizados` / `llaveros 3d por mayor` (`5.000/mes` + `50/mes`)
 
-### Tanda 2 — Viernes 27/11 (10 artículos: 3 Principiantes + 4 Técnico + 3 Comercial)
-11. **`[principiantes]`** `/blog/como-funciona-impresora-3d/` — `como funciona una impresora 3d` (`500/mes` · Medio `45`)
-12. **`[principiantes]`** `/blog/ideas-para-imprimir-3d/` — `ideas para imprimir en 3d` (`500/mes` · Bajo `18`)
-13. **`[principiantes]`** `/blog/que-es-filamento-pla/` — `que es el filamento pla` / `que es material pla` (`50/mes` · Bajo `6`)
-14. **`[tecnico]`** `/blog/filamento-abs-vs-petg/` — `filamento abs vs petg` (`50/mes` · Bajo `29`)
-15. **`[tecnico]`** `/blog/filamento-asa-propiedades-exterior/` — `filamento asa propiedades` (`50/mes` · Bajo `29`)
-16. **`[tecnico]`** `/blog/filamento-resistente-al-calor/` — `pla resistente al calor` / `filamento resistente al calor` (`50/mes` · Bajo `29`)
-17. **`[tecnico]`** `/blog/impresion-resina-vs-filamento/` — `impresion 3d resina` / `que es fdm en impresion 3d` (`5.000/mes` + Bajo `12`)
-18. **`[comercial]`** `/blog/precio-presupuesto-impresion-3d/` — `precio impresion 3d` / `presupuesto impresion 3d` (`5.000/mes` + Bajo `29`)
-19. **`[comercial]`** `/blog/impresion-3d-prototipos-pymes/` — `impresion 3d prototipos` (`50/mes` · Bajo `25`)
-20. **`[comercial]`** `/blog/impresion-3d-para-empresas/` — `impresion 3d para empresas` / `empresas impresion 3d` (`50/mes` · Medio `39`)
+### Tanda 2 — Hoy Viernes 27/11 (**COMPLETADA — REESTRUCTURADA 100% COMPRADOR** — 10 artículos: 5 Comercial + 2 Material/Uso + 3 Comprador/Redes)
+11. [x] **`[comercial]`** `/blog/impresion-3d-mercado-libre/` — *Main KW:* `impresion 3d mercado libre` (BoFu: comisiones y envío de plataforma vs compra directa a fabricante en 3DMON)
+12. [x] **`[comercial]`** `/blog/precio-presupuesto-impresion-3d/` — *Main KW:* `precio impresion 3d` / `presupuesto impresion 3d` (`5.000/mes` + `50/mes`)
+13. [x] **`[comercial]`** `/blog/donde-imprimir-piezas-3d/` — *Main KW:* `impresion 3d cerca de mi` / `donde imprimir en 3d` (`5.000/mes` + `50/mes`)
+14. [x] **`[comercial]`** `/blog/souvenirs-impresos-en-3d/` — *Main KW:* `souvenirs 3d` / `souvenirs impresos en 3d` (`500/mes` x 6 variantes: 15 años, cumpleaños, bautismo, comunión)
+15. [x] **`[comercial]`** `/blog/repuestos-impresos-en-3d/` — *Main KW:* `repuestos impresion 3d` / `repuestos de autos impresos en 3d` (`500/mes` + `50/mes`: autos y electrodomésticos)
+16. [x] **`[tecnico]`** `/blog/cortantes-galletitas-3d-medida/` — *Main KW:* `cortantes 3d` / `cortante de galletitas 3d` (`500/mes` + `50/mes` por mayor, higiene y usos en pastelería)
+17. [x] **`[tecnico]`** `/blog/piezas-3d-resistentes-calor/` — *Main KW:* `impresion 3d resiste el sol` / `filamento resistente al calor` (para compradores: qué pedir si la pieza va al sol, al auto o al exterior)
+18. [x] **`[principiantes]`** `/blog/encargar-impresion-3d-redes/` — *Main KW:* `impresiones 3d a pedido` / `donde puedo mandar a imprimir en 3d` (Viste algo en Instagram, TikTok o MakerWorld y querés encargarlo con link o foto)
+19. [x] **`[principiantes]`** `/blog/figuras-impresas-en-3d/` — *Main KW:* `impresion 3d figuras` / `figuras impresas en 3d` (`500/mes`: coleccionables, películas, series, anime y accesorios fandom a pedido)
+20. [x] **`[principiantes]`** `/blog/regalos-personalizados-en-3d/` — *Main KW:* `regalos personalizados en 3d` / `llavero spotify 3d` (`50/mes` Bajo `20`: regalos originales con nombre, foto o canción)
 
-### Tanda 3 — Sábado 28/11 (10 artículos: 3 Principiantes + 3 Técnico + 4 Comercial)
-21. **`[principiantes]`** `/blog/errores-comunes-impresion-3d/` — `errores al imprimir en 3d` / `que es el warping` (`50/mes` · Bajo `0`)
-22. **`[principiantes]`** `/blog/macetas-figuras-impresas-3d/` — `macetas impresas en 3d` / `figuras impresas en 3d` (`500/mes` + Bajo `16`)
-23. **`[principiantes]`** `/blog/que-imprimir-para-vender/` — `que imprimir en 3d para vender` (`500/mes` · Bajo `14`)
-24. **`[tecnico]`** `/blog/tolerancias-encastres-impresion-3d/` — tolerancias, encastres, perímetros e infill (E-E-A-T + Query Fan-Out)
-25. **`[tecnico]`** `/blog/filamento-pla-plus-ventajas/` — `filamento pla plus` (`50/mes`)
-26. **`[tecnico]`** `/blog/impresion-3d-transparente-multicolor/` — `impresion 3d transparente` / `impresion 3d multicolor` (`500/mes` · Medio `50`)
-27. **`[comercial]`** `/blog/fabricacion-repuestos-medida-3d/` — `impresion 3d a medida` / repuestos discontinuados (`500/mes` `a pedido`)
-28. **`[comercial]`** `/blog/impresion-maquetas-arquitectura-3d/` — `impresion 3d maquetas` / `impresiones para maquetas` (`50/mes` · Bajo `3`)
-29. **`[comercial]`** `/blog/comprar-impresora-vs-encargar/` — `cuanto sale una impresora 3d` / `precio hora impresion 3d` (`500/mes` + Medio `50`)
-30. **`[comercial]`** `/blog/impresion-3d-personalizada-pedido/` — `impresiones 3d a pedido` / diseño desde fotos (`500/mes`)
+### Tanda 3 — Sábado 28/11 (**REESTRUCTURADA 100% COMPRADOR** — 10 artículos: 5 Comercial + 2 Material/Uso + 3 Comprador/Redes)
+21. **`[comercial]`** `/blog/impresion-3d-prototipos-pymes/` — *Main KW:* `impresion 3d prototipos` (`50/mes` · Bajo `25`)
+22. **`[comercial]`** `/blog/impresion-3d-para-empresas/` — *Main KW:* `impresion 3d para empresas` / `empresas impresion 3d` (`50/mes` · Medio `39`)
+23. **`[comercial]`** `/blog/impresion-maquetas-arquitectura-3d/` — *Main KW:* `impresion 3d maquetas` / `maquetas en 3d` (`50/mes` · Bajo `3`)
+24. **`[comercial]`** `/blog/comprar-impresora-vs-encargar/` — *Main KW:* `cuanto sale una impresora 3d` vs encargar piezas (`500/mes`)
+25. **`[comercial]`** `/blog/medallas-trofeos-impresos-3d/` — *Main KW:* `medallas y trofeos en 3d` (torneos, clubes, carreras y eventos)
+26. **`[tecnico]`** `/blog/impresion-3d-multicolor-transparente/` — *Main KW:* `impresion 3d multicolor` / `impresion 3d transparente` (`500/mes` · acabados visuales a pedido)
+27. **`[tecnico]`** `/blog/modelado-3d-desde-foto/` — *Main KW:* `modelado 3d a partir de foto` (cómo te diseñamos e imprimimos una pieza si no tenés el archivo STL)
+28. **`[principiantes]`** `/blog/macetas-impresas-en-3d/` — *Main KW:* `macetas impresas en 3d` (`500/mes` · decoración, suculentas y viveros)
+29. **`[principiantes]`** `/blog/objetos-virales-impresos-3d/` — *Main KW:* tendencias virales de MakerWorld, cine y series para encargar en Argentina
+30. **`[principiantes]`** `/blog/organizador-soportes-escritorio-3d/` — *Main KW:* soportes gamer, auriculares, joysticks y organizadores de escritorio a medida
 
 ---
 
