@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('3dmon_theme') || 'dark';
+      if (savedTheme !== 'light' && savedTheme !== 'dark') savedTheme = 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.querySelector('meta[name="color-scheme"]').content = savedTheme;
+    } catch (e) {}
+  </script>
+
+  <!-- Filtro de Trafico Interno (?soy_erik=1 / ?soy_3dmon=1 / localhost / localStorage) -->
+  <script id="dm-internal-filter">
+    (function () {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var mode = p.get('soy_erik') || p.get('soy_3dmon');
+        if (mode === '1') {
+          localStorage.setItem('dm_ignore_analytics', '1');
+        } else if (mode === '0') {
+          localStorage.removeItem('dm_ignore_analytics');
+        }
+        if (
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1' ||
+          localStorage.getItem('dm_ignore_analytics') === '1'
+        ) {
+          window._dmIgnoreAnalytics = true;
+          window['ga-disable-G-E76DZMT0FL'] = true;
+        }
+        if (mode === '1' || mode === '0') {
+          window.addEventListener('DOMContentLoaded', function () {
+            var b = document.createElement('div');
+            b.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999;background:#0f172a;color:#3D8700;border:1px solid #3D8700;padding:12px 18px;border-radius:10px;font-family:sans-serif;font-size:13px;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,0.5);max-width:340px;';
+            b.textContent = mode === '1'
+              ? 'Filtro Interno Activado: Tus visitas en este navegador ya NO cuentan en GA4.'
+              : 'Filtro Interno Desactivado: Este navegador vuelve a enviar datos a GA4.';
+            document.body.appendChild(b);
+            setTimeout(function () { b.remove(); }, 6000);
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>Qué es la impresión 3D y cómo funciona paso a paso | 3DMON</title>
+  <meta name="description" content="Qué es la impresión 3D, cómo trabaja una impresora FDM capa por capa, qué materiales usa y qué piezas podés fabricar a medida en Argentina." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://3dmon.shop/blog/que-es-la-impresion-3d/" />
+  <link rel="icon" type="image/png" href="/logo-solo.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="3DMON" />
+  <meta property="og:url" content="https://3dmon.shop/blog/que-es-la-impresion-3d/" />
+  <meta property="og:title" content="Qué es la impresión 3D y cómo funciona paso a paso | 3DMON" />
+  <meta property="og:description" content="Qué es la impresión 3D, cómo trabaja una impresora FDM capa por capa, qué materiales usa y qué piezas podés fabricar a medida en Argentina." />
+  <meta property="og:image" content="https://3dmon.shop/images/blog/que-es-la-impresion-3d.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Qué es la impresión 3D y cómo funciona paso a paso | 3DMON" />
+  <meta name="twitter:description" content="Qué es la impresión 3D, cómo trabaja una impresora FDM capa por capa, qué materiales usa y qué piezas podés fabricar a medida en Argentina." />
+  <meta name="twitter:image" content="https://3dmon.shop/images/blog/que-es-la-impresion-3d.jpg" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E76DZMT0FL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    if (!window._dmIgnoreAnalytics) {
+      gtag('js', new Date());
+      gtag('config', 'G-E76DZMT0FL');
+    }
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://3dmon.shop/blog/que-es-la-impresion-3d/#article",
+      "headline": "Qué es la impresión 3D y cómo funciona en la práctica",
+      "description": "Qué es la impresión 3D, cómo trabaja una impresora FDM capa por capa, qué materiales usa y qué piezas podés fabricar a medida en Argentina.",
+      "inLanguage": "es-AR",
+      "mainEntityOfPage": "https://3dmon.shop/blog/que-es-la-impresion-3d/",
+      "datePublished": "2026-11-26T21:30:00-03:00",
+      "dateModified": "2026-11-26T21:30:00-03:00",
+      "author": {
+        "@type": "Organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/"
+      },
+      "publisher": {
+        "@type": "LocalBusiness",
+        "@id": "https://3dmon.shop/#organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://3dmon.shop/logo-main.png"
+        }
+      },
+      "image": "https://3dmon.shop/images/blog/que-es-la-impresion-3d.jpg",
+      "breadcrumb": {
+        "@id": "https://3dmon.shop/blog/que-es-la-impresion-3d/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://3dmon.shop/blog/que-es-la-impresion-3d/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://3dmon.shop/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://3dmon.shop/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Qué es la impresión 3D",
+          "item": "https://3dmon.shop/blog/que-es-la-impresion-3d/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://3dmon.shop/blog/que-es-la-impresion-3d/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es la impresión 3D en palabras simples?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es un sistema de fabricación que crea objetos sólidos reales a partir de un modelo digital en computadora, depositando capas sucesivas de plástico fundido o resina curada hasta formar la pieza completa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tarda en imprimirse una pieza en 3D?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende del volumen, la altura de capa y la densidad interna. Un llavero personalizado tarda entre 20 y 45 minutos, mientras que un soporte técnico mediano o una carcasa puede demorar entre 3 y 14 horas de máquina."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Son resistentes las piezas impresas en 3D?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, cuando se elige el plástico y la orientación de capas adecuados. Una pieza en PETG con buen espesor de paredes soporta esfuerzos mecánicos, roces y uso cotidiano sin partirse como un plástico quebradizo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué formato de archivo necesito para mandar a imprimir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los formatos estándar son STL y 3MF. También podés mandar un archivo OBJ, o directamente enviarnos fotos y medidas por WhatsApp si todavía no tenés el diseño modelado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo pedir una sola pieza o exigen compra mínima?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Podés encargar desde una única unidad hasta lotes mayoristas de souvenirs, medallas o llaveros corporativos para marcas y eventos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Desde dónde imprime y envía 3DMON?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nuestro laboratorio está en San Juan Capital y despachamos pedidos a todo el país con embalaje seguro para cada pieza."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/blog.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <a href="/" class="header-brand" aria-label="3DMON Inicio">
+      <img src="/logo-solo.png" alt="3DMON Logo" class="header-logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="/#servicios" class="nav-anchor-link">Cómo Trabajamos</a>
+      <a href="/#proyectos" class="nav-anchor-link">Portafolio</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+        <span class="theme-opt theme-opt-light">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <span class="theme-label">Modo Claro</span>
+        </span>
+        <span class="theme-opt theme-opt-dark">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <span class="theme-label">Modo Oscuro</span>
+        </span>
+      </button>
+      <a href="https://wa.me/542644113760" class="nav-cta" target="_blank" rel="noopener noreferrer">
+        Pedí tu Presupuesto
+      </a>
+    </nav>
+  </header>
+
+  <main class="article-shell">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a>
+      <span aria-hidden="true">/</span>
+      <span>Qué es la impresión 3D</span>
+    </nav>
+
+    <article>
+      <header>
+        <div class="article-meta-row">
+          <span class="axis-badge axis-principiantes">Principiantes · Guía 3D</span>
+          <span>Actualizado 26 de noviembre de 2026 · 6 min de lectura</span>
+        </div>
+
+        <h1 class="article-title">Qué es la impresión 3D y cómo funciona en la práctica</h1>
+
+        <section class="direct-answer" aria-label="Respuesta directa">
+          <p class="direct-answer-label">Respuesta Directa</p>
+          <p>La <strong>impresión 3D</strong> es un proceso de fabricación aditiva que transforma un diseño digital en un objeto físico depositando material fundido capa por capa. En lugar de cortar o fresar un bloque, la impresora construye desde cero repuestos, prototipos, moldes y piezas personalizadas en plásticos técnicos como PLA, PETG o TPU.</p>
+        </section>
+
+        <figure class="article-hero-figure">
+          <img
+            src="/images/blog/que-es-la-impresion-3d.jpg"
+            alt="Extrusor de impresora 3D FDM depositando filamento PLA verde oliva capa por capa sobre cama texturada"
+            width="1200"
+            height="675"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      </header>
+
+      <div class="article-body">
+<h2>Cómo funciona una impresora 3D FDM de filamento</h2>
+        <p>El sistema más usado para piezas funcionales, repuestos domésticos y merchandising es el modelado por deposición fundida, conocido como FDM. La máquina toma una bobina de filamento plástico de 1,75 milímetros, lo empuja hacia un cabezal caliente llamado hotend y lo derrite a temperaturas que van entre 195 °C y 255 °C según el polímero.</p>
+        <p>Una boquilla calibrada, por lo general de 0,4 milímetros de diámetro, dibuja el contorno y el relleno de cada lámina horizontal sobre la plataforma de impresión. Al terminar una pasada, el eje vertical sube una fracción de milímetro y repite el trazado encima hasta completar el volumen total.</p>
+        <p>Antes de que la máquina se mueva, ese objeto digital pasa por un programa laminador o slicer. Ese software corta el modelo en cientos de capas, calcula la velocidad de desplazamiento, define el porcentaje de relleno interno y genera un archivo de instrucciones G-code que la impresora sigue coordenada por coordenada.</p>
+
+        <h2>Qué necesitás para imprimir en 3D sin comprar máquina</h2>
+        <p>Muchas personas creen que necesitan saber modelado CAD avanzado o gastar dinero en equipo propio para resolver una pieza puntual. Para mandar a fabricar un objeto en nuestro taller alcanza con cualquiera de estos tres puntos de partida:</p>
+        <ul>
+          <li><strong>Un archivo descargado:</strong> podés buscar modelos listos en repositorios gratuitos como Printables o Thingiverse y pasarnos el enlace o el archivo para revisarlo.</li>
+          <li><strong>Un diseño propio:</strong> si ya trabajás en Fusion 360, SolidWorks, Blender o SketchUp, nos enviás el modelo exportado siguiendo nuestra guía de <a href="/blog/archivos-stl-para-imprimir/">archivos STL para imprimir en 3D</a>.</li>
+          <li><strong>Una pieza rota o un boceto con medidas:</strong> cuando un engranaje o una traba plástica ya no se consigue en casas de repuestos, relevamos las medidas con calibre y modelamos el reemplazo desde cero.</li>
+        </ul>
+
+        <h2>Comparativa rápida de tecnologías de impresión 3D más comunes</h2>
+        <p>Aunque existen varios métodos industriales, el mercado argentino trabaja principalmente con tres tecnologías según el uso final de la pieza:</p>
+
+        <div tabindex="0" role="region" aria-labelledby="tabla-tec-3d" class="table-wrapper">
+          <table>
+            <caption id="tabla-tec-3d">Comparativa entre tecnologías de impresión 3D más usadas</caption>
+            <thead>
+              <tr>
+                <th>Tecnología</th>
+                <th>Materia prima</th>
+                <th>Acabado superficial</th>
+                <th>Uso recomendado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>FDM (Filamento fundido)</th>
+                <td data-label="Materia prima">PLA, PETG, ABS, ASA, TPU</td>
+                <td data-label="Acabado superficial">Líneas de capa visibles y firmes</td>
+                <td data-label="Uso recomendado">Repuestos, soportes, llaveros, prototipos</td>
+              </tr>
+              <tr>
+                <th>SLA / MSLA (Resina UV)</th>
+                <td data-label="Materia prima">Resina líquida fotopolimérica</td>
+                <td data-label="Acabado superficial">Detalle fino casi liso</td>
+                <td data-label="Uso recomendado">Miniaturas, odontología, joyería</td>
+              </tr>
+              <tr>
+                <th>SLS (Sinterizado láser)</th>
+                <td data-label="Materia prima">Polvo de poliamida / Nylon</td>
+                <td data-label="Acabado superficial">Textura arenosa uniforme</td>
+                <td data-label="Uso recomendado">Piezas industriales complejas sin soportes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="interlink-callout">
+          <strong>Relacionado en 3DMON</strong>
+          <p style="margin:0;">Si ya sabés qué querés fabricar y buscás elegir el plástico correcto antes de cotizar, leé nuestra comparativa <a href="/blog/pla-vs-petg-diferencias/">PLA vs PETG: diferencias reales y cuál conviene elegir</a> o revisá cómo trabajamos en nuestro <a href="/blog/servicio-impresion-3d-argentina/">servicio de impresión 3D en Argentina</a>.</p>
+        </aside>
+
+        <h2>Qué se puede hacer y qué conviene encargar</h2>
+        <p>La impresión 3D brilla cuando necesitás tiradas cortas, personalización real o geometrías difíciles de mecanizar. En la práctica cotidiana cubre desde cortantes de pastelería, organizadores de escritorio y macetas geométricas hasta soportes para karting, trabas de electrodomésticos, maquetas de arquitectura y <a href="/blog/llaveros-3d-personalizados-mayor/">llaveros 3D personalizados por mayor</a>.</p>
+        <p>En cambio, cuando un cliente necesita diez mil unidades idénticas de un envase estándar, el costo por unidad de la inyección plástica con matriz metálica resulta menor. La fabricación aditiva gana por amplio margen desde una pieza única hasta lotes de pocos cientos porque evita pagar matrices costosas y permite corregir el diseño entre una semana y la siguiente.</p>
+
+        <h2>Qué define la resistencia y el precio de una pieza</h2>
+        <p>El precio de imprimir un objeto en 3D no sale solo de los gramos de plástico consumidos. La variable que más pesa en el presupuesto es el tiempo de máquina ocupado, junto con la preparación previa del archivo, los cambios de color, el retiro de soportes y la complejidad del material elegido.</p>
+        <p>Una pieza liviana con 0,28 milímetros de capa y poco relleno interno se imprime rápido y cuesta menos. Un soporte mecánico con más perímetros sólidos en PETG o <a href="/blog/filamento-tpu-caracteristicas-usos/">filamento TPU flexible</a> tarda más horas de boquilla y exige otra calibración térmica. Por eso en 3DMON revisamos cada modelo caso por caso antes de pasar un número.</p>
+
+        <section class="faq-section" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">Preguntas Frecuentes</h2>
+          <details class="faq-item">
+            <summary>¿Qué es la impresión 3D en palabras simples?</summary>
+            <div class="faq-answer"><p>Es un sistema de fabricación que crea objetos sólidos reales a partir de un modelo digital en computadora, depositando capas sucesivas de plástico fundido o resina curada hasta formar la pieza completa.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Cuánto tarda en imprimirse una pieza en 3D?</summary>
+            <div class="faq-answer"><p>Depende del volumen, la altura de capa y la densidad interna. Un llavero personalizado tarda entre 20 y 45 minutos, mientras que un soporte técnico mediano o una carcasa puede demorar entre 3 y 14 horas de máquina.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Son resistentes las piezas impresas en 3D?</summary>
+            <div class="faq-answer"><p>Sí, cuando se elige el plástico y la orientación de capas adecuados. Una pieza en PETG con buen espesor de paredes soporta esfuerzos mecánicos, roces y uso cotidiano sin partirse como un plástico quebradizo.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué formato de archivo necesito para mandar a imprimir?</summary>
+            <div class="faq-answer"><p>Los formatos estándar son STL y 3MF. También podés mandar un archivo OBJ, o directamente enviarnos fotos y medidas por WhatsApp si todavía no tenés el diseño modelado.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Puedo pedir una sola pieza o exigen compra mínima?</summary>
+            <div class="faq-answer"><p>Podés encargar desde una única unidad hasta lotes mayoristas de souvenirs, medallas o llaveros corporativos para marcas y eventos.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Desde dónde imprime y envía 3DMON?</summary>
+            <div class="faq-answer"><p>Nuestro laboratorio está en San Juan Capital y despachamos pedidos a todo el país con embalaje seguro para cada pieza.</p></div>
+          </details>
+        </section>
+
+        <aside class="cta-box">
+          <h2>¿Querés pasar una idea o archivo a pieza real?</h2>
+          <p>Mandanos tu diseño, boceto o medida por WhatsApp. Te asesoramos en el material ideal y te enviamos presupuesto en 24 a 48 horas con envíos desde San Juan a todo el país.</p>
+          <div class="cta-actions">
+            <button
+              type="button"
+              class="nav-cta"
+              data-wa-msg="Hola 3DMON! Leí la guía sobre qué es la impresión 3D y quiero consultar por una pieza a medida."
+            >
+              Consultar por WhatsApp
+            </button>
+            <a href="/" class="btn-outline-gold">Conocer Servicios 3DMON</a>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="/logo-solo.png" alt="3DMON" style="height: 40px; margin-bottom: 14px;" />
+        <p>Micropyme de Impresión 3D</p>
+        <p>San Juan, Capital</p>
+        <p>Envíos a todo el país</p>
+      </div>
+      <div class="footer-col">
+        <h4>SERVICIOS</h4>
+        <p>Impresión PLA / PETG</p>
+        <p>Prototipado Rápido</p>
+        <p>Pedidos Mayoristas</p>
+      </div>
+      <div class="footer-col">
+        <h4>GUÍAS Y BLOG</h4>
+        <a href="/blog/">Blog y Guías 3D</a>
+        <a href="/blog/?eje=principiantes">Guías para Principiantes</a>
+        <a href="/blog/?eje=tecnico">Información Técnica 3D</a>
+        <a href="/blog/?eje=comercial">Servicios y Presupuestos</a>
+      </div>
+      <div class="footer-col">
+        <h4>SEGUINOS</h4>
+        <a href="https://www.instagram.com/3d.mon_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://wa.me/542644113760" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 3DMON - Laboratorio de Impresión. Todos los derechos reservados.</p>
+      <a
+        href="https://erikwebsite.com/"
+        target="_blank"
+        rel="noopener"
+        title="Diseño y desarrollo web de alta velocidad - Erik Website"
+        class="erik-badge"
+      >
+        <span class="erik-dot" aria-hidden="true"></span>
+        Desarrollo web por <strong>Erik Website</strong>
+      </a>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/blog.js"></script>
+</body>
+
+</html>

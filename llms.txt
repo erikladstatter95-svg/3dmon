@@ -16,9 +16,22 @@
 
 ## Ejes Editoriales y Guías Técnicas (/blog/)
 
-- **Eje 1 (Principiantes en el Mundo 3D):** Qué es la impresión 3D, diferencias entre PLA y PETG, formatos de archivo (STL, OBJ, 3MF), cuidados de piezas y errores frecuentes al pedir un presupuesto.
-- **Eje 2 (Información Técnica 3D / Ingeniería):** Tolerancias y holguras para encastres, altura de capa frente a resistencia mecánica, porcentaje de infill y perímetros, materiales técnicos (ABS, ASA, TPU, resinas) y post-procesado.
-- **Eje 3 (Comercial y Transaccional):** Servicio de impresión 3D por encargo en Argentina, fabricación de repuestos discontinuados, prototipado rápido para PyMEs, llaveros y merchandising por mayor y comparación costo/beneficio frente a comprar impresora propia.
+- **Eje 1 (Principiantes en el Mundo 3D):** Qué es la impresión 3D, diferencias entre PLA y PETG, formatos de archivo (STL, OBJ, 3MF), seguridad del PLA y errores frecuentes al pedir un presupuesto.
+- **Eje 2 (Información Técnica 3D / Ingeniería):** Altura de capa y resistencia mecánica, soportes normales frente a árbol, regla de 45 grados, filamento TPU flexible y tolerancias técnicas.
+- **Eje 3 (Comercial y Transaccional):** Servicio de impresión 3D en San Juan y en toda Argentina, fabricación de repuestos a medida, prototipado rápido para PyMEs y llaveros personalizados por mayor.
+
+## Guías Publicadas (/blog/)
+
+- [Qué es la impresión 3D y cómo funciona en la práctica](https://3dmon.shop/blog/que-es-la-impresion-3d/): Entendé qué es la fabricación aditiva FDM, qué pasos sigue un archivo digital hasta volverse pieza física y qué usos conviene mandar a imprimir.
+- [PLA vs PETG: diferencias reales y cuál conviene elegir](https://3dmon.shop/blog/pla-vs-petg-diferencias/): Compará resistencia al calor, flexibilidad, terminación estética y precio entre PLA y PETG para no equivocarte de filamento al pedir tu pieza.
+- [Archivos STL para imprimir en 3D: qué son y cómo mandarlos](https://3dmon.shop/blog/archivos-stl-para-imprimir/): Aprendé qué es un archivo STL, cuándo conviene usar 3MF o STEP, dónde bajar modelos verificados y cómo chequear escalas antes de pedir presupuesto.
+- [El filamento PLA es tóxico: qué pasa con comida, niños y calor](https://3dmon.shop/blog/filamento-pla-es-toxico/): Aclaramos qué tiene el PLA, por qué se diferencia del polímero puro frente al uso con comida o niños y cómo usar cortantes 3D sin riesgos.
+- [Altura de capa en impresión 3D: cómo afecta calidad y fuerza](https://3dmon.shop/blog/altura-de-capa-impresion/): Entendé la relación exacta entre altura de capa, diámetro de boquilla, resistencia entre capas y costo de fabricación en piezas FDM.
+- [Soportes en impresión 3D: tipos, regla de 45 grados y diseño](https://3dmon.shop/blog/soportes-en-impresion-3d/): Aprendé cuándo hacen falta soportes en impresión 3D, cómo elegir entre árbol y grilla normal y qué trucos de diseño dejan las caras limpias.
+- [Filamento TPU en impresión 3D: dureza Shore, usos y límites](https://3dmon.shop/blog/filamento-tpu-caracteristicas-usos/): Todo sobre el filamento TPU flexible: escalas Shore 85A y 95A, resistencia a aceites e impactos, tolerancias y piezas industriales o de uso diario.
+- [Impresión 3D en San Juan: piezas a medida, repuestos y envíos](https://3dmon.shop/blog/impresion-3d-san-juan/): Cómo funciona nuestro laboratorio de impresión 3D en San Juan Capital: diseño desde fotos o STL, materiales técnicos y tiempos reales de entrega.
+- [Servicio de impresión 3D en Argentina: cómo cotizar y recibir](https://3dmon.shop/blog/servicio-impresion-3d-argentina/): Cómo funciona nuestro servicio de impresión 3D a pedido para toda Argentina: qué datos aceleran tu presupuesto y cómo embalamos envíos seguros.
+- [Llaveros 3D personalizados por mayor: diseño, colores y plazos](https://3dmon.shop/blog/llaveros-3d-personalizados-mayor/): Cómo transformamos el logo de tu marca, club o evento en llaveros 3D personalizados por mayor listos para entregar en todo el país.
 
 ## Datos Verificables y Contacto
 

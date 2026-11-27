@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('3dmon_theme') || 'dark';
+      if (savedTheme !== 'light' && savedTheme !== 'dark') savedTheme = 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.querySelector('meta[name="color-scheme"]').content = savedTheme;
+    } catch (e) {}
+  </script>
+
+  <!-- Filtro de Trafico Interno (?soy_erik=1 / ?soy_3dmon=1 / localhost / localStorage) -->
+  <script id="dm-internal-filter">
+    (function () {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var mode = p.get('soy_erik') || p.get('soy_3dmon');
+        if (mode === '1') {
+          localStorage.setItem('dm_ignore_analytics', '1');
+        } else if (mode === '0') {
+          localStorage.removeItem('dm_ignore_analytics');
+        }
+        if (
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1' ||
+          localStorage.getItem('dm_ignore_analytics') === '1'
+        ) {
+          window._dmIgnoreAnalytics = true;
+          window['ga-disable-G-E76DZMT0FL'] = true;
+        }
+        if (mode === '1' || mode === '0') {
+          window.addEventListener('DOMContentLoaded', function () {
+            var b = document.createElement('div');
+            b.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999;background:#0f172a;color:#3D8700;border:1px solid #3D8700;padding:12px 18px;border-radius:10px;font-family:sans-serif;font-size:13px;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,0.5);max-width:340px;';
+            b.textContent = mode === '1'
+              ? 'Filtro Interno Activado: Tus visitas en este navegador ya NO cuentan en GA4.'
+              : 'Filtro Interno Desactivado: Este navegador vuelve a enviar datos a GA4.';
+            document.body.appendChild(b);
+            setTimeout(function () { b.remove(); }, 6000);
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>Filamento TPU flexible: características y usos | 3DMON</title>
+  <meta name="description" content="Qué es el filamento TPU flexible en impresión 3D, diferencias entre dureza Shore 85A y 95A, resistencia al desgaste y cuándo conviene frente a PLA o PETG." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://3dmon.shop/blog/filamento-tpu-caracteristicas-usos/" />
+  <link rel="icon" type="image/png" href="/logo-solo.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="3DMON" />
+  <meta property="og:url" content="https://3dmon.shop/blog/filamento-tpu-caracteristicas-usos/" />
+  <meta property="og:title" content="Filamento TPU flexible: características y usos | 3DMON" />
+  <meta property="og:description" content="Qué es el filamento TPU flexible en impresión 3D, diferencias entre dureza Shore 85A y 95A, resistencia al desgaste y cuándo conviene frente a PLA o PETG." />
+  <meta property="og:image" content="https://3dmon.shop/images/blog/filamento-tpu-caracteristicas-usos.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Filamento TPU flexible: características y usos | 3DMON" />
+  <meta name="twitter:description" content="Qué es el filamento TPU flexible en impresión 3D, diferencias entre dureza Shore 85A y 95A, resistencia al desgaste y cuándo conviene frente a PLA o PETG." />
+  <meta name="twitter:image" content="https://3dmon.shop/images/blog/filamento-tpu-caracteristicas-usos.jpg" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E76DZMT0FL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    if (!window._dmIgnoreAnalytics) {
+      gtag('js', new Date());
+      gtag('config', 'G-E76DZMT0FL');
+    }
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://3dmon.shop/blog/filamento-tpu-caracteristicas-usos/#article",
+      "headline": "Filamento TPU en impresión 3D: dureza Shore, usos y límites",
+      "description": "Qué es el filamento TPU flexible en impresión 3D, diferencias entre dureza Shore 85A y 95A, resistencia al desgaste y cuándo conviene frente a PLA o PETG.",
+      "inLanguage": "es-AR",
+      "mainEntityOfPage": "https://3dmon.shop/blog/filamento-tpu-caracteristicas-usos/",
+      "datePublished": "2026-11-26T21:30:00-03:00",
+      "dateModified": "2026-11-26T21:30:00-03:00",
+      "author": {
+        "@type": "Organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/"
+      },
+      "publisher": {
+        "@type": "LocalBusiness",
+        "@id": "https://3dmon.shop/#organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://3dmon.shop/logo-main.png"
+        }
+      },
+      "image": "https://3dmon.shop/images/blog/filamento-tpu-caracteristicas-usos.jpg",
+      "breadcrumb": {
+        "@id": "https://3dmon.shop/blog/filamento-tpu-caracteristicas-usos/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://3dmon.shop/blog/filamento-tpu-caracteristicas-usos/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://3dmon.shop/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://3dmon.shop/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Filamento TPU flexible",
+          "item": "https://3dmon.shop/blog/filamento-tpu-caracteristicas-usos/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://3dmon.shop/blog/filamento-tpu-caracteristicas-usos/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué tan blanda queda una pieza impresa en filamento TPU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Con TPU 95A estándar, una pieza fina como una funda se dobla fácil con la mano, mientras que un taco macizo se siente como una goma dura de rueda de skate o buje firme."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El TPU sirve para hacer juntas de agua o aceite?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, el TPU tolera muy bien grasas, aceites y humedad. Para sellados herméticos de alta presión conviene diseñarlo con geometría de compresión y suficiente espesor sólido."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué una pieza de TPU suele tardar más que una igual en PLA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque al ser un filamento elástico no puede empujarse a alta velocidad dentro del cabezal sin atascarse o perder precisión, lo que duplica o triplica el tiempo de máquina."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se puede regular qué tan blando o duro queda un mismo modelo en TPU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Variando el porcentaje de relleno interno y la cantidad de perímetros podés lograr que una pieza de TPU 95A ceda como esponja firme o trabaje casi rígida."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El TPU resiste el sol y la intemperie mejor que el PLA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Tolera temperaturas más altas (alrededor de 80 °C según carga) y soporta exposición exterior sin volverse quebradizo rápido."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo mandar a replicar una pieza de goma rota en 3DMON?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Envianos fotos junto a una regla o las medidas principales por WhatsApp, la modelamos a medida y la imprimimos en TPU con envío a todo el país."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/blog.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <a href="/" class="header-brand" aria-label="3DMON Inicio">
+      <img src="/logo-solo.png" alt="3DMON Logo" class="header-logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="/#servicios" class="nav-anchor-link">Cómo Trabajamos</a>
+      <a href="/#proyectos" class="nav-anchor-link">Portafolio</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+        <span class="theme-opt theme-opt-light">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <span class="theme-label">Modo Claro</span>
+        </span>
+        <span class="theme-opt theme-opt-dark">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <span class="theme-label">Modo Oscuro</span>
+        </span>
+      </button>
+      <a href="https://wa.me/542644113760" class="nav-cta" target="_blank" rel="noopener noreferrer">
+        Pedí tu Presupuesto
+      </a>
+    </nav>
+  </header>
+
+  <main class="article-shell">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a>
+      <span aria-hidden="true">/</span>
+      <span>Filamento TPU flexible</span>
+    </nav>
+
+    <article>
+      <header>
+        <div class="article-meta-row">
+          <span class="axis-badge axis-tecnico">Técnico 3D · Filamento TPU</span>
+          <span>Actualizado 26 de noviembre de 2026 · 6 min de lectura</span>
+        </div>
+
+        <h1 class="article-title">Filamento TPU en impresión 3D: dureza Shore, usos y límites</h1>
+
+        <section class="direct-answer" aria-label="Respuesta directa">
+          <p class="direct-answer-label">Respuesta Directa</p>
+          <p>El <strong>filamento TPU flexible</strong> es un elastómero termoplástico que permite imprimir en 3D piezas elásticas tipo goma sin usar moldes costosos. Resiste impactos repetidos, abrasión, aceites y vibraciones sin quebrarse, siendo ideal para juntas, fuelles, topes antivibratorios, fundas protectoras y ruedas técnicas en dureza estándar 95A.</p>
+        </section>
+
+        <figure class="article-hero-figure">
+          <img
+            src="/images/blog/filamento-tpu-caracteristicas-usos.jpg"
+            alt="Manos flexionando una junta negra flexible impresa en filamento TPU junto a bobina elástica en taller"
+            width="1200"
+            height="675"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      </header>
+
+      <div class="article-body">
+<h2>Qué es el filamento TPU y cómo se comporta frente a un golpe</h2>
+        <p>TPU son las siglas de poliuretano termoplástico, un material a mitad de camino entre el plástico rígido y el caucho vulcanizado. Mientras una pieza de PLA se parte ante una caída seca y una de PETG flexiona apenas unos milímetros, el TPU se comprime, absorbe la energía del impacto y recupera su forma original una y otra vez.</p>
+        <p>Otra propiedad clave en taller es su altísima resistencia a la abrasión y al desgarro entre capas. Una vez que el cordón fundido de TPU se suelda con la lámina inferior a unos 225 °C–235 °C, es casi imposible separarlo con la mano tirando de las capas, logrando piezas flexibles sumamente duraderas.</p>
+
+        <h2>Escala de dureza Shore: qué significa 95A vs 85A en la práctica</h2>
+        <p>No todos los TPU se doblan igual. La rigidez de los elastómeros se mide en la escala Shore A, donde un número más bajo indica mayor suavidad y un número cercano a 100 se siente casi como suela de zapatilla deportiva firme:</p>
+
+        <div tabindex="0" role="region" aria-labelledby="tabla-tpu-shore" class="table-wrapper">
+          <table>
+            <caption id="tabla-tpu-shore">Comparativa técnica de dureza Shore en TPU frente a PLA y PETG</caption>
+            <thead>
+              <tr>
+                <th>Material / Dureza</th>
+                <th>Sensación al tacto</th>
+                <th>Deformación típica</th>
+                <th>Aplicaciones más rentables</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>TPU 85A (Blando)</th>
+                <td data-label="Sensación al tacto">Similar a goma blanda o silicona firme</td>
+                <td data-label="Deformación típica">Se aprieta fácil entre dos dedos</td>
+                <td data-label="Aplicaciones más rentables">Juntas estancas, amortiguadores suaves, sellos</td>
+              </tr>
+              <tr>
+                <th>TPU 95A (Estándar)</th>
+                <td data-label="Sensación al tacto">Similar a cubierta de rueda maciza o taco de goma</td>
+                <td data-label="Deformación típica">Flexible con paredes finas; firme en bloques</td>
+                <td data-label="Aplicaciones más rentables">Fundas, topes, acoples, pasacables, drones</td>
+              </tr>
+              <tr>
+                <th>PETG (Rígido tenaz)</th>
+                <td data-label="Sensación al tacto">Plástico sólido duro</td>
+                <td data-label="Deformación típica">Casi nula bajo presión manual</td>
+                <td data-label="Aplicaciones más rentables">Soportes mecánicos, engranajes, trabas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Un detalle práctico que muchos pasan por alto al encargar una pieza en TPU 95A es el papel del relleno interno (infill). Con dos perímetros y 15% de relleno en patrón gyroid, un taco de goma en TPU 95A se comprime como espuma densa; en cambio, si lo imprimimos al 100% sólido con cinco paredes, se vuelve tan firme como un buje industrial de poliuretano.</p>
+
+        <aside class="interlink-callout">
+          <strong>Relacionado en 3DMON</strong>
+          <p style="margin:0;">Si dudás entre goma elástica o un plástico duro tenaz, revisá <a href="/blog/pla-vs-petg-diferencias/">PLA vs PETG: diferencias reales</a> y tené presente nuestra guía de <a href="/blog/soportes-en-impresion-3d/">soportes en impresión 3D</a> porque el TPU requiere diseños limpios sin apoyos complejos.</p>
+        </aside>
+
+        <h2>Usos reales donde el filamento TPU resuelve problemas caros</h2>
+        <ul>
+          <li><strong>Repuestos automotrices y karting:</strong> pasacables de goma, guardapolvos, tapones de chasis y topes que ya no vienen en casas de repuestos o salen carísimos originales.</li>
+          <li><strong>Industria y maquinaria liviana:</strong> patas antivibratorias para motores o compresores, acoples elásticos de eje, correas simples y topes de puerta en líneas de producción.</li>
+          <li><strong>Electrónica, drones y deportes:</strong> soportes flexibles de cámaras deportivas que no se parten en golpes, protectores de antenas, punteras de bastones y agarres ergonómicos.</li>
+        </ul>
+
+        <h2>Limitaciones técnicas del TPU que conviene saber antes de cotizar</h2>
+        <p>Para evitar sorpresas, el TPU tiene tres restricciones claras. Primero, absorbe humedad ambiental muy rápido, por eso antes de imprimirlo hay que secar la bobina en horno deshidratador para que no salgan burbujas ni superficie áspera.</p>
+        <p>Segundo, se imprime a velocidades mucho más lentas que el PLA (entre 25 y 45 mm/s) para que el filamento elástico no se enrede en el extrusor directo, lo que aumenta las horas de máquina. Y tercero, los voladizos pronunciados con soportes quedan más marcados porque el TPU se pega fuerte consigo mismo, algo que revisamos con vos al cotizar por <a href="/blog/impresion-3d-san-juan/">3DMON San Juan</a> o en todo el país vía <a href="/blog/servicio-impresion-3d-argentina/">envíos nacionales</a>.</p>
+
+        <section class="faq-section" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">Preguntas Frecuentes</h2>
+          <details class="faq-item">
+            <summary>¿Qué tan blanda queda una pieza impresa en filamento TPU?</summary>
+            <div class="faq-answer"><p>Con TPU 95A estándar, una pieza fina como una funda se dobla fácil con la mano, mientras que un taco macizo se siente como una goma dura de rueda de skate o buje firme.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿El TPU sirve para hacer juntas de agua o aceite?</summary>
+            <div class="faq-answer"><p>Sí, el TPU tolera muy bien grasas, aceites y humedad. Para sellados herméticos de alta presión conviene diseñarlo con geometría de compresión y suficiente espesor sólido.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Por qué una pieza de TPU suele tardar más que una igual en PLA?</summary>
+            <div class="faq-answer"><p>Porque al ser un filamento elástico no puede empujarse a alta velocidad dentro del cabezal sin atascarse o perder precisión, lo que duplica o triplica el tiempo de máquina.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Se puede regular qué tan blando o duro queda un mismo modelo en TPU?</summary>
+            <div class="faq-answer"><p>Sí. Variando el porcentaje de relleno interno y la cantidad de perímetros podés lograr que una pieza de TPU 95A ceda como esponja firme o trabaje casi rígida.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿El TPU resiste el sol y la intemperie mejor que el PLA?</summary>
+            <div class="faq-answer"><p>Sí. Tolera temperaturas más altas (alrededor de 80 °C según carga) y soporta exposición exterior sin volverse quebradizo rápido.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Puedo mandar a replicar una pieza de goma rota en 3DMON?</summary>
+            <div class="faq-answer"><p>Sí. Envianos fotos junto a una regla o las medidas principales por WhatsApp, la modelamos a medida y la imprimimos en TPU con envío a todo el país.</p></div>
+          </details>
+        </section>
+
+        <aside class="cta-box">
+          <h2>¿Necesitás fuelles, topes o juntas flexibles en TPU a medida?</h2>
+          <p>Envianos las medidas, fotos de la pieza dañada o tu archivo 3D. Fabricamos piezas elásticas en TPU calibrado desde San Juan para todo el país.</p>
+          <div class="cta-actions">
+            <button
+              type="button"
+              class="nav-cta"
+              data-wa-msg="Hola 3DMON! Necesito imprimir piezas flexibles en TPU y quiero consultar por dureza y presupuesto."
+            >
+              Consultar por WhatsApp
+            </button>
+            <a href="/" class="btn-outline-gold">Conocer Servicios 3DMON</a>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="/logo-solo.png" alt="3DMON" style="height: 40px; margin-bottom: 14px;" />
+        <p>Micropyme de Impresión 3D</p>
+        <p>San Juan, Capital</p>
+        <p>Envíos a todo el país</p>
+      </div>
+      <div class="footer-col">
+        <h4>SERVICIOS</h4>
+        <p>Impresión PLA / PETG</p>
+        <p>Prototipado Rápido</p>
+        <p>Pedidos Mayoristas</p>
+      </div>
+      <div class="footer-col">
+        <h4>GUÍAS Y BLOG</h4>
+        <a href="/blog/">Blog y Guías 3D</a>
+        <a href="/blog/?eje=principiantes">Guías para Principiantes</a>
+        <a href="/blog/?eje=tecnico">Información Técnica 3D</a>
+        <a href="/blog/?eje=comercial">Servicios y Presupuestos</a>
+      </div>
+      <div class="footer-col">
+        <h4>SEGUINOS</h4>
+        <a href="https://www.instagram.com/3d.mon_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://wa.me/542644113760" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 3DMON - Laboratorio de Impresión. Todos los derechos reservados.</p>
+      <a
+        href="https://erikwebsite.com/"
+        target="_blank"
+        rel="noopener"
+        title="Diseño y desarrollo web de alta velocidad - Erik Website"
+        class="erik-badge"
+      >
+        <span class="erik-dot" aria-hidden="true"></span>
+        Desarrollo web por <strong>Erik Website</strong>
+      </a>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/blog.js"></script>
+</body>
+
+</html>

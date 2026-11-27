@@ -14,7 +14,7 @@
 | **Jueves** | **Eje 1: Principiantes en el Mundo 3D** | Dudas frecuentes de compradores nuevos, archivos, acabados y usos cotidianos | Boost (>= 14d) + 1 guía nueva + interlinking |
 | **Viernes** | **Eje 2: Información Técnica 3D** | Propiedades térmicas, mecánicas, orientación de capas, resistencia al sol y piezas funcionales | Boost (>= 14d) + 1 guía técnica nueva + interlinking |
 | **Sábado** | **Eje 3: Comercial y Transaccional** | Comparativas de costo (imprimir por encargo vs comprar impresora), pedidos mayoristas y casos industriales | Boost (>= 14d) + 1 artículo comercial + interlinking |
-| **Domingo** | **Comando Dominical de Auditoría** | Correr `python scratch/sunday_seo_command.py` (GSC + Bing + GA4 `304404800` + SerpBear), evaluar URLs >= 14 días, detectar canibalización y definir el plan de la semana | Reporte en `PLAN_SEMANAL_SEO.md` + selección de 2–3 URLs comerciales para interlinking |
+| **Domingo** | **Comando Dominical de Auditoría** | Correr `python scratch/sunday_seo_command.py` (GSC + Bing + GA4 `513929397` + SerpBear), evaluar URLs >= 14 días, detectar canibalización y definir el plan de la semana | Reporte en `PLAN_SEMANAL_SEO.md` + selección de 2–3 URLs comerciales para interlinking |
 
 ### Protocolo de Interlinking Semanal y Control de Canibalización
 - **Interlinking semanal:** Elegir entre **2 y 3 páginas comerciales/servicios clave** por semana (por ejemplo: Home `/`, repuestos a medida, prototipado rápido para PyMEs, merchandising/llaveros por mayor) e inyectar enlaces contextuales naturales hacia ellas desde los artículos del blog.
@@ -34,12 +34,13 @@
 - [x] Hub `/blog/` (`blog/index.html`, `src/styles/blog.css`) y plantilla maestra (`templates/article.html`) + scripts en `scratch/`.
 
 ### Acciones pendientes (requieren confirmación o acceso del dueño)
-1. **Permiso API en GA4 (`properties/304404800` devolvió `403`):** Aunque la cuenta de servicio figure como Administrador, `304404800` probablemente corresponde al **ID de Cuenta** (o a otra propiedad) y no al **ID de Propiedad** donde mide `G-E76DZMT0FL`. En Google Analytics Admin → *Configuración de la propiedad* (o en la URL `#/a<CUENTA>p<PROPIEDAD>/`), verificar el número exacto después de la `p` y confirmar que `seo-asistente@erik-website-seo.iam.gserviceaccount.com` esté en esa propiedad.
-2. **Configuración en Cloudflare (panel web de `3dmon.shop`):**
+1. **Configuración de Build en Cloudflare Pages (urgente — resuelve pantalla en negro):**
+   - Al migrar del Worker a Cloudflare Pages, el primer deploy publicó la raíz sin compilar (`src/main.jsx` crudo como `text/jsx` y sin copiar `public/`). Configurar en Cloudflare Pages → *Settings → Builds & deployments*: **Build command:** `npm run build`, **Build output directory:** `dist`, variable `NODE_VERSION = 20`, y reintentar el deploy. Con Cloudflare Pages ya responde `HTTP 404` real en rutas inexistentes.
+2. **Configuración adicional en Cloudflare (panel web de `3dmon.shop`):**
    - Activar **Always Use HTTPS** (hoy `http://3dmon.shop/` responde `200 OK` sin redirigir a `https://3dmon.shop/`).
    - Revisar las 2 capas de **AI Crawl Control**: los bots aparecen como *Permitidos* en acceso HTTP/WAF (`OAI-SearchBot`, `ChatGPT-User`, `PerplexityBot` habilitados), pero el interruptor separado *Managed `robots.txt` / Instruct AI bots* inyecta `# BEGIN Cloudflare Managed content` con `ai-train=no` y `Disallow: /` para `GPTBot`, `ClaudeBot`, `Google-Extended`, `anthropic-ai`, `Claude-Web`, `Applebot-Extended`, etc. (En `erikwebsite.com` ese interruptor está apagado).
    - Confirmar que el certificado DNS no usa `www` (mantener canónico `https://3dmon.shop/`).
-3. **Limpieza de Sitemaps Heredados (tras el push):** Eliminar `sitemap_index.xml` y `product-sitemap.xml` en GSC y Bing Webmaster Tools, dejando únicamente `https://3dmon.shop/sitemap.xml`.
+3. **Limpieza de Sitemaps Heredados:** Eliminar `sitemap_index.xml` y `product-sitemap.xml` en GSC y Bing Webmaster Tools, dejando únicamente `https://3dmon.shop/sitemap.xml` (y re-enviar IndexNow tras activar `npm run build` en Cloudflare Pages).
 4. **Compresión de Imágenes de Portafolio (Performance LCP/Peso):** Optimizar `public/portfolio/p1.jpg`..`p9.jpg` (actualmente pesan entre `1,4 MB` y `3,4 MB` cada una, sumando `24,2 MB` / `23,1 MiB`) a formato ligero `< 350 KB` cada una.
 
 ---
@@ -52,9 +53,9 @@
 | **Artículos Activos en `/blog/`** | `0` artículos (`0` P / `0` T / `0` C) | Hub `/blog/` construido y listo para Sprint 10+10+10 |
 | **GSC (`sc-domain:3dmon.shop`)** | `28d`: `9` clics · `375` impr · Pos. `5.7` (`90d`: `49` clics · `1.162` impr · Pos. `6.3`) | 1 sola URL (`/`). Líder: `impresiones 3d san juan` (`8` clics, `164` impr en 90d; `52` impr en 28d pos `5.5`) |
 | **GSC Sitemaps** | `3` registrados (`sitemap.xml`, `product-sitemap.xml`, `sitemap_index.xml`) | Pendiente borrar los 2 feeds viejos de WordPress |
-| **Bing (`https://3dmon.shop/`)** | `InIndex: 4` · `CrawlErrors: 2` · `28d`: `17` impr / `0` clics (`290` impr / `11` clics histórico WP+actual) | Único feed registrado era `sitemap_index.xml` (`The feed was empty`, `UrlCount: 0`) |
-| **IndexNow** | Activándose en deploy Fase 1 (`a315c508d3144b2fa8adffd5d8badf13.txt`) | Cuota Bing disponible: `10.000/día` y `50.000/mes` |
-| **GA4 (`properties/304404800`, `G-E76DZMT0FL`)** | API `403` (verificar Property ID real vs Account ID) | Filtro interno `?soy_erik=1` / `?soy_3dmon=1` y eventos implementados en código |
+| **Bing (`https://3dmon.shop/`)** | `InIndex: 4` · `CrawlErrors: 2` · `28d`: `17` impr / `0` clics (`290` impr / `11` clics histórico WP+actual) | `https://3dmon.shop/sitemap.xml` enviado (`Success`, 2 URLs); falta borrar `sitemap_index.xml` |
+| **IndexNow** | Listo (`a315c508d3144b2fa8adffd5d8badf13.txt`) | Re-notificar tras activar `npm run build` -> `dist` en Cloudflare Pages |
+| **GA4 (`properties/513929397`, `G-E76DZMT0FL`)** | **Conectado OK (28d):** `Direct` `39` u. · `Organic Search` `11` u. · **`AI Assistant` `5` u. (`100%` eng.)** · `Organic Social` `4` u. | `304404800` era el Account ID; eventos nuevos (`generate_lead`, `whatsapp_click`, `faq_expand`, `article_read_75`) ya en código |
 | **SerpBear Local** | **Activo: `12` keywords sincronizadas (`3dmon.shop`)** | `SC_3dmon.shop.json` cacheado (`31` registros 30d); 0 canibalizaciones |
 
 ---
@@ -63,17 +64,17 @@
 
 Al existir **0 artículos publicados/indexados** en `/blog/`, durante este lanzamiento **no aplica Boost** todavía. A partir del cruce de los 6 archivos CSV descargados en `keywords/` (`827` keywords únicas en Argentina, `764` con volumen `>= 50`), quedó cerrada la matriz de **30 artículos (10 por eje)** con slugs de 3–5 palabras sin año:
 
-### Tanda 1 — Hoy Jueves 26/11 (10 artículos: 4 Principiantes + 3 Técnico + 3 Comercial)
-1. **`[principiantes]`** `/blog/que-es-la-impresion-3d/` — *Main KW:* `que es la impresion 3d` (`500/mes` · Bajo `31`)
-2. **`[principiantes]`** `/blog/pla-vs-petg-diferencias/` — *Main KW:* `pla vs petg` / `diferencia entre pla y petg` (`50/mes`, `+900% YoY` · Bajo `16`)
-3. **`[principiantes]`** `/blog/archivos-stl-para-imprimir/` — *Main KW:* `archivos stl para imprimir` / `stl para imprimir` (`36` variantes `>= 50` · Bajo `13`)
-4. **`[principiantes]`** `/blog/filamento-pla-es-toxico/` — *Main KW:* `filamento pla es toxico` (`50/mes`, `8` variantes · Bajo `0`)
-5. **`[tecnico]`** `/blog/altura-de-capa-impresion/` — *Main KW:* `altura de capa impresion 3d` (`50/mes` · Bajo `0`)
-6. **`[tecnico]`** `/blog/soportes-en-impresion-3d/` — *Main KW:* `soportes en impresion 3d` (`50/mes` · Bajo `4`)
-7. **`[tecnico]`** `/blog/filamento-tpu-caracteristicas-usos/` — *Main KW:* `filamento tpu` / `filamento tpu para que sirve` (`500/mes` + `50/mes` Bajo `21`)
-8. **`[comercial]`** `/blog/impresion-3d-san-juan/` — *Main KW:* `impresion 3d san juan` (`500/mes` · Bajo `17` · ya rankea en pos. `5.5` en GSC)
-9. **`[comercial]`** `/blog/servicio-impresion-3d-argentina/` — *Main KW:* `servicio de impresion 3d` / `impresiones 3d argentina` (`500/mes` · Medio `58`)
-10. **`[comercial]`** `/blog/llaveros-3d-personalizados-mayor/` — *Main KW:* `llaveros 3d personalizados` / `llaveros 3d por mayor` (`5.000/mes` + `50/mes`)
+### Tanda 1 — Hoy Jueves 26/11 (**COMPLETADA** — 10 artículos: 4 Principiantes + 3 Técnico + 3 Comercial)
+1. [x] **`[principiantes]`** `/blog/que-es-la-impresion-3d/` — *Main KW:* `que es la impresion 3d` (`500/mes` · Bajo `31`)
+2. [x] **`[principiantes]`** `/blog/pla-vs-petg-diferencias/` — *Main KW:* `pla vs petg` / `diferencia entre pla y petg` (`50/mes`, `+900% YoY` · Bajo `16`)
+3. [x] **`[principiantes]`** `/blog/archivos-stl-para-imprimir/` — *Main KW:* `archivos stl para imprimir` / `stl para imprimir` (`36` variantes `>= 50` · Bajo `13`)
+4. [x] **`[principiantes]`** `/blog/filamento-pla-es-toxico/` — *Main KW:* `filamento pla es toxico` (`50/mes`, `8` variantes · Bajo `0`)
+5. [x] **`[tecnico]`** `/blog/altura-de-capa-impresion/` — *Main KW:* `altura de capa impresion 3d` (`50/mes` · Bajo `0`)
+6. [x] **`[tecnico]`** `/blog/soportes-en-impresion-3d/` — *Main KW:* `soportes en impresion 3d` (`50/mes` · Bajo `4`)
+7. [x] **`[tecnico]`** `/blog/filamento-tpu-caracteristicas-usos/` — *Main KW:* `filamento tpu` / `filamento tpu para que sirve` (`500/mes` + `50/mes` Bajo `21`)
+8. [x] **`[comercial]`** `/blog/impresion-3d-san-juan/` — *Main KW:* `impresion 3d san juan` (`500/mes` · Bajo `17` · pos `5.5` en GSC)
+9. [x] **`[comercial]`** `/blog/servicio-impresion-3d-argentina/` — *Main KW:* `servicio de impresion 3d` / `impresiones 3d argentina` (`500/mes` · Medio `58`)
+10. [x] **`[comercial]`** `/blog/llaveros-3d-personalizados-mayor/` — *Main KW:* `llaveros 3d personalizados` / `llaveros 3d por mayor` (`5.000/mes` + `50/mes`)
 
 ### Tanda 2 — Viernes 27/11 (10 artículos: 3 Principiantes + 4 Técnico + 3 Comercial)
 11. **`[principiantes]`** `/blog/como-funciona-impresora-3d/` — `como funciona una impresora 3d` (`500/mes` · Medio `45`)

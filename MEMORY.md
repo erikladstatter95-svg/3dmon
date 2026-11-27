@@ -16,9 +16,9 @@
   - **Home (`/`):** React 19 (`src/App.jsx`, componentes CSS modulares en `src/components/`, estilos globales en `src/index.css` y `src/App.css`).
   - **Hub y Artículos del Blog (`/blog/` y `/blog/<slug>/`):** HTML5 semántico estático multipágina con hoja de estilos compartida (`src/styles/blog.css`) y módulo ES compartido (`src/js/analytics.js` + `src/js/blog.js`).
   - **Página 404 real (`404.html`):** Compilada en raíz de `dist/` para evitar Soft-404 en Cloudflare Pages.
-- **Hosting / CDN:** Cloudflare Pages (`server: cloudflare`, IPs `104.21.49.143` / `172.67.163.168`), con `public/_redirects` para redirecciones `301`.
+- **Hosting / CDN:** Cloudflare Pages (`server: cloudflare`, IPs `104.21.49.143` / `172.67.163.168`), con `public/_redirects` para redirecciones `301` y `HTTP 404` real para rutas inexistentes.
 - **Google Search Console & Indexing API:** Propiedad `sc-domain:3dmon.shop` verificada con permisos `siteOwner` mediante `C:\Users\erikl\.config\claude-seo\service_account.json` (`seo-asistente@erik-website-seo.iam.gserviceaccount.com`).
-- **Google Analytics 4 (GA4):** Tag `G-E76DZMT0FL` conectado a la Propiedad `properties/304404800` (pendiente otorgar rol `Lector` a `seo-asistente@erik-website-seo.iam.gserviceaccount.com` en GA4 Admin para lectura vía Data API).
+- **Google Analytics 4 (GA4):** Tag `G-E76DZMT0FL` conectado a la Propiedad **`properties/513929397`** (ID de Cuenta: `304404800`), con lectura API verificada y operativa vía `seo-asistente@erik-website-seo.iam.gserviceaccount.com`.
 - **Bing Webmaster Tools & IndexNow:** Sitio `https://3dmon.shop/` verificado (`IsVerified: True`, cuota `10.000/día` y `50.000/mes`). Clave IndexNow oficial de `3dmon.shop`: `a315c508d3144b2fa8adffd5d8badf13` (alojada en `public/a315c508d3144b2fa8adffd5d8badf13.txt`). *(Nota: la clave `361e05fea98a46139b7ba6e961b91cbf` corresponde a `erikwebsite.com` y no debe usarse en `3dmon.shop`).*
 - **Grafo de Conocimiento Local:** `graphify-out/graph.json` en la raíz del proyecto (`python -m graphify . --code-only`).
 - **Automatización SEO/AEO Local (`scratch/`):** `sunday_seo_command.py`, `check_cannibalization.py`, `verify_article_hygiene.py`, `audit_all_internal_links.py`, `submit_indexing.py` y `free_alsoasked_ai_fanout.py`.
@@ -48,7 +48,7 @@
    - El único teléfono permitido en todo el repositorio (`wa.me/`, `data-wa-phone` y `Schema.org`) es `542644113760`.
    - No mostrar el número explícito dentro del texto del botón; usar textos limpios (`Consultar por WhatsApp`, `Pedí tu Presupuesto`).
 7. **Filtro de Tráfico Interno y Eventos GA4 (`G-E76DZMT0FL`):**
-   - Toda página pública debe incluir `<script id="dm-internal-filter">` en `<head>` antes de `gtag` (soporta `?soy_erik=1` / `?soy_3dmon=1` y `localhost`), bloqueando el envío propio a GA4 `properties/304404800`.
+   - Toda página pública debe incluir `<script id="dm-internal-filter">` en `<head>` antes de `gtag` (soporta `?soy_erik=1` / `?soy_3dmon=1` y `localhost`), bloqueando el envío propio a GA4 `properties/513929397`.
    - Mantener activos los eventos `generate_lead`, `whatsapp_click`, `faq_expand` y `article_read_75` mediante `src/js/analytics.js`.
 8. **Higiene de Imágenes, Enlaces y Archivos Raíz:**
    - Imágenes editoriales del blog en `public/images/blog/` con tamaño **`1200x675` (16:9)** y peso **`< 490 KB`**.
@@ -83,5 +83,12 @@
   - Actualizado `.gitignore` para mantener privados `scratch/`, `graphify-out/` y `keywords/`.
   - Dado de alta y sincronizado `3dmon.shop` en SerpBear local (`12` keywords activas, cache `SC_3dmon.shop.json` con `31` registros 30d).
   - Procesados 6 CSVs de Google Ads Keyword Planner en `keywords/` (`827` keywords únicas en Argentina, `764` con volumen `>= 50`) y cerrada la matriz de `30` artículos fundacionales (`10` hoy + `10` viernes + `10` sábado) en `PLAN_SEMANAL_SEO.md`.
-- [ ] **Pendiente Bloque 0 (Acciones en Panel):** Confirmar Property ID real de GA4 (después de la `p` en la URL) para resolver el `403` sobre `properties/304404800`, revisar *Managed `robots.txt`* y *Always Use HTTPS* en Cloudflare, limpiar sitemaps WP viejos en GSC/Bing y comprimir `public/portfolio/p1.jpg`..`p9.jpg` (`24,2 MB`).
-- [ ] **Pendiente Sprint Fundacional del Blog (30 artículos):** Tanda 1 (10 hoy) + Tanda 2 (10 viernes) + Tanda 3 (10 sábado) según matriz cerrada en `PLAN_SEMANAL_SEO.md`.
+- [x] **2026-11-26 — Conexión GA4 `properties/513929397` + Migración a Cloudflare Pages:**
+  - Confirmado que `304404800` era el ID de Cuenta de GA4 y el Property ID real es **`properties/513929397`** (`AI Assistant`: `5` usuarios / `5` sesiones / `100%` engaged en 28d). Actualizado `scratch/sunday_seo_command.py`.
+  - Verificado `HTTP 404` real en Cloudflare Pages para rutas inexistentes (pendiente configurar `npm run build` -> `dist` en Cloudflare Pages Build Settings para compilar `src/main.jsx` y `public/`).
+- [x] **2026-11-26 — Publicación Tanda 1 del Blog (10 artículos fundacionales + imágenes `1200x675`):**
+  - Generadas y procesadas 10 fotografías editoriales `1200x675` JPEG (`93.2 KB`–`173.2 KB`, todas `< 490 KB`) en `public/images/blog/` con pastilla por eje y sello `3dmon.shop`.
+  - Publicados `10` artículos HTML5 completos (`4` Principiantes, `3` Técnico 3D, `3` Comercial con Schema `Service`) con paridad FAQ 6/6, tablas accesibles, Respuesta Directa Sturm, interlinking cruzado y voseo natural.
+  - Sincronizados `blog/index.html` (`10` guías activas), `sitemap.xml` + `public/sitemap.xml` (`12` URLs) y `llms.txt` + `public/llms.txt`.
+- [ ] **Pendiente Bloque 0 (Acciones en Panel):** Revisar *Managed `robots.txt`* y *Always Use HTTPS* en Cloudflare, limpiar sitemaps WP viejos en GSC/Bing y comprimir `public/portfolio/p1.jpg`..`p9.jpg` (`24,2 MB`).
+- [ ] **Pendiente Sprint Fundacional del Blog (20 artículos restantes):** Tanda 2 (10 viernes 27/11) + Tanda 3 (10 sábado 28/11) según matriz cerrada en `PLAN_SEMANAL_SEO.md`.

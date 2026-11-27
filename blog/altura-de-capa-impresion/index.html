@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('3dmon_theme') || 'dark';
+      if (savedTheme !== 'light' && savedTheme !== 'dark') savedTheme = 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.querySelector('meta[name="color-scheme"]').content = savedTheme;
+    } catch (e) {}
+  </script>
+
+  <!-- Filtro de Trafico Interno (?soy_erik=1 / ?soy_3dmon=1 / localhost / localStorage) -->
+  <script id="dm-internal-filter">
+    (function () {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var mode = p.get('soy_erik') || p.get('soy_3dmon');
+        if (mode === '1') {
+          localStorage.setItem('dm_ignore_analytics', '1');
+        } else if (mode === '0') {
+          localStorage.removeItem('dm_ignore_analytics');
+        }
+        if (
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1' ||
+          localStorage.getItem('dm_ignore_analytics') === '1'
+        ) {
+          window._dmIgnoreAnalytics = true;
+          window['ga-disable-G-E76DZMT0FL'] = true;
+        }
+        if (mode === '1' || mode === '0') {
+          window.addEventListener('DOMContentLoaded', function () {
+            var b = document.createElement('div');
+            b.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999;background:#0f172a;color:#3D8700;border:1px solid #3D8700;padding:12px 18px;border-radius:10px;font-family:sans-serif;font-size:13px;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,0.5);max-width:340px;';
+            b.textContent = mode === '1'
+              ? 'Filtro Interno Activado: Tus visitas en este navegador ya NO cuentan en GA4.'
+              : 'Filtro Interno Desactivado: Este navegador vuelve a enviar datos a GA4.';
+            document.body.appendChild(b);
+            setTimeout(function () { b.remove(); }, 6000);
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>Altura de capa en impresión 3D: calidad y fuerza | 3DMON</title>
+  <meta name="description" content="Guía técnica sobre altura de capa en impresión 3D FDM con boquilla de 0.4 mm: qué valor elegir entre 0.12, 0.20 y 0.28 mm según detalle, fuerza y costo." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://3dmon.shop/blog/altura-de-capa-impresion/" />
+  <link rel="icon" type="image/png" href="/logo-solo.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="3DMON" />
+  <meta property="og:url" content="https://3dmon.shop/blog/altura-de-capa-impresion/" />
+  <meta property="og:title" content="Altura de capa en impresión 3D: calidad y fuerza | 3DMON" />
+  <meta property="og:description" content="Guía técnica sobre altura de capa en impresión 3D FDM con boquilla de 0.4 mm: qué valor elegir entre 0.12, 0.20 y 0.28 mm según detalle, fuerza y costo." />
+  <meta property="og:image" content="https://3dmon.shop/images/blog/altura-de-capa-impresion.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Altura de capa en impresión 3D: calidad y fuerza | 3DMON" />
+  <meta name="twitter:description" content="Guía técnica sobre altura de capa en impresión 3D FDM con boquilla de 0.4 mm: qué valor elegir entre 0.12, 0.20 y 0.28 mm según detalle, fuerza y costo." />
+  <meta name="twitter:image" content="https://3dmon.shop/images/blog/altura-de-capa-impresion.jpg" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E76DZMT0FL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    if (!window._dmIgnoreAnalytics) {
+      gtag('js', new Date());
+      gtag('config', 'G-E76DZMT0FL');
+    }
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://3dmon.shop/blog/altura-de-capa-impresion/#article",
+      "headline": "Altura de capa en impresión 3D: cómo afecta calidad y fuerza",
+      "description": "Guía técnica sobre altura de capa en impresión 3D FDM con boquilla de 0.4 mm: qué valor elegir entre 0.12, 0.20 y 0.28 mm según detalle, fuerza y costo.",
+      "inLanguage": "es-AR",
+      "mainEntityOfPage": "https://3dmon.shop/blog/altura-de-capa-impresion/",
+      "datePublished": "2026-11-26T21:30:00-03:00",
+      "dateModified": "2026-11-26T21:30:00-03:00",
+      "author": {
+        "@type": "Organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/"
+      },
+      "publisher": {
+        "@type": "LocalBusiness",
+        "@id": "https://3dmon.shop/#organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://3dmon.shop/logo-main.png"
+        }
+      },
+      "image": "https://3dmon.shop/images/blog/altura-de-capa-impresion.jpg",
+      "breadcrumb": {
+        "@id": "https://3dmon.shop/blog/altura-de-capa-impresion/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://3dmon.shop/blog/altura-de-capa-impresion/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://3dmon.shop/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://3dmon.shop/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Altura de capa 3D",
+          "item": "https://3dmon.shop/blog/altura-de-capa-impresion/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://3dmon.shop/blog/altura-de-capa-impresion/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la mejor altura de capa estándar para imprimir en 3D?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para boquilla estándar de 0,4 mm, la altura de 0,20 mm es el punto óptimo entre terminación prolija, resistencia entre capas y costo en tiempo de máquina."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Imprimir a 0,12 mm sale más caro que a 0,20 mm?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Al reducir la altura de capa de 0,20 a 0,12 mm, la impresora necesita un 65% más de pasadas horizontales, lo que incrementa proporcionalmente las horas de impresión."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué altura de capa conviene para piezas funcionales con roscas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las roscas métricas pequeñas (M5, M6, M8) funcionan mucho mejor en 0,12 mm o 0,16 mm para que los filetes encastren sin trabarse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué se ven como escalones arriba de una pieza curva?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es el efecto escalera propio del corte en capas planas sobre pendientes muy bajas respecto a la horizontal. Se reduce bajando la altura de capa en la parte superior o activando capa adaptativa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La primera capa lleva la misma altura que el resto de la pieza?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No siempre. Incluso cuando imprimimos una pieza a 0,12 o 0,16 mm, la primera capa suele configurarse a 0,20 mm para garantizar buena adherencia y nivelación sobre la cama."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tengo que configurar la altura de capa antes de mandar mi archivo STL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. El archivo STL no guarda altura de capa; ese ajuste lo configuramos en nuestro taller según el tamaño, la resistencia y la estética que necesites."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/blog.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <a href="/" class="header-brand" aria-label="3DMON Inicio">
+      <img src="/logo-solo.png" alt="3DMON Logo" class="header-logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="/#servicios" class="nav-anchor-link">Cómo Trabajamos</a>
+      <a href="/#proyectos" class="nav-anchor-link">Portafolio</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+        <span class="theme-opt theme-opt-light">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <span class="theme-label">Modo Claro</span>
+        </span>
+        <span class="theme-opt theme-opt-dark">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <span class="theme-label">Modo Oscuro</span>
+        </span>
+      </button>
+      <a href="https://wa.me/542644113760" class="nav-cta" target="_blank" rel="noopener noreferrer">
+        Pedí tu Presupuesto
+      </a>
+    </nav>
+  </header>
+
+  <main class="article-shell">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a>
+      <span aria-hidden="true">/</span>
+      <span>Altura de capa 3D</span>
+    </nav>
+
+    <article>
+      <header>
+        <div class="article-meta-row">
+          <span class="axis-badge axis-tecnico">Técnico 3D · Parámetros</span>
+          <span>Actualizado 26 de noviembre de 2026 · 6 min de lectura</span>
+        </div>
+
+        <h1 class="article-title">Altura de capa en impresión 3D: cómo afecta calidad y fuerza</h1>
+
+        <section class="direct-answer" aria-label="Respuesta directa">
+          <p class="direct-answer-label">Respuesta Directa</p>
+          <p>La <strong>altura de capa en impresión 3D</strong> define el grosor vertical de cada lámina de plástico fundido y determina el equilibrio entre terminación estética, tiempo de máquina y unión mecánica. Con boquilla estándar de 0,4 mm, 0,12 mm prioriza detalle curvo, 0,20 mm equilibra fuerza y prolijidad, y 0,28 mm acelera prototipos.</p>
+        </section>
+
+        <figure class="article-hero-figure">
+          <img
+            src="/images/blog/altura-de-capa-impresion.jpg"
+            alt="Tres domos curvos impresos en 3D mostrando capas gruesas, medias y finas junto a boquilla de bronce 0.4 mm"
+            width="1200"
+            height="675"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      </header>
+
+      <div class="article-body">
+<h2>La regla del 25% al 75% respecto al diámetro de boquilla</h2>
+        <p>En fabricación FDM existe un rango físico estricto que manda sobre la altura de capa: con una boquilla estándar de 0,40 milímetros, la altura de cada lámina debería mantenerse entre 0,10 milímetros (25% del orificio) y 0,30 milímetros (75% del orificio).</p>
+        <p>Si bajás por debajo de 0,08 milímetros con boquilla de 0,40, la presión trasera en el cabezal sube demasiado y el filamento no logra aplastarse parejo. Si subís por encima de 0,32 milímetros, el cordón sale casi cilíndrico sin presionar lo suficiente contra la capa de abajo, reduciendo la soldadura térmica entre láminas.</p>
+
+        <h2>Comparativa técnica con boquilla de 0,40 mm (0.12 vs 0.20 vs 0.28 mm)</h2>
+        <p>Elegir la resolución correcta impacta directo en el costo y en la estética de las superficies inclinadas (efecto escalera o stair-stepping):</p>
+
+        <div tabindex="0" role="region" aria-labelledby="tabla-altura-capa" class="table-wrapper">
+          <table>
+            <caption id="tabla-altura-capa">Parámetros técnicos según altura de capa en boquilla estándar de 0.4 mm</caption>
+            <thead>
+              <tr>
+                <th>Altura de capa</th>
+                <th>Tiempo relativo</th>
+                <th>Aspecto de curvas y roscas</th>
+                <th>Aplicación recomendada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>0,12 mm (Fina)</th>
+                <td data-label="Tiempo relativo">1,6x a 1,9x más lento</td>
+                <td data-label="Aspecto de curvas y roscas">Líneas sutiles, roscas M6/M8 nítidas</td>
+                <td data-label="Aplicación recomendada">Figuras detalladas, roscas finas, piezas visuales</td>
+              </tr>
+              <tr>
+                <th>0,20 mm (Estándar)</th>
+                <td data-label="Tiempo relativo">1,0x (Referencia)</td>
+                <td data-label="Aspecto de curvas y roscas">Equilibrio parejo y buena definición</td>
+                <td data-label="Aplicación recomendada">90% de repuestos, carcasas, llaveros y soportes</td>
+              </tr>
+              <tr>
+                <th>0,28 mm (Rápida / Draft)</th>
+                <td data-label="Tiempo relativo">0,65x a 0,75x más rápido</td>
+                <td data-label="Aspecto de curvas y roscas">Escalonado notorio en pendientes suaves</td>
+                <td data-label="Aplicación recomendada">Prototipos de volumen, piezas estructurales rectas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Por qué una capa más fina no siempre produce una pieza más fuerte</h2>
+        <p>Es uno de los mitos más repetidos al mandar a imprimir piezas técnicas: mucha gente pide 0,08 o 0,12 milímetros pensando que así el objeto queda más compacto y soporta más carga. En ensayos de tracción en el eje Z, la relación no es lineal.</p>
+        <p>Una capa extremadamente delgada lleva menos masa térmica cuando sale de la boquilla y se enfría casi al instante, por lo que funde menos la superficie de la capa anterior. Además multiplica la cantidad de uniones horizontales por centímetro de altura.</p>
+        <p>Con boquilla de 0,40 milímetros, la mejor adherencia entre capas suele lograrse entre <strong>0,16 y 0,24 milímetros</strong> (alrededor de la mitad del diámetro de boquilla), combinando buen caudal térmico con suficiente área de contacto plano. Si el foco real es la resistencia al corte o a los tornillos, rinde mucho más sumar perímetros y ajustar el material (<a href="/blog/pla-vs-petg-diferencias/">PLA vs PETG</a>) que bajar la altura de capa a extremos lentos.</p>
+
+        <aside class="interlink-callout">
+          <strong>Relacionado en 3DMON</strong>
+          <p style="margin:0;">La calidad superficial también depende de cómo se apoyan los voladizos: revisá nuestra guía sobre <a href="/blog/soportes-en-impresion-3d/">soportes en impresión 3D</a> o conocé cómo preparamos prototipos en <a href="/blog/servicio-impresion-3d-argentina/">servicio de impresión 3D en Argentina</a>.</p>
+        </aside>
+
+        <h2>Cómo usamos altura de capa variable en piezas con cúpulas o techos suaves</h2>
+        <p>Cuando un modelo tiene paredes verticales rectas en la base y una cúpula suave o un texto en relieve arriba, no hace falta imprimir toda la pieza a 0,12 milímetros ni resignar estética dejando el techo escalonado a 0,28 milímetros.</p>
+        <p>En el laminador configuramos <strong>altura de capa adaptativa</strong>: la impresora recorre la zona recta inferior a 0,24 milímetros para ganar velocidad y solidez, y reduce automáticamente el paso a 0,10 o 0,12 milímetros solo en las capas superiores donde cambia el ángulo de la curva. Así lográs un acabado superior cuidando el presupuesto final.</p>
+
+        <h2>Qué pasa cuando el proyecto requiere detalle microscópico</h2>
+        <p>Si estás fabricando miniaturas de juego, piezas de joyería para fundición o modelos dentales menores a cuatro centímetros con relieves milimétricos, bajar la capa en filamento con boquilla de 0,40 mm llega a un límite físico en el plano X/Y. En esos casos puntuales evaluamos usar boquilla fina de 0,25 mm o derivar el diseño hacia impresión en resina UV según corresponda.</p>
+
+        <section class="faq-section" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">Preguntas Frecuentes</h2>
+          <details class="faq-item">
+            <summary>¿Cuál es la mejor altura de capa estándar para imprimir en 3D?</summary>
+            <div class="faq-answer"><p>Para boquilla estándar de 0,4 mm, la altura de 0,20 mm es el punto óptimo entre terminación prolija, resistencia entre capas y costo en tiempo de máquina.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Imprimir a 0,12 mm sale más caro que a 0,20 mm?</summary>
+            <div class="faq-answer"><p>Sí. Al reducir la altura de capa de 0,20 a 0,12 mm, la impresora necesita un 65% más de pasadas horizontales, lo que incrementa proporcionalmente las horas de impresión.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué altura de capa conviene para piezas funcionales con roscas?</summary>
+            <div class="faq-answer"><p>Las roscas métricas pequeñas (M5, M6, M8) funcionan mucho mejor en 0,12 mm o 0,16 mm para que los filetes encastren sin trabarse.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Por qué se ven como escalones arriba de una pieza curva?</summary>
+            <div class="faq-answer"><p>Es el efecto escalera propio del corte en capas planas sobre pendientes muy bajas respecto a la horizontal. Se reduce bajando la altura de capa en la parte superior o activando capa adaptativa.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿La primera capa lleva la misma altura que el resto de la pieza?</summary>
+            <div class="faq-answer"><p>No siempre. Incluso cuando imprimimos una pieza a 0,12 o 0,16 mm, la primera capa suele configurarse a 0,20 mm para garantizar buena adherencia y nivelación sobre la cama.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Tengo que configurar la altura de capa antes de mandar mi archivo STL?</summary>
+            <div class="faq-answer"><p>No. El archivo STL no guarda altura de capa; ese ajuste lo configuramos en nuestro taller según el tamaño, la resistencia y la estética que necesites.</p></div>
+          </details>
+        </section>
+
+        <aside class="cta-box">
+          <h2>¿Necesitás calibrar la calidad justa para tu pieza o prototipo?</h2>
+          <p>Pasamos tu archivo por el laminador y te recomendamos la altura de capa ideal para no pagar horas innecesarias de máquina sin sacrificar resistencia.</p>
+          <div class="cta-actions">
+            <button
+              type="button"
+              class="nav-cta"
+              data-wa-msg="Hola 3DMON! Necesito asesoramiento técnico sobre altura de capa y terminación para imprimir unas piezas."
+            >
+              Consultar por WhatsApp
+            </button>
+            <a href="/" class="btn-outline-gold">Conocer Servicios 3DMON</a>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="/logo-solo.png" alt="3DMON" style="height: 40px; margin-bottom: 14px;" />
+        <p>Micropyme de Impresión 3D</p>
+        <p>San Juan, Capital</p>
+        <p>Envíos a todo el país</p>
+      </div>
+      <div class="footer-col">
+        <h4>SERVICIOS</h4>
+        <p>Impresión PLA / PETG</p>
+        <p>Prototipado Rápido</p>
+        <p>Pedidos Mayoristas</p>
+      </div>
+      <div class="footer-col">
+        <h4>GUÍAS Y BLOG</h4>
+        <a href="/blog/">Blog y Guías 3D</a>
+        <a href="/blog/?eje=principiantes">Guías para Principiantes</a>
+        <a href="/blog/?eje=tecnico">Información Técnica 3D</a>
+        <a href="/blog/?eje=comercial">Servicios y Presupuestos</a>
+      </div>
+      <div class="footer-col">
+        <h4>SEGUINOS</h4>
+        <a href="https://www.instagram.com/3d.mon_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://wa.me/542644113760" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 3DMON - Laboratorio de Impresión. Todos los derechos reservados.</p>
+      <a
+        href="https://erikwebsite.com/"
+        target="_blank"
+        rel="noopener"
+        title="Diseño y desarrollo web de alta velocidad - Erik Website"
+        class="erik-badge"
+      >
+        <span class="erik-dot" aria-hidden="true"></span>
+        Desarrollo web por <strong>Erik Website</strong>
+      </a>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/blog.js"></script>
+</body>
+
+</html>

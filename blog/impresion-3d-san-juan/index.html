@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('3dmon_theme') || 'dark';
+      if (savedTheme !== 'light' && savedTheme !== 'dark') savedTheme = 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.querySelector('meta[name="color-scheme"]').content = savedTheme;
+    } catch (e) {}
+  </script>
+
+  <!-- Filtro de Trafico Interno (?soy_erik=1 / ?soy_3dmon=1 / localhost / localStorage) -->
+  <script id="dm-internal-filter">
+    (function () {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var mode = p.get('soy_erik') || p.get('soy_3dmon');
+        if (mode === '1') {
+          localStorage.setItem('dm_ignore_analytics', '1');
+        } else if (mode === '0') {
+          localStorage.removeItem('dm_ignore_analytics');
+        }
+        if (
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1' ||
+          localStorage.getItem('dm_ignore_analytics') === '1'
+        ) {
+          window._dmIgnoreAnalytics = true;
+          window['ga-disable-G-E76DZMT0FL'] = true;
+        }
+        if (mode === '1' || mode === '0') {
+          window.addEventListener('DOMContentLoaded', function () {
+            var b = document.createElement('div');
+            b.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999;background:#0f172a;color:#3D8700;border:1px solid #3D8700;padding:12px 18px;border-radius:10px;font-family:sans-serif;font-size:13px;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,0.5);max-width:340px;';
+            b.textContent = mode === '1'
+              ? 'Filtro Interno Activado: Tus visitas en este navegador ya NO cuentan en GA4.'
+              : 'Filtro Interno Desactivado: Este navegador vuelve a enviar datos a GA4.';
+            document.body.appendChild(b);
+            setTimeout(function () { b.remove(); }, 6000);
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>Impresión 3D en San Juan a medida: servicio local | 3DMON</title>
+  <meta name="description" content="Servicio de impresión 3D en San Juan Capital para repuestos, prototipos, llaveros, medallas y piezas personalizadas en PLA, PETG y TPU. Presupuesto en 24-48 hs." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://3dmon.shop/blog/impresion-3d-san-juan/" />
+  <link rel="icon" type="image/png" href="/logo-solo.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="3DMON" />
+  <meta property="og:url" content="https://3dmon.shop/blog/impresion-3d-san-juan/" />
+  <meta property="og:title" content="Impresión 3D en San Juan a medida: servicio local | 3DMON" />
+  <meta property="og:description" content="Servicio de impresión 3D en San Juan Capital para repuestos, prototipos, llaveros, medallas y piezas personalizadas en PLA, PETG y TPU. Presupuesto en 24-48 hs." />
+  <meta property="og:image" content="https://3dmon.shop/images/blog/impresion-3d-san-juan.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Impresión 3D en San Juan a medida: servicio local | 3DMON" />
+  <meta name="twitter:description" content="Servicio de impresión 3D en San Juan Capital para repuestos, prototipos, llaveros, medallas y piezas personalizadas en PLA, PETG y TPU. Presupuesto en 24-48 hs." />
+  <meta name="twitter:image" content="https://3dmon.shop/images/blog/impresion-3d-san-juan.jpg" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E76DZMT0FL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    if (!window._dmIgnoreAnalytics) {
+      gtag('js', new Date());
+      gtag('config', 'G-E76DZMT0FL');
+    }
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://3dmon.shop/blog/impresion-3d-san-juan/#article",
+      "headline": "Impresión 3D en San Juan: piezas a medida, repuestos y envíos",
+      "description": "Servicio de impresión 3D en San Juan Capital para repuestos, prototipos, llaveros, medallas y piezas personalizadas en PLA, PETG y TPU. Presupuesto en 24-48 hs.",
+      "inLanguage": "es-AR",
+      "mainEntityOfPage": "https://3dmon.shop/blog/impresion-3d-san-juan/",
+      "datePublished": "2026-11-26T21:30:00-03:00",
+      "dateModified": "2026-11-26T21:30:00-03:00",
+      "author": {
+        "@type": "Organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/"
+      },
+      "publisher": {
+        "@type": "LocalBusiness",
+        "@id": "https://3dmon.shop/#organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://3dmon.shop/logo-main.png"
+        }
+      },
+      "image": "https://3dmon.shop/images/blog/impresion-3d-san-juan.jpg",
+      "breadcrumb": {
+        "@id": "https://3dmon.shop/blog/impresion-3d-san-juan/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://3dmon.shop/blog/impresion-3d-san-juan/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://3dmon.shop/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://3dmon.shop/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Impresión 3D San Juan",
+          "item": "https://3dmon.shop/blog/impresion-3d-san-juan/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://3dmon.shop/blog/impresion-3d-san-juan/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Dónde están ubicados en San Juan y cómo se retiran los pedidos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nuestro laboratorio opera en San Juan Capital. Una vez terminada y revisada tu pieza, coordinamos el horario de retiro o el envío dentro de la provincia por WhatsApp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tengo que tener el archivo STL para pedir presupuesto en San Juan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Podés enviarnos un archivo STL o 3MF si ya lo descargaste, o pasarnos fotos, medidas y hasta la pieza física rota para que la diseñemos a medida."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto demora un presupuesto y la entrega de piezas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cotizamos en 24 a 48 horas hábiles tras analizar el modelo y material. Las impresiones unitarias suelen estar listas en 1 a 3 días, y los lotes mayoristas se acuerdan según cantidad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Imprimen pedidos de una sola pieza o solo por mayor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hacemos ambos: desde un único repuesto doméstico o soporte técnico hasta cientos de llaveros, medallas y souvenirs corporativos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué materiales trabajan en 3DMON San Juan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trabajamos principalmente PLA, PLA+, PETG y filamento flexible TPU en distintos colores, eligiendo el adecuado según resistencia térmica, golpes o estética."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Hacen envíos si estoy en otro departamento de San Juan o en otra provincia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Coordinamos envíos dentro de San Juan y despachos seguros por correo a todo el territorio argentino."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://3dmon.shop/blog/impresion-3d-san-juan/#service",
+      "name": "Servicio de Impresión 3D a Medida en San Juan",
+      "description": "Diseño 3D personalizado, impresión FDM en PLA, PETG y TPU, repuestos mecánicos, prototipado rápido y pedidos mayoristas en San Juan Capital.",
+      "serviceType": "Impresión 3D a medida",
+      "areaServed": "San Juan, Argentina",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://3dmon.shop/#organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/",
+        "telephone": "+542644113760"
+      }
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/blog.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <a href="/" class="header-brand" aria-label="3DMON Inicio">
+      <img src="/logo-solo.png" alt="3DMON Logo" class="header-logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="/#servicios" class="nav-anchor-link">Cómo Trabajamos</a>
+      <a href="/#proyectos" class="nav-anchor-link">Portafolio</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+        <span class="theme-opt theme-opt-light">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <span class="theme-label">Modo Claro</span>
+        </span>
+        <span class="theme-opt theme-opt-dark">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <span class="theme-label">Modo Oscuro</span>
+        </span>
+      </button>
+      <a href="https://wa.me/542644113760" class="nav-cta" target="_blank" rel="noopener noreferrer">
+        Pedí tu Presupuesto
+      </a>
+    </nav>
+  </header>
+
+  <main class="article-shell">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a>
+      <span aria-hidden="true">/</span>
+      <span>Impresión 3D San Juan</span>
+    </nav>
+
+    <article>
+      <header>
+        <div class="article-meta-row">
+          <span class="axis-badge axis-comercial">Comercial · San Juan</span>
+          <span>Actualizado 26 de noviembre de 2026 · 6 min de lectura</span>
+        </div>
+
+        <h1 class="article-title">Impresión 3D en San Juan: piezas a medida, repuestos y envíos</h1>
+
+        <section class="direct-answer" aria-label="Respuesta directa">
+          <p class="direct-answer-label">Respuesta Directa</p>
+          <p>Nuestro servicio de <strong>impresión 3D en San Juan</strong> fabrica piezas a medida, repuestos discontinuados, prototipos y merchandising en serie desde San Juan Capital sin intermediarios. Trabajamos con PLA, PLA+, PETG y TPU, entregamos cotización técnica en 24 a 48 horas por WhatsApp y coordinamos retiro local o envíos a todo el país.</p>
+        </section>
+
+        <figure class="article-hero-figure">
+          <img
+            src="/images/blog/impresion-3d-san-juan.jpg"
+            alt="Laboratorio de impresión 3D con impresoras en marcha y piezas funcionales PETG, engranajes y llaveros bajo luz de tarde"
+            width="1200"
+            height="675"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      </header>
+
+      <div class="article-body">
+<h2>Qué fabricamos en nuestro laboratorio de impresión 3D en San Juan</h2>
+        <p>Desde San Juan Capital resolvemos pedidos tanto de particulares que necesitan una única pieza como de empresas, clubes deportivos, estudios de arquitectura y talleres mecánicos. Al imprimir de forma directa en nuestro propio laboratorio, ajustamos cada parámetro de máquina según el esfuerzo real que va a soportar el objeto.</p>
+        <ul>
+          <li><strong>Repuestos rotos o discontinuados:</strong> engranajes de electrodomésticos, trabas de heladeras, clips de tableros de autos, accesorios de karting y piezas plásticas que no se consiguen en comercios locales.</li>
+          <li><strong>Merchandising, llaveros y medallas:</strong> producción por mayor para marcas, gimnasios, escuelas, ferias y eventos deportivos en San Juan, con diseño armado a partir de tu logo.</li>
+          <li><strong>Prototipos funcionales para pymes e ingenieros:</strong> validaciones de forma y encastre antes de mandar a fabricar moldes o series industriales.</li>
+          <li><strong>Maquetas, cortantes y regalos personalizados:</strong> topes de torta, cortantes de pastelería, macetas geométricas, soportes de escritorio y modelos a escala.</li>
+        </ul>
+
+        <h2>Cómo es el proceso de trabajo en 3DMON paso a paso</h2>
+        <p>Buscamos que pedir una pieza sea simple incluso si nunca trabajaste con archivos de diseño digital:</p>
+
+        <div tabindex="0" role="region" aria-labelledby="tabla-proceso-sanjuan" class="table-wrapper">
+          <table>
+            <caption id="tabla-proceso-sanjuan">Etapas de fabricación y tiempos en 3DMON San Juan</caption>
+            <thead>
+              <tr>
+                <th>Etapa</th>
+                <th>Qué necesitamos de vos</th>
+                <th>Plazo estimado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1. Recepción de idea o STL</th>
+                <td data-label="Qué necesitamos de vos">Archivo STL/3MF, foto con medidas o pieza física de muestra</td>
+                <td data-label="Plazo estimado">Inmediato por WhatsApp</td>
+              </tr>
+              <tr>
+                <th>2. Análisis y cotización</th>
+                <td data-label="Qué necesitamos de vos">Definición de uso, color y cantidad de unidades</td>
+                <td data-label="Plazo estimado">24 a 48 hs hábiles</td>
+              </tr>
+              <tr>
+                <th>3. Impresión y control manual</th>
+                <td data-label="Qué necesitamos de vos">Confirmación del presupuesto</td>
+                <td data-label="Plazo estimado">1 a 5 días según volumen</td>
+              </tr>
+              <tr>
+                <th>4. Entrega o despacho</th>
+                <td data-label="Qué necesitamos de vos">Retiro en San Juan Capital o envío al interior / país</td>
+                <td data-label="Plazo estimado">Coordinación directa</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Materiales pensados para el clima y los proyectos de San Juan</h2>
+        <p>En San Juan el calor de verano y el sol directo superan con facilidad los límites del plástico decorativo común. Por eso nunca recomendamos imprimir a ciegas en PLA si la pieza va montada en un vehículo, una galería abierta, un equipo de riego o un karting de competición.</p>
+        <p>Cuando la pieza queda bajo techo con estética prolija (como trofeos, maquetas o <a href="/blog/llaveros-3d-personalizados-mayor/">llaveros 3D personalizados por mayor</a>), el PLA entrega colores vibrantes y detalles finos. Si va sometida a carga, calor o humedad, pasamos directamente a <a href="/blog/pla-vs-petg-diferencias/">PETG técnico</a> o <a href="/blog/filamento-tpu-caracteristicas-usos/">TPU elástico</a> según corresponda.</p>
+
+        <aside class="interlink-callout">
+          <strong>Relacionado en 3DMON</strong>
+          <p style="margin:0;">Si ya tenés un diseño descargado revisá qué formato mandar en <a href="/blog/archivos-stl-para-imprimir/">archivos STL para imprimir en 3D</a>, y si necesitás envíos fuera de la provincia mirá nuestro <a href="/blog/servicio-impresion-3d-argentina/">servicio de impresión 3D para toda Argentina</a>.</p>
+        </aside>
+
+        <h2>¿Hacen diseño 3D si traigo la pieza rota o una foto?</h2>
+        <p>Sí. Gran parte de nuestros trabajos en San Juan arrancan sin ningún archivo digital previo: nos acercás la pieza quebrada, medimos ejes, diámetros de tornillos y tolerancias con calibre, modelamos la pieza reforzando las zonas débiles originales y probamos el primer prototipo hasta asegurar el encastre correcto.</p>
+        <p>También podés ver trabajos reales ya entregados en nuestra <a href="/">página principal de 3DMON</a>, incluyendo comparativas de cómo pasamos de un boceto o foto plana de logo al producto final terminado en relieve.</p>
+
+        <section class="faq-section" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">Preguntas Frecuentes</h2>
+          <details class="faq-item">
+            <summary>¿Dónde están ubicados en San Juan y cómo se retiran los pedidos?</summary>
+            <div class="faq-answer"><p>Nuestro laboratorio opera en San Juan Capital. Una vez terminada y revisada tu pieza, coordinamos el horario de retiro o el envío dentro de la provincia por WhatsApp.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Tengo que tener el archivo STL para pedir presupuesto en San Juan?</summary>
+            <div class="faq-answer"><p>No. Podés enviarnos un archivo STL o 3MF si ya lo descargaste, o pasarnos fotos, medidas y hasta la pieza física rota para que la diseñemos a medida.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Cuánto demora un presupuesto y la entrega de piezas?</summary>
+            <div class="faq-answer"><p>Cotizamos en 24 a 48 horas hábiles tras analizar el modelo y material. Las impresiones unitarias suelen estar listas en 1 a 3 días, y los lotes mayoristas se acuerdan según cantidad.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Imprimen pedidos de una sola pieza o solo por mayor?</summary>
+            <div class="faq-answer"><p>Hacemos ambos: desde un único repuesto doméstico o soporte técnico hasta cientos de llaveros, medallas y souvenirs corporativos.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué materiales trabajan en 3DMON San Juan?</summary>
+            <div class="faq-answer"><p>Trabajamos principalmente PLA, PLA+, PETG y filamento flexible TPU en distintos colores, eligiendo el adecuado según resistencia térmica, golpes o estética.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Hacen envíos si estoy en otro departamento de San Juan o en otra provincia?</summary>
+            <div class="faq-answer"><p>Sí. Coordinamos envíos dentro de San Juan y despachos seguros por correo a todo el territorio argentino.</p></div>
+          </details>
+        </section>
+
+        <aside class="cta-box">
+          <h2>¿Necesitás imprimir piezas 3D en San Juan esta semana?</h2>
+          <p>Escribinos por WhatsApp con tu archivo STL, una foto de la pieza rota o tu idea de llaveros por mayor y recibí tu presupuesto técnico en 24 a 48 hs.</p>
+          <div class="cta-actions">
+            <button
+              type="button"
+              class="nav-cta"
+              data-wa-msg="Hola 3DMON! Estoy en San Juan y quiero pedir presupuesto para imprimir una pieza 3D a medida."
+            >
+              Consultar por WhatsApp
+            </button>
+            <a href="/" class="btn-outline-gold">Conocer Servicios 3DMON</a>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="/logo-solo.png" alt="3DMON" style="height: 40px; margin-bottom: 14px;" />
+        <p>Micropyme de Impresión 3D</p>
+        <p>San Juan, Capital</p>
+        <p>Envíos a todo el país</p>
+      </div>
+      <div class="footer-col">
+        <h4>SERVICIOS</h4>
+        <p>Impresión PLA / PETG</p>
+        <p>Prototipado Rápido</p>
+        <p>Pedidos Mayoristas</p>
+      </div>
+      <div class="footer-col">
+        <h4>GUÍAS Y BLOG</h4>
+        <a href="/blog/">Blog y Guías 3D</a>
+        <a href="/blog/?eje=principiantes">Guías para Principiantes</a>
+        <a href="/blog/?eje=tecnico">Información Técnica 3D</a>
+        <a href="/blog/?eje=comercial">Servicios y Presupuestos</a>
+      </div>
+      <div class="footer-col">
+        <h4>SEGUINOS</h4>
+        <a href="https://www.instagram.com/3d.mon_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://wa.me/542644113760" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 3DMON - Laboratorio de Impresión. Todos los derechos reservados.</p>
+      <a
+        href="https://erikwebsite.com/"
+        target="_blank"
+        rel="noopener"
+        title="Diseño y desarrollo web de alta velocidad - Erik Website"
+        class="erik-badge"
+      >
+        <span class="erik-dot" aria-hidden="true"></span>
+        Desarrollo web por <strong>Erik Website</strong>
+      </a>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/blog.js"></script>
+</body>
+
+</html>

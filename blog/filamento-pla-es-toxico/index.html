@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('3dmon_theme') || 'dark';
+      if (savedTheme !== 'light' && savedTheme !== 'dark') savedTheme = 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.querySelector('meta[name="color-scheme"]').content = savedTheme;
+    } catch (e) {}
+  </script>
+
+  <!-- Filtro de Trafico Interno (?soy_erik=1 / ?soy_3dmon=1 / localhost / localStorage) -->
+  <script id="dm-internal-filter">
+    (function () {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var mode = p.get('soy_erik') || p.get('soy_3dmon');
+        if (mode === '1') {
+          localStorage.setItem('dm_ignore_analytics', '1');
+        } else if (mode === '0') {
+          localStorage.removeItem('dm_ignore_analytics');
+        }
+        if (
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1' ||
+          localStorage.getItem('dm_ignore_analytics') === '1'
+        ) {
+          window._dmIgnoreAnalytics = true;
+          window['ga-disable-G-E76DZMT0FL'] = true;
+        }
+        if (mode === '1' || mode === '0') {
+          window.addEventListener('DOMContentLoaded', function () {
+            var b = document.createElement('div');
+            b.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:99999;background:#0f172a;color:#3D8700;border:1px solid #3D8700;padding:12px 18px;border-radius:10px;font-family:sans-serif;font-size:13px;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,0.5);max-width:340px;';
+            b.textContent = mode === '1'
+              ? 'Filtro Interno Activado: Tus visitas en este navegador ya NO cuentan en GA4.'
+              : 'Filtro Interno Desactivado: Este navegador vuelve a enviar datos a GA4.';
+            document.body.appendChild(b);
+            setTimeout(function () { b.remove(); }, 6000);
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>El filamento PLA es tóxico: seguridad y alimentos | 3DMON</title>
+  <meta name="description" content="Explicación clara sobre si el filamento PLA es tóxico al imprimirlo, usarlo en cortantes de galletas, juguetes infantiles o mascotas y qué cuidados tomar." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://3dmon.shop/blog/filamento-pla-es-toxico/" />
+  <link rel="icon" type="image/png" href="/logo-solo.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="3DMON" />
+  <meta property="og:url" content="https://3dmon.shop/blog/filamento-pla-es-toxico/" />
+  <meta property="og:title" content="El filamento PLA es tóxico: seguridad y alimentos | 3DMON" />
+  <meta property="og:description" content="Explicación clara sobre si el filamento PLA es tóxico al imprimirlo, usarlo en cortantes de galletas, juguetes infantiles o mascotas y qué cuidados tomar." />
+  <meta property="og:image" content="https://3dmon.shop/images/blog/filamento-pla-es-toxico.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="El filamento PLA es tóxico: seguridad y alimentos | 3DMON" />
+  <meta name="twitter:description" content="Explicación clara sobre si el filamento PLA es tóxico al imprimirlo, usarlo en cortantes de galletas, juguetes infantiles o mascotas y qué cuidados tomar." />
+  <meta name="twitter:image" content="https://3dmon.shop/images/blog/filamento-pla-es-toxico.jpg" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E76DZMT0FL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    if (!window._dmIgnoreAnalytics) {
+      gtag('js', new Date());
+      gtag('config', 'G-E76DZMT0FL');
+    }
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://3dmon.shop/blog/filamento-pla-es-toxico/#article",
+      "headline": "El filamento PLA es tóxico: qué pasa con comida, niños y calor",
+      "description": "Explicación clara sobre si el filamento PLA es tóxico al imprimirlo, usarlo en cortantes de galletas, juguetes infantiles o mascotas y qué cuidados tomar.",
+      "inLanguage": "es-AR",
+      "mainEntityOfPage": "https://3dmon.shop/blog/filamento-pla-es-toxico/",
+      "datePublished": "2026-11-26T21:30:00-03:00",
+      "dateModified": "2026-11-26T21:30:00-03:00",
+      "author": {
+        "@type": "Organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/"
+      },
+      "publisher": {
+        "@type": "LocalBusiness",
+        "@id": "https://3dmon.shop/#organization",
+        "name": "3DMON",
+        "url": "https://3dmon.shop/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://3dmon.shop/logo-main.png"
+        }
+      },
+      "image": "https://3dmon.shop/images/blog/filamento-pla-es-toxico.jpg",
+      "breadcrumb": {
+        "@id": "https://3dmon.shop/blog/filamento-pla-es-toxico/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://3dmon.shop/blog/filamento-pla-es-toxico/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://3dmon.shop/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://3dmon.shop/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "El filamento PLA es tóxico",
+          "item": "https://3dmon.shop/blog/filamento-pla-es-toxico/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://3dmon.shop/blog/filamento-pla-es-toxico/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿El filamento PLA es seguro para hacer cortantes de galletas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, siempre que se utilice en frío, se lave con agua fría o tibia con cepillo suave sin lavavajillas y se seque bien, o interponiendo film de cocina entre la masa y el cortante."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo poner piezas de PLA en el lavavajillas o microondas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. El agua caliente del lavavajillas y la temperatura del microondas superan los 55 °C a 60 °C donde el PLA comienza a ablandarse y pierde su forma original."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El PLA es apto para juguetes de chicos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para chicos mayores que no muerden ni tragan piezas, sí. Para bebés no conviene por el riesgo de rotura de piezas pequeñas o desprendimiento de bordes si las mastican."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es tóxico tener piezas de PLA en el dormitorio o cerca de mascotas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Una vez sólido a temperatura ambiente, el PLA es un plástico estable que no emite gases ni resulta tóxico al tacto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El PLA se degrada solo en pocos meses si lo uso en casa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Aunque sea compostable en plantas industriales a más de 60 °C y humedad controlada, dentro de una casa dura años intacto mientras no reciba calor extremo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Existe otro material más resistente al agua tibia que el PLA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El PETG tolera mejor la humedad y temperaturas cercanas a 75 °C, aunque al imprimirse capa por capa también requiere las mismas pautas de higiene que el PLA en usos alimentarios."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/blog.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <a href="/" class="header-brand" aria-label="3DMON Inicio">
+      <img src="/logo-solo.png" alt="3DMON Logo" class="header-logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="/#servicios" class="nav-anchor-link">Cómo Trabajamos</a>
+      <a href="/#proyectos" class="nav-anchor-link">Portafolio</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+        <span class="theme-opt theme-opt-light">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <span class="theme-label">Modo Claro</span>
+        </span>
+        <span class="theme-opt theme-opt-dark">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <span class="theme-label">Modo Oscuro</span>
+        </span>
+      </button>
+      <a href="https://wa.me/542644113760" class="nav-cta" target="_blank" rel="noopener noreferrer">
+        Pedí tu Presupuesto
+      </a>
+    </nav>
+  </header>
+
+  <main class="article-shell">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a>
+      <span aria-hidden="true">/</span>
+      <span>El filamento PLA es tóxico</span>
+    </nav>
+
+    <article>
+      <header>
+        <div class="article-meta-row">
+          <span class="axis-badge axis-principiantes">Principiantes · Seguridad</span>
+          <span>Actualizado 26 de noviembre de 2026 · 6 min de lectura</span>
+        </div>
+
+        <h1 class="article-title">El filamento PLA es tóxico: qué pasa con comida, niños y calor</h1>
+
+        <section class="direct-answer" aria-label="Respuesta directa">
+          <p class="direct-answer-label">Respuesta Directa</p>
+          <p>El <strong>filamento PLA no es tóxico</strong> en su polímero base (ácido poliláctico derivado de almidón vegetal), pero las piezas impresas en 3D no son aptas para contacto alimentario prolongado ni lavado con agua caliente sin sellado previo. Los pigmentos comerciales y los surcos microscópicos entre capas acumulan bacterias si se usan como vajilla diaria.</p>
+        </section>
+
+        <figure class="article-hero-figure">
+          <img
+            src="/images/blog/filamento-pla-es-toxico.jpg"
+            alt="Cortantes de galletas geométricos e impresiones en PLA sobre mesada de cocina junto a bobina de bioplástico"
+            width="1200"
+            height="675"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      </header>
+
+      <div class="article-body">
+<h2>De qué está hecho el filamento PLA y por qué tiene fama de ecológico</h2>
+        <p>El ácido poliláctico, abreviado como PLA, se obtiene fermentando azúcares vegetales provenientes de maíz, caña de azúcar o mandioca. A diferencia de plásticos derivados del petróleo como el ABS o el PVC, el polímero puro resulta biocompatible y no libera vapores de estireno irritantes durante la extrusión.</p>
+        <p>Sin embargo, el rollo comercial que entra a la impresora no es almidón puro: incorpora pigmentos, aditivos para mejorar la fluidez y estabilizantes de marca. Por ese motivo conviene separar tres situaciones muy distintas: respirar mientras se imprime, tocar la pieza terminada y ponerla en contacto directo con comida o saliva.</p>
+
+        <h2>Por qué el cuidado con alimentos depende de las capas y la temperatura</h2>
+        <p>Incluso cuando comprás una bobina certificada para contacto alimentario sin pigmentos pesados, la impresión FDM construye objetos apilando cordones horizontales de plástico. Entre una capa de 0,20 milímetros y la siguiente quedan microsurcos invisibles al ojo que atrapan humedad, restos de masa o grasa.</p>
+        <p>Esas grietas impiden una desinfección completa con esponja común y agua tibia. Además, si ponés un cortante o una taza de PLA dentro del lavavajillas o bajo el chorro de agua hirviendo, la pieza se ablanda alrededor de los 58 °C y se deforma en segundos.</p>
+
+        <h2>Usos seguros y precauciones por tipo de producto</h2>
+        <p>Para no prohibir todo sin criterio ni exagerar con el uso diario, esta tabla resume qué hacer en cada escenario:</p>
+
+        <div tabindex="0" role="region" aria-labelledby="tabla-seguridad-pla" class="table-wrapper">
+          <table>
+            <caption id="tabla-seguridad-pla">Guía de uso seguro del filamento PLA en el hogar y gastronomía</caption>
+            <thead>
+              <tr>
+                <th>Uso previsto</th>
+                <th>Nivel de seguridad</th>
+                <th>Recomendación práctica</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Cortantes de galletas o fondant</th>
+                <td data-label="Nivel de seguridad">Seguro con cuidado simple</td>
+                <td data-label="Recomendación práctica">Usar film adherente en la masa, o lavar en frío y descartar si hay desgaste</td>
+              </tr>
+              <tr>
+                <th>Organizadores, macetas, soportes</th>
+                <td data-label="Nivel de seguridad">Totalmente seguro</td>
+                <td data-label="Recomendación práctica">Manipulación cotidiana sin riesgo alguno</td>
+              </tr>
+              <tr>
+                <th>Vasos, cubiertos o bombillas</th>
+                <td data-label="Nivel de seguridad">No recomendado</td>
+                <td data-label="Recomendación práctica">Riesgo térmico y acumulación de bacterias en capas sin sellar</td>
+              </tr>
+              <tr>
+                <th>Juguetes para bebés</th>
+                <td data-label="Nivel de seguridad">Precaución por piezas chicas</td>
+                <td data-label="Recomendación práctica">Evitar piezas pequeñas ingeribles y superficies sin lijar que se muerdan</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="interlink-callout">
+          <strong>Relacionado en 3DMON</strong>
+          <p style="margin:0;">Si buscás una opción que tolere lavado con agua más tibia y mayor exigencia mecánica, compará las propiedades en <a href="/blog/pla-vs-petg-diferencias/">PLA vs PETG: diferencias y cuál elegir</a> o consultanos por pedidos personalizados en <a href="/blog/servicio-impresion-3d-argentina/">impresión 3D a medida</a>.</p>
+        </aside>
+
+        <h2>Cómo cuidar cortantes de galletas impresos en PLA</h2>
+        <p>El pedido gastronómico más popular en 3D es el cortante personalizado para galletas, alfajores y porcelana fría. Para trabajar prolijo e higiénico en pastelería artesanal, aplicá tres hábitos sencillos:</p>
+        <ol>
+          <li><strong>Usá masa fría con capa intermedia o color claro natural:</strong> muchos pasteleros apoyan un trozo de film transparente sobre la masa antes de presionar el cortante, logrando bordes limpios y cero contacto directo con el plástico.</li>
+          <li><strong>Lavá siempre con agua fría o apenas tibia:</strong> cepillo suave con detergente común, enjuague rápido y secado completo al aire antes de guardar en caja.</li>
+          <li><strong>Nunca los dejes al sol ni cerca del horno:</strong> una fuente recién salida del horno o el agua hirviendo los tuerce en cuestión de segundos.</li>
+        </ol>
+
+        <h2>Qué pasa con mascotas, plantas y olor al imprimir</h2>
+        <p>Para macetas, tutores de huerta y objetos decorativos dentro del hogar, el PLA ya enfriado es completamente estable e inerte. No contamina la tierra de las plantas ni despide olores en el ambiente.</p>
+        <p>Durante la fabricación en el taller, al fundirse emite un aroma leve dulzón y muchas menos partículas ultrafinas que el ABS o la resina líquida sin curar. Aun así, en <a href="/blog/impresion-3d-san-juan/">nuestro taller de San Juan</a> trabajamos con ventilación controlada para asegurar piezas limpias y estables antes de embalarlas.</p>
+
+        <section class="faq-section" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">Preguntas Frecuentes</h2>
+          <details class="faq-item">
+            <summary>¿El filamento PLA es seguro para hacer cortantes de galletas?</summary>
+            <div class="faq-answer"><p>Sí, siempre que se utilice en frío, se lave con agua fría o tibia con cepillo suave sin lavavajillas y se seque bien, o interponiendo film de cocina entre la masa y el cortante.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Puedo poner piezas de PLA en el lavavajillas o microondas?</summary>
+            <div class="faq-answer"><p>No. El agua caliente del lavavajillas y la temperatura del microondas superan los 55 °C a 60 °C donde el PLA comienza a ablandarse y pierde su forma original.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿El PLA es apto para juguetes de chicos?</summary>
+            <div class="faq-answer"><p>Para chicos mayores que no muerden ni tragan piezas, sí. Para bebés no conviene por el riesgo de rotura de piezas pequeñas o desprendimiento de bordes si las mastican.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Es tóxico tener piezas de PLA en el dormitorio o cerca de mascotas?</summary>
+            <div class="faq-answer"><p>No. Una vez sólido a temperatura ambiente, el PLA es un plástico estable que no emite gases ni resulta tóxico al tacto.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿El PLA se degrada solo en pocos meses si lo uso en casa?</summary>
+            <div class="faq-answer"><p>No. Aunque sea compostable en plantas industriales a más de 60 °C y humedad controlada, dentro de una casa dura años intacto mientras no reciba calor extremo.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Existe otro material más resistente al agua tibia que el PLA?</summary>
+            <div class="faq-answer"><p>El PETG tolera mejor la humedad y temperaturas cercanas a 75 °C, aunque al imprimirse capa por capa también requiere las mismas pautas de higiene que el PLA en usos alimentarios.</p></div>
+          </details>
+        </section>
+
+        <aside class="cta-box">
+          <h2>¿Querés imprimir cortantes o piezas de uso cotidiano?</h2>
+          <p>Escribinos por WhatsApp y te asesoramos sobre colores puros, selladores sanitarios y mantenimiento según el uso exacto de tu producto.</p>
+          <div class="cta-actions">
+            <button
+              type="button"
+              class="nav-cta"
+              data-wa-msg="Hola 3DMON! Quiero consultar por cortantes o piezas en PLA y asesoramiento sobre materiales seguros."
+            >
+              Consultar por WhatsApp
+            </button>
+            <a href="/" class="btn-outline-gold">Conocer Servicios 3DMON</a>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="/logo-solo.png" alt="3DMON" style="height: 40px; margin-bottom: 14px;" />
+        <p>Micropyme de Impresión 3D</p>
+        <p>San Juan, Capital</p>
+        <p>Envíos a todo el país</p>
+      </div>
+      <div class="footer-col">
+        <h4>SERVICIOS</h4>
+        <p>Impresión PLA / PETG</p>
+        <p>Prototipado Rápido</p>
+        <p>Pedidos Mayoristas</p>
+      </div>
+      <div class="footer-col">
+        <h4>GUÍAS Y BLOG</h4>
+        <a href="/blog/">Blog y Guías 3D</a>
+        <a href="/blog/?eje=principiantes">Guías para Principiantes</a>
+        <a href="/blog/?eje=tecnico">Información Técnica 3D</a>
+        <a href="/blog/?eje=comercial">Servicios y Presupuestos</a>
+      </div>
+      <div class="footer-col">
+        <h4>SEGUINOS</h4>
+        <a href="https://www.instagram.com/3d.mon_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://wa.me/542644113760" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 3DMON - Laboratorio de Impresión. Todos los derechos reservados.</p>
+      <a
+        href="https://erikwebsite.com/"
+        target="_blank"
+        rel="noopener"
+        title="Diseño y desarrollo web de alta velocidad - Erik Website"
+        class="erik-badge"
+      >
+        <span class="erik-dot" aria-hidden="true"></span>
+        Desarrollo web por <strong>Erik Website</strong>
+      </a>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/blog.js"></script>
+</body>
+
+</html>
