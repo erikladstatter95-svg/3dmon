@@ -174,12 +174,22 @@ export function initGlobalTracking() {
       event.preventDefault()
       const rawPhone = waBtn.getAttribute('data-wa-phone') || OFFICIAL_WA_PHONE
       const cleanPhone = rawPhone.replace(/[^0-9]/g, '') || OFFICIAL_WA_PHONE
-      const msg =
+      const baseMsg = (
         waBtn.getAttribute('data-wa-msg') ||
         'Hola 3DMON! Quiero consultar por un presupuesto de impresion 3D.'
+      ).trim()
+
+      const curPath = window.location.pathname || '/'
+      const isBlogArticle = curPath.startsWith('/blog/') && curPath.replace(/\/+$/, '') !== '/blog'
+      const normalizedPath = curPath.endsWith('/') ? curPath : `${curPath}/`
+      const articleUrl = `https://3dmon.shop${normalizedPath}`
+      const msg =
+        isBlogArticle && !baseMsg.includes('3dmon.shop/blog/')
+          ? `${baseMsg} (Vengo del artículo: ${articleUrl})`
+          : baseMsg
 
       trackWhatsAppConversion(waBtn, msg)
-      const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg.trim())}`
+      const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`
       window.open(url, '_blank', 'noopener,noreferrer')
       return
     }

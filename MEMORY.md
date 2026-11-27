@@ -61,6 +61,10 @@
 10. **Control de Canibalización y Boost (>= 14 días):**
     - Antes de crear cualquier artículo nuevo, correr `python scratch/check_cannibalization.py "<keyword>"`. Si el solapamiento es `>= 70%`, no duplicar URL: hacer **Boost** sobre la URL existente (H2, tabla y FAQs).
     - Las auditorías de Boost se aplican únicamente sobre páginas con `>= 14 días` desde su publicación/indexación.
+11. **Conversión Inmediata y Retención Obligatoria en Artículos (CRO + Interlinking):**
+    - **CTA Superior (`.direct-cta-bar`):** Todo artículo debe incluir una barra compacta de consulta por WhatsApp inmediatamente debajo de la Respuesta Directa (antes de la imagen hero) para capturar intención inmediata sin obligar a scrollear hasta el final.
+    - **Mensaje WhatsApp con URL del Artículo:** `src/js/analytics.js` adjunta automáticamente `(Vengo del artículo: https://3dmon.shop/blog/<slug>/)` en cualquier botón `[data-wa-msg]` dentro de `/blog/<slug>/` para identificar el origen exacto de cada lead.
+    - **Bloque "Seguir leyendo" (`.related-reading`):** Todo artículo cierra con 3 tarjetas de guías relacionadas del mismo eje o complementarias (`.related-grid` / `.related-card`) para aumentar páginas por sesión y retención.
 
 ---
 
